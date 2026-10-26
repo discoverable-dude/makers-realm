@@ -38,14 +38,14 @@
     "header": {
       "type": "header",
       "settings": {
-        "logo_position": "middle-left",
+        "logo_position": "top-left",
         "mobile_logo_position": "center",
         "menu": "main-menu",
         "menu_type_desktop": "mega",
         "sticky_header_type": "reduce-logo-size",
         "show_line_separator": true,
-        "color_scheme": "scheme-4",
-        "menu_color_scheme": "",
+        "color_scheme": "scheme-mr-red",
+        "menu_color_scheme": "scheme-mr-cream",
         "enable_country_selector": true,
         "enable_language_selector": true,
         "margin_bottom": 0,

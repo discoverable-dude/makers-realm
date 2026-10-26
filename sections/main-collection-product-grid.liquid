@@ -1,4 +1,5 @@
 {{ 'template-collection.css' | asset_url | stylesheet_tag }}
+<script src="{{ 'mr-load-more.js' | asset_url }}" defer="defer"></script>
 {{ 'component-card.css' | asset_url | stylesheet_tag }}
 {{ 'component-price.css' | asset_url | stylesheet_tag }}
 
@@ -185,6 +186,14 @@
                   {%- assign skip_card_product_styles = true -%}
                 {%- endfor -%}
               </ul>
+
+              {%- if paginate.next -%}
+                <mr-load-more class="mr-load-more">
+                  <a class="button button--secondary" href="{{ paginate.next.url }}">
+                    Load more products
+                  </a>
+                </mr-load-more>
+              {%- endif -%}
 
               {%- if paginate.pages > 1 -%}
                 {% render 'pagination', paginate: paginate, anchor: '' %}

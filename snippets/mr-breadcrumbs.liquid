@@ -1,0 +1,55 @@
+{% doc %}
+  Breadcrumb trail for collection and product pages.
+
+  @param {collection} [collection] - The collection being viewed.
+  @param {product} [product] - The product being viewed. Its first collection is used as the parent.
+{% enddoc %}
+
+{%- liquid
+  assign parent_collection = collection
+  if product and parent_collection == blank
+    assign parent_collection = product.collections.first
+  endif
+-%}
+
+<nav class="mr-breadcrumbs" aria-label="Breadcrumb">
+  <ol class="mr-breadcrumbs__list">
+    <li class="mr-breadcrumbs__item">
+      <a href="{{ routes.root_url }}">Home</a>
+    </li>
+    {%- if product and parent_collection != blank -%}
+      <li class="mr-breadcrumbs__item">
+        <a href="{{ parent_collection.url }}">{{ parent_collection.title | escape }}</a>
+      </li>
+      <li class="mr-breadcrumbs__item" aria-current="page">{{ product.title | escape }}</li>
+    {%- elsif parent_collection != blank -%}
+      <li class="mr-breadcrumbs__item" aria-current="page">{{ parent_collection.title | escape }}</li>
+    {%- endif -%}
+  </ol>
+</nav>
+
+{% stylesheet %}
+  .mr-breadcrumbs {
+    margin-bottom: 1.2rem;
+    font-size: 1.4rem;
+  }
+
+  .mr-breadcrumbs__list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.4rem 0.8rem;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+
+  .mr-breadcrumbs__item + .mr-breadcrumbs__item::before {
+    content: '/';
+    margin-right: 0.8rem;
+    opacity: 0.6;
+  }
+
+  .mr-breadcrumbs__item a {
+    color: inherit;
+  }
+{% endstylesheet %}
