@@ -55,3 +55,20 @@
 .mr-muted {
   color: var(--mr-muted);
 }
+
+/* Collection: "Load more" replaces page numbers on small screens */
+.mr-load-more {
+  display: none;
+}
+
+@media screen and (max-width: 749px) {
+  .mr-load-more {
+    display: block;
+    margin-top: 2.4rem;
+    text-align: center;
+  }
+
+  .mr-load-more + .pagination-wrapper {
+    display: none;
+  }
+}

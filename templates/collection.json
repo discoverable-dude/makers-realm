@@ -14,32 +14,56 @@
       "settings": {
         "show_collection_description": true,
         "show_collection_image": false,
-        "color_scheme": "scheme-1"
+        "color_scheme": "scheme-mr-cream"
+      }
+    },
+    "project-chips": {
+      "type": "mr-filter-chips",
+      "blocks": {},
+      "block_order": [],
+      "settings": {
+        "heading": "What are you making?",
+        "intro": "",
+        "filter_param": "filter.p.m.custom.project_type",
+        "all_label": "All",
+        "color_scheme": "scheme-mr-cream"
       }
     },
     "product-grid": {
       "type": "main-collection-product-grid",
       "settings": {
         "products_per_page": 20,
-        "columns_desktop": 5,
+        "columns_desktop": 3,
         "columns_mobile": "2",
-        "color_scheme": "scheme-4",
-        "image_ratio": "adapt",
+        "color_scheme": "scheme-mr-cream",
+        "image_ratio": "square",
         "image_shape": "default",
         "show_secondary_image": false,
         "show_vendor": false,
         "show_rating": false,
-        "quick_add": "bulk",
+        "quick_add": "standard",
         "enable_filtering": true,
-        "filter_type": "drawer",
+        "filter_type": "vertical",
         "enable_sorting": true,
         "padding_top": 36,
         "padding_bottom": 36
+      }
+    },
+    "start-here": {
+      "type": "mr-start-here",
+      "settings": {
+        "heading": "",
+        "text": "",
+        "button_label": "",
+        "button_link": "",
+        "color_scheme": "scheme-mr-cream-dark"
       }
     }
   },
   "order": [
     "banner",
-    "product-grid"
+    "project-chips",
+    "product-grid",
+    "start-here"
   ]
 }
