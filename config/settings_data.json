@@ -14,7 +14,7 @@
     "type_header_font": "caveat_n4",
     "heading_scale": 105,
     "type_body_font": "alegreya_sans_n4",
-    "body_scale": 100,
+    "body_scale": 110,
     "page_width": 1200,
     "spacing_sections": 0,
     "spacing_grid_horizontal": 12,
@@ -143,6 +143,61 @@
     },
     "content_for_index": [],
     "color_schemes": {
+      "scheme-mr-cream": {
+        "settings": {
+          "background": "#f6f0e2",
+          "background_gradient": "",
+          "text": "#102441",
+          "button": "#146f9c",
+          "button_label": "#ffffff",
+          "secondary_button_label": "#102441",
+          "shadow": "#102441"
+        }
+      },
+      "scheme-mr-cream-dark": {
+        "settings": {
+          "background": "#ece4d0",
+          "background_gradient": "",
+          "text": "#102441",
+          "button": "#146f9c",
+          "button_label": "#ffffff",
+          "secondary_button_label": "#102441",
+          "shadow": "#102441"
+        }
+      },
+      "scheme-mr-white": {
+        "settings": {
+          "background": "#ffffff",
+          "background_gradient": "",
+          "text": "#102441",
+          "button": "#146f9c",
+          "button_label": "#ffffff",
+          "secondary_button_label": "#102441",
+          "shadow": "#102441"
+        }
+      },
+      "scheme-mr-red": {
+        "settings": {
+          "background": "#7b0f0f",
+          "background_gradient": "",
+          "text": "#ffffff",
+          "button": "#ffffff",
+          "button_label": "#7b0f0f",
+          "secondary_button_label": "#ffffff",
+          "shadow": "#102441"
+        }
+      },
+      "scheme-mr-navy": {
+        "settings": {
+          "background": "#102441",
+          "background_gradient": "",
+          "text": "#ffffff",
+          "button": "#ffffff",
+          "button_label": "#102441",
+          "secondary_button_label": "#ffffff",
+          "shadow": "#102441"
+        }
+      },
       "scheme-1": {
         "settings": {
           "background": "#f4f4f4",

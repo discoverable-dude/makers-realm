@@ -1,0 +1,18 @@
+/* Makers Realm design tokens, taken from the live site and the approved-for-review mockups */
+:root{
+  --mr-navy:#102441;      /* announcement bar, footer, text, borders */
+  --mr-red:#7b0f0f;       /* header bar (already live), stamps, labels */
+  --mr-sky:#88caec;       /* accents, dashed stitch borders, bunting */
+  --mr-blue:#1a89bc;      /* links, squiggles */
+  --mr-gold:#d99a3a;      /* bunting only, from the banner artwork */
+  --mr-cream:#f6f0e2;     /* page background */
+  --mr-cream-dark:#ece4d0;/* alternate sections */
+  --mr-tan:#d9cdb2;       /* rules and borders */
+  --mr-ink:#102441;
+  --mr-muted:#4d5a70;
+  --mr-placeholder:#dcecf5;
+  --mr-placeholder-line:#9cc3da;
+  --mr-cta:#146f9c;       /* PROTECTED: main CTAs only (Add to basket, Shop all materials, checkout). Suggestion, not yet approved. Also set as the "button" colour in the scheme-mr-cream and scheme-mr-white colour schemes, change it in both places */
+  --mr-font-body:var(--font-body-family);      /* Alegreya Sans, set in theme settings */
+  --mr-font-hand:var(--font-heading-family);   /* Caveat, set in theme settings */
+}

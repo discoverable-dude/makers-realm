@@ -1,0 +1,57 @@
+/* Makers Realm brand layer. Tokens live in mr-tokens.css. Keep this file small and decorative. */
+
+/* Bunting: navy, red, sky, gold pennants on a string */
+.mr-bunting {
+  height: 28px;
+  background-color: rgb(var(--color-background));
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='28' viewBox='0 0 160 28'%3E%3Cpath d='M0 3 H160' stroke='%23102441' stroke-width='1.5' fill='none'/%3E%3Cpath d='M4 3 L36 3 L20 25Z' fill='%23102441'/%3E%3Cpath d='M44 3 L76 3 L60 25Z' fill='%237b0f0f'/%3E%3Cpath d='M84 3 L116 3 L100 25Z' fill='%2388caec'/%3E%3Cpath d='M124 3 L156 3 L140 25Z' fill='%23d99a3a'/%3E%3C/svg%3E");
+  background-repeat: repeat-x;
+  background-position: center top;
+}
+
+/* Header: logo and icons on the red bar, menu on a white bar underneath (desktop) */
+.header-wrapper {
+  --mr-header-bar: var(--mr-red);
+}
+
+@media screen and (min-width: 990px) {
+  .header--top-left .header__inline-menu {
+    margin-top: 0.8rem;
+    background: #fff;
+    box-shadow: 0 0 0 100vmax #fff;
+    clip-path: inset(0 -100vmax);
+  }
+
+  .header--top-left .list-menu__item--link,
+  .header--top-left .header__menu-item {
+    color: var(--mr-navy);
+    font-family: var(--mr-font-hand);
+    font-size: 2rem;
+  }
+
+  .header--top-left .header__menu-item:hover span,
+  .header--top-left .header__active-menu-item {
+    text-decoration-color: var(--mr-navy);
+  }
+}
+
+/* Cards: dashed sky "stitch" outline */
+.card--card {
+  border: 1px dashed var(--mr-sky);
+}
+
+/* Optional heading flourish: add class "mr-squiggle" to a heading */
+.mr-squiggle::after {
+  content: '';
+  display: block;
+  width: 7.2rem;
+  height: 0.8rem;
+  margin-top: 0.4rem;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='72' height='8' viewBox='0 0 72 8'%3E%3Cpath d='M0 4 Q9 0 18 4 T36 4 T54 4 T72 4' stroke='%2388caec' stroke-width='2' fill='none' stroke-linecap='round'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+}
+
+/* Muted text must stay AA on cream */
+.mr-muted {
+  color: var(--mr-muted);
+}
