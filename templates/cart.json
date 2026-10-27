@@ -43,6 +43,7 @@
     },
     "featured-collection": {
       "type": "featured-collection",
+      "disabled": true,
       "settings": {
         "title": "More industry favorites",
         "heading_size": "h2",
