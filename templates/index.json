@@ -22,7 +22,7 @@
         "button": {
           "type": "buttons",
           "settings": {
-            "button_label_1": "Shop all",
+            "button_label_1": "Shop all materials",
             "button_link_1": "shopify://collections/all",
             "button_style_secondary_1": false,
             "button_label_2": "",
@@ -115,7 +115,7 @@
         "columns_desktop": 5,
         "column_alignment": "center",
         "background_style": "none",
-        "color_scheme": "scheme-2",
+        "color_scheme": "scheme-mr-white",
         "columns_mobile": "2",
         "swipe_on_mobile": true,
         "padding_top": 12,
@@ -159,7 +159,7 @@
         "full_width": false,
         "show_view_all": true,
         "view_all_style": "solid",
-        "color_scheme": "",
+        "color_scheme": "scheme-mr-cream",
         "image_ratio": "adapt",
         "image_shape": "default",
         "show_secondary_image": false,
@@ -259,7 +259,8 @@
         "swipe_on_mobile": false,
         "padding_top": 48,
         "padding_bottom": 60
-      }
+      },
+      "disabled": true
     },
     "multicolumn1": {
       "type": "multicolumn",
@@ -322,7 +323,8 @@
         "swipe_on_mobile": true,
         "padding_top": 68,
         "padding_bottom": 68
-      }
+      },
+      "disabled": true
     },
     "featured_collection2": {
       "type": "featured-collection",
@@ -350,7 +352,8 @@
         "swipe_on_mobile": false,
         "padding_top": 36,
         "padding_bottom": 52
-      }
+      },
+      "disabled": true
     },
     "multicolumn2": {
       "type": "multicolumn",
@@ -413,17 +416,59 @@
         "swipe_on_mobile": false,
         "padding_top": 44,
         "padding_bottom": 48
+      },
+      "disabled": true
+    },
+    "trust_strip": {
+      "type": "mr-trust-strip",
+      "blocks": {},
+      "block_order": [],
+      "settings": {
+        "color_scheme": "scheme-mr-cream-dark"
+      }
+    },
+    "project_tiles": {
+      "type": "mr-project-tiles",
+      "blocks": {},
+      "block_order": [],
+      "settings": {
+        "heading": "What are you making?",
+        "intro": "",
+        "color_scheme": "scheme-mr-cream"
+      }
+    },
+    "collection_grid": {
+      "type": "mr-collection-grid",
+      "blocks": {},
+      "block_order": [],
+      "settings": {
+        "heading": "Shop by collection",
+        "color_scheme": "scheme-mr-cream"
+      }
+    },
+    "start_here": {
+      "type": "mr-start-here",
+      "settings": {
+        "heading": "",
+        "text": "",
+        "button_label": "",
+        "button_link": "",
+        "color_scheme": "scheme-mr-cream-dark"
       }
     }
   },
   "order": [
     "image_banner",
+    "trust_strip",
     "multicolumn",
     "rich_text",
+    "project_tiles",
+    "collection_grid",
     "featured_collection1",
+    "start_here",
+    "featured_collection2",
     "collection_list",
     "multicolumn1",
-    "featured_collection2",
     "multicolumn2"
   ]
 }

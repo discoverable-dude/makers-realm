@@ -1,0 +1,49 @@
+{% doc %}
+  Free delivery progress message. Hidden unless a threshold is set in Theme settings > Cart.
+{% enddoc %}
+
+{%- liquid
+  assign threshold = settings.free_delivery_threshold | times: 100
+  assign subtotal = cart.items_subtotal_price
+-%}
+
+{%- if threshold > 0 and cart.item_count > 0 -%}
+  {%- liquid
+    assign remaining = threshold | minus: subtotal
+    assign percent = subtotal | times: 100 | divided_by: threshold | at_most: 100
+  -%}
+  <div class="mr-free-delivery" role="status">
+    <p class="mr-free-delivery__text">
+      {%- if remaining > 0 -%}
+        You are {{ remaining | money }} away from free UK delivery.
+      {%- else -%}
+        Great news, you have free UK delivery.
+      {%- endif -%}
+    </p>
+    <div class="mr-free-delivery__track" aria-hidden="true">
+      <div class="mr-free-delivery__bar" style="width: {{ percent }}%"></div>
+    </div>
+  </div>
+{%- endif -%}
+
+{% stylesheet %}
+  .mr-free-delivery {
+    margin: 0 0 1.6rem;
+  }
+
+  .mr-free-delivery__text {
+    margin: 0 0 0.8rem;
+  }
+
+  .mr-free-delivery__track {
+    height: 0.8rem;
+    border-radius: 0.4rem;
+    background: rgba(var(--color-foreground), 0.12);
+    overflow: hidden;
+  }
+
+  .mr-free-delivery__bar {
+    height: 100%;
+    background: var(--mr-sky);
+  }
+{% endstylesheet %}
