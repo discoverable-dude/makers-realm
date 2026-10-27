@@ -1,0 +1,160 @@
+<div class="mr-hero color-{{ section.settings.color_scheme }} gradient">
+  <div class="mr-hero__inner page-width">
+    {%- if section.settings.banner != blank -%}
+      <div class="mr-hero__banner">
+        {{
+          section.settings.banner
+          | image_url: width: 1600
+          | image_tag: widths: '600, 900, 1200, 1600', sizes: '(min-width: 1200px) 1100px, 100vw', loading: 'eager', fetchpriority: 'high', class: 'mr-hero__banner-image'
+        }}
+      </div>
+    {%- endif -%}
+
+    <div class="mr-hero__row{% if section.settings.image != blank %} mr-hero__row--with-image{% endif %}">
+      <div class="mr-hero__text">
+        {%- if section.settings.heading != blank -%}
+          <h1 class="mr-hero__heading h0">{{ section.settings.heading | escape }}</h1>
+        {%- endif -%}
+        {%- if section.settings.subheading != blank -%}
+          <p class="mr-hero__sub">{{ section.settings.subheading | escape }}</p>
+        {%- endif -%}
+        <div class="mr-hero__buttons">
+          {%- if section.settings.button_label_1 != blank and section.settings.button_link_1 != blank -%}
+            <a class="button" href="{{ section.settings.button_link_1 }}">{{ section.settings.button_label_1 | escape }}</a>
+          {%- endif -%}
+          {%- if section.settings.button_label_2 != blank and section.settings.button_link_2 != blank -%}
+            <a class="button button--secondary" href="{{ section.settings.button_link_2 }}">{{ section.settings.button_label_2 | escape }}</a>
+          {%- endif -%}
+        </div>
+      </div>
+
+      {%- if section.settings.image != blank -%}
+        <div class="mr-hero__image">
+          {{
+            section.settings.image
+            | image_url: width: 1200
+            | image_tag: widths: '500, 800, 1200', sizes: '(min-width: 990px) 540px, 100vw', loading: 'lazy', class: 'mr-hero__photo'
+          }}
+        </div>
+      {%- endif -%}
+    </div>
+  </div>
+</div>
+
+{% stylesheet %}
+  .mr-hero {
+    padding: 2.4rem 0 4rem;
+  }
+
+  .mr-hero__banner {
+    margin: 0 auto 3.2rem;
+    max-width: 90rem;
+  }
+
+  .mr-hero__banner-image {
+    display: block;
+    width: 100%;
+    height: auto;
+  }
+
+  .mr-hero__row {
+    display: grid;
+    gap: 2.4rem;
+    align-items: center;
+  }
+
+  .mr-hero__heading {
+    margin: 0 0 1.2rem;
+  }
+
+  .mr-hero__sub {
+    max-width: 52rem;
+    margin: 0 0 2.4rem;
+    color: var(--mr-muted);
+  }
+
+  .mr-hero__buttons {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1.2rem;
+  }
+
+  .mr-hero__photo {
+    display: block;
+    width: 100%;
+    height: auto;
+    border: 1px dashed var(--mr-sky);
+    border-radius: 0.8rem;
+  }
+
+  @media screen and (min-width: 990px) {
+    .mr-hero__row--with-image {
+      grid-template-columns: 1fr 1fr;
+      gap: 4rem;
+    }
+  }
+{% endstylesheet %}
+
+{% schema %}
+{
+  "name": "Makers Realm hero",
+  "tag": "section",
+  "class": "section",
+  "settings": [
+    {
+      "type": "image_picker",
+      "id": "banner",
+      "label": "Banner artwork"
+    },
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Headline",
+      "default": "Step inside the Makers Realm"
+    },
+    {
+      "type": "text",
+      "id": "subheading",
+      "label": "Supporting line"
+    },
+    {
+      "type": "text",
+      "id": "button_label_1",
+      "label": "Main button label",
+      "default": "Shop all materials"
+    },
+    {
+      "type": "url",
+      "id": "button_link_1",
+      "label": "Main button link"
+    },
+    {
+      "type": "text",
+      "id": "button_label_2",
+      "label": "Second button label"
+    },
+    {
+      "type": "url",
+      "id": "button_link_2",
+      "label": "Second button link"
+    },
+    {
+      "type": "image_picker",
+      "id": "image",
+      "label": "Photo (optional)",
+      "info": "A finished build. Leave empty to centre the text."
+    },
+    {
+      "type": "color_scheme",
+      "id": "color_scheme",
+      "label": "Colour scheme",
+      "default": "scheme-mr-cream"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Makers Realm hero"
+    }
+  ]
+}
+{% endschema %}

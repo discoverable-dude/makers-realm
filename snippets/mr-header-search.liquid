@@ -1,0 +1,20 @@
+{% doc %}
+  Visible search field for the desktop header. On small screens the theme's search icon is used instead.
+{% enddoc %}
+
+<form class="mr-header-search" action="{{ routes.search_url }}" method="get" role="search">
+  <label class="visually-hidden" for="MrHeaderSearch">{{ 'general.search.search' | t }}</label>
+  <input
+    id="MrHeaderSearch"
+    class="mr-header-search__input"
+    type="search"
+    name="q"
+    value="{{ search.terms | escape }}"
+    placeholder="Search materials, for example EVA foam or jesmonite"
+    autocomplete="off"
+  >
+  <input type="hidden" name="options[prefix]" value="last">
+  <button class="mr-header-search__button" type="submit" aria-label="{{ 'general.search.search' | t }}">
+    <span class="svg-wrapper">{{- 'icon-search.svg' | inline_asset_content -}}</span>
+  </button>
+</form>

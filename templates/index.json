@@ -47,7 +47,8 @@
         "stack_images_on_mobile": true,
         "mobile_content_alignment": "center",
         "show_text_below": false
-      }
+      },
+      "disabled": true
     },
     "multicolumn": {
       "type": "multicolumn",
@@ -455,9 +456,23 @@
         "button_link": "",
         "color_scheme": "scheme-mr-cream-dark"
       }
+    },
+    "hero": {
+      "type": "mr-hero",
+      "settings": {
+        "banner": "shopify://shop_images/Banner.jpg",
+        "heading": "Step inside the Makers Realm",
+        "subheading": "",
+        "button_label_1": "Shop all materials",
+        "button_link_1": "shopify://collections/all",
+        "button_label_2": "",
+        "button_link_2": "",
+        "color_scheme": "scheme-mr-cream"
+      }
     }
   },
   "order": [
+    "hero",
     "image_banner",
     "trust_strip",
     "multicolumn",
