@@ -1,0 +1,56 @@
+{% doc %}
+  Sticky Add to basket bar for small screens. Appears once the main buy buttons have scrolled out of view.
+
+  @param {product} product - The product on the page.
+  @param {string} product_form_id - Id of the product form the bar submits.
+{% enddoc %}
+
+{%- if product.available -%}
+  <div class="mr-sticky-atc" data-form-id="{{ product_form_id }}" hidden>
+    <span class="mr-sticky-atc__title">{{ product.title | escape }}</span>
+    <button type="button" class="button mr-sticky-atc__button">
+      {{- 'products.product.add_to_cart' | t -}}
+    </button>
+  </div>
+  <script src="{{ 'mr-sticky-atc.js' | asset_url }}" defer="defer"></script>
+{%- endif -%}
+
+{% stylesheet %}
+  .mr-sticky-atc {
+    position: fixed;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    z-index: 20;
+    display: flex;
+    align-items: center;
+    gap: 1.2rem;
+    padding: 1rem 1.6rem;
+    border-top: 1px solid var(--mr-tan);
+    background: var(--mr-cream);
+    box-shadow: 0 -0.4rem 1.2rem rgba(16, 36, 65, 0.12);
+  }
+
+  .mr-sticky-atc[hidden] {
+    display: none;
+  }
+
+  .mr-sticky-atc__title {
+    flex: 1 1 auto;
+    min-width: 0;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+
+  .mr-sticky-atc__button {
+    flex: 0 0 auto;
+    min-height: 4.4rem;
+  }
+
+  @media screen and (min-width: 750px) {
+    .mr-sticky-atc {
+      display: none;
+    }
+  }
+{% endstylesheet %}
