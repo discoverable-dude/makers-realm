@@ -1,0 +1,174 @@
+{%- liquid
+  assign what_it_is = product.metafields.custom.what_it_is.value
+  assign why_choose = product.metafields.custom.why_choose.value
+  assign features = product.metafields.custom.features.value
+  assign perfect_for = product.metafields.custom.perfect_for.value
+  assign specs_text = product.metafields.custom.specifications.value
+  assign has_content = false
+  if what_it_is != blank or why_choose != blank or features.size > 0 or perfect_for.size > 0 or specs_text != blank
+    assign has_content = true
+  endif
+-%}
+
+{%- if has_content -%}
+  <div class="mr-pd color-{{ section.settings.color_scheme }} gradient">
+    <div class="mr-pd__inner page-width">
+      <div class="mr-pd__main">
+        {%- if what_it_is != blank -%}
+          <details class="mr-pd__block" open>
+            <summary class="mr-pd__summary"><h2 class="h3">What it is</h2></summary>
+            <div class="mr-pd__body rte">{{ what_it_is | newline_to_br }}</div>
+          </details>
+        {%- endif -%}
+        {%- if why_choose != blank -%}
+          <details class="mr-pd__block" open>
+            <summary class="mr-pd__summary"><h2 class="h3">Why choose this one</h2></summary>
+            <div class="mr-pd__body rte">{{ why_choose | newline_to_br }}</div>
+          </details>
+        {%- endif -%}
+        {%- if features.size > 0 -%}
+          <details class="mr-pd__block" open>
+            <summary class="mr-pd__summary"><h2 class="h3">Features</h2></summary>
+            <ul class="mr-pd__body mr-pd__list">
+              {%- for item in features -%}
+                <li>{{ item | escape }}</li>
+              {%- endfor -%}
+            </ul>
+          </details>
+        {%- endif -%}
+        {%- if perfect_for.size > 0 -%}
+          <details class="mr-pd__block" open>
+            <summary class="mr-pd__summary"><h2 class="h3">Perfect for</h2></summary>
+            <ul class="mr-pd__body mr-pd__list">
+              {%- for item in perfect_for -%}
+                <li>{{ item | escape }}</li>
+              {%- endfor -%}
+            </ul>
+          </details>
+        {%- endif -%}
+      </div>
+
+      {%- if specs_text != blank -%}
+        <aside class="mr-pd__specs">
+          <h2 class="h4">Specifications</h2>
+          <dl class="mr-pd__spec-list">
+            {%- assign spec_lines = specs_text | newline_to_br | split: '<br />' -%}
+            {%- for line in spec_lines -%}
+              {%- assign parts = line | strip | split: ':' -%}
+              {%- if parts.size > 1 -%}
+                <div class="mr-pd__spec-row">
+                  <dt>{{ parts[0] | strip | escape }}</dt>
+                  <dd>{{ parts | slice: 1, parts.size | join: ':' | strip | escape }}</dd>
+                </div>
+              {%- endif -%}
+            {%- endfor -%}
+          </dl>
+        </aside>
+      {%- endif -%}
+    </div>
+  </div>
+  <script src="{{ 'mr-product-details.js' | asset_url }}" defer="defer"></script>
+{%- endif -%}
+
+{% stylesheet %}
+  .mr-pd {
+    padding: 3.2rem 0;
+  }
+
+  .mr-pd__inner {
+    display: grid;
+    gap: 2.4rem;
+  }
+
+  .mr-pd__block {
+    border-top: 1px solid var(--mr-tan);
+  }
+
+  .mr-pd__summary {
+    padding: 1.6rem 0;
+    cursor: pointer;
+    list-style: none;
+  }
+
+  .mr-pd__summary::-webkit-details-marker {
+    display: none;
+  }
+
+  .mr-pd__summary h2 {
+    margin: 0;
+  }
+
+  .mr-pd__body {
+    padding-bottom: 1.6rem;
+  }
+
+  .mr-pd__list {
+    margin: 0;
+    padding-left: 2rem;
+  }
+
+  .mr-pd__specs {
+    align-self: start;
+    padding: 2rem;
+    border: 1px solid var(--mr-tan);
+    background: #fff;
+  }
+
+  .mr-pd__specs h2 {
+    margin: 0 0 1.2rem;
+  }
+
+  .mr-pd__spec-list {
+    margin: 0;
+  }
+
+  .mr-pd__spec-row {
+    display: flex;
+    justify-content: space-between;
+    gap: 1.6rem;
+    padding: 0.8rem 0;
+    border-top: 1px solid var(--mr-tan);
+  }
+
+  .mr-pd__spec-row dd {
+    margin: 0;
+    text-align: right;
+    color: rgb(var(--color-foreground));
+  }
+
+  @media screen and (min-width: 990px) {
+    .mr-pd__inner {
+      grid-template-columns: 2fr 1fr;
+      gap: 4rem;
+    }
+
+    .mr-pd__summary {
+      pointer-events: none;
+    }
+  }
+{% endstylesheet %}
+
+{% schema %}
+{
+  "name": "Product details",
+  "tag": "section",
+  "class": "section",
+  "settings": [
+    {
+      "type": "paragraph",
+      "content": "Fills from product metafields in the 'custom' namespace: what_it_is, why_choose (multi-line text), features, perfect_for (list of single line text), specifications (multi-line text, one 'Label: value' per line). Each block only shows when it has content."
+    },
+    {
+      "type": "color_scheme",
+      "id": "color_scheme",
+      "label": "Colour scheme",
+      "default": "scheme-mr-cream-dark"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Product details"
+    }
+  ]
+}
+{% endschema %}
