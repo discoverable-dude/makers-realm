@@ -1,0 +1,142 @@
+{%- if section.blocks.size > 0 -%}
+  <div class="mr-tiles color-{{ section.settings.color_scheme }} gradient">
+    <div class="mr-tiles__inner page-width">
+      {%- if section.settings.heading != blank -%}
+        <h2 class="mr-tiles__heading h2">{{ section.settings.heading | escape }}</h2>
+      {%- endif -%}
+      {%- if section.settings.intro != blank -%}
+        <p class="mr-tiles__intro">{{ section.settings.intro | escape }}</p>
+      {%- endif -%}
+      <ul class="mr-tiles__list" role="list">
+        {%- for block in section.blocks -%}
+          <li {{ block.shopify_attributes }}>
+            <a class="mr-tile" {% if block.settings.link != blank %}href="{{ block.settings.link }}"{% endif %}>
+              <span class="mr-tile__title">{{ block.settings.title | escape }}</span>
+              {%- if block.settings.text != blank -%}
+                <span class="mr-tile__text">{{ block.settings.text | escape }}</span>
+              {%- endif -%}
+            </a>
+          </li>
+        {%- endfor -%}
+      </ul>
+    </div>
+  </div>
+{%- endif -%}
+
+{% stylesheet %}
+  .mr-tiles {
+    padding: 4rem 0;
+  }
+
+  .mr-tiles__heading {
+    margin: 0 0 0.8rem;
+  }
+
+  .mr-tiles__intro {
+    margin: 0 0 2.4rem;
+    color: var(--mr-muted);
+  }
+
+  .mr-tiles__list {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.2rem;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+
+  .mr-tile {
+    display: flex;
+    flex-direction: column;
+    gap: 0.6rem;
+    height: 100%;
+    padding: 2rem 1.6rem;
+    border: 1px dashed var(--mr-sky);
+    border-radius: 0.8rem;
+    background: #fff;
+    color: rgb(var(--color-foreground));
+    text-decoration: none;
+  }
+
+  .mr-tile:hover {
+    border-style: solid;
+  }
+
+  .mr-tile__title {
+    color: var(--mr-red);
+    font-family: var(--mr-font-hand);
+    font-size: 2.6rem;
+    line-height: 1.1;
+  }
+
+  .mr-tile__text {
+    color: var(--mr-muted);
+  }
+
+  @media screen and (min-width: 990px) {
+    .mr-tiles__list {
+      grid-template-columns: repeat(5, 1fr);
+    }
+  }
+{% endstylesheet %}
+
+{% schema %}
+{
+  "name": "Project tiles",
+  "tag": "section",
+  "class": "section",
+  "settings": [
+    {
+      "type": "paragraph",
+      "content": "Text tiles that link to a collection or a filtered collection URL. Nothing shows until a tile is added."
+    },
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Heading",
+      "default": "What are you making?"
+    },
+    {
+      "type": "text",
+      "id": "intro",
+      "label": "Intro line"
+    },
+    {
+      "type": "color_scheme",
+      "id": "color_scheme",
+      "label": "Colour scheme",
+      "default": "scheme-mr-cream"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "tile",
+      "name": "Tile",
+      "settings": [
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Title"
+        },
+        {
+          "type": "text",
+          "id": "text",
+          "label": "Short description"
+        },
+        {
+          "type": "url",
+          "id": "link",
+          "label": "Link"
+        }
+      ]
+    }
+  ],
+  "max_blocks": 6,
+  "presets": [
+    {
+      "name": "Project tiles"
+    }
+  ]
+}
+{% endschema %}

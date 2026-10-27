@@ -1,0 +1,91 @@
+{%- if section.blocks.size > 0 -%}
+  <div class="mr-trust color-{{ section.settings.color_scheme }} gradient">
+    <ul class="mr-trust__list page-width" role="list">
+      {%- for block in section.blocks -%}
+        <li class="mr-trust__item" {{ block.shopify_attributes }}>
+          <strong class="mr-trust__title">{{ block.settings.title | escape }}</strong>
+          {%- if block.settings.text != blank -%}
+            <span class="mr-trust__text">{{ block.settings.text | escape }}</span>
+          {%- endif -%}
+        </li>
+      {%- endfor -%}
+    </ul>
+  </div>
+{%- endif -%}
+
+{% stylesheet %}
+  .mr-trust {
+    border-top: 1px solid var(--mr-tan);
+    border-bottom: 1px solid var(--mr-tan);
+  }
+
+  .mr-trust__list {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.6rem 2.4rem;
+    margin: 0 auto;
+    padding-top: 2rem;
+    padding-bottom: 2rem;
+    list-style: none;
+  }
+
+  .mr-trust__item {
+    display: flex;
+    flex-direction: column;
+    gap: 0.2rem;
+  }
+
+  .mr-trust__text {
+    color: var(--mr-muted);
+  }
+
+  @media screen and (min-width: 990px) {
+    .mr-trust__list {
+      grid-template-columns: repeat(4, 1fr);
+    }
+  }
+{% endstylesheet %}
+
+{% schema %}
+{
+  "name": "Trust strip",
+  "tag": "section",
+  "class": "section",
+  "settings": [
+    {
+      "type": "paragraph",
+      "content": "Short facts about the shop, text only. Add only facts that are true and can be backed up. Nothing shows until an item is added."
+    },
+    {
+      "type": "color_scheme",
+      "id": "color_scheme",
+      "label": "Colour scheme",
+      "default": "scheme-mr-cream-dark"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "item",
+      "name": "Item",
+      "settings": [
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Title"
+        },
+        {
+          "type": "text",
+          "id": "text",
+          "label": "Supporting line"
+        }
+      ]
+    }
+  ],
+  "max_blocks": 4,
+  "presets": [
+    {
+      "name": "Trust strip"
+    }
+  ]
+}
+{% endschema %}
