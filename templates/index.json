@@ -458,12 +458,22 @@
     "project_tiles": {
       "type": "mr-project-tiles",
       "blocks": {
+        "tile0": {
+          "type": "tile",
+          "settings": {
+            "title": "All materials",
+            "text": "Browse everything",
+            "art": "all-materials",
+            "link": "shopify://collections/all"
+          }
+        },
         "tile1": {
           "type": "tile",
           "settings": {
             "title": "Cosplay & props",
             "text": "For cosplayers and prop makers",
-            "link": "/search?q=cosplay&type=product"
+            "link": "/search?q=cosplay&type=product",
+            "art": "cosplay"
           }
         },
         "tile2": {
@@ -471,7 +481,8 @@
           "settings": {
             "title": "Model making",
             "text": "For model makers",
-            "link": "/search?q=model&type=product"
+            "link": "/search?q=model&type=product",
+            "art": "model-making"
           }
         },
         "tile3": {
@@ -479,7 +490,8 @@
           "settings": {
             "title": "Millinery",
             "text": "For milliners",
-            "link": "/search?q=millinery&type=product"
+            "link": "/search?q=millinery&type=product",
+            "art": "millinery"
           }
         },
         "tile4": {
@@ -487,11 +499,13 @@
           "settings": {
             "title": "Home crafting",
             "text": "For crafters at home",
-            "link": "/search?q=craft&type=product"
+            "link": "/search?q=craft&type=product",
+            "art": "home-crafting"
           }
         }
       },
       "block_order": [
+        "tile0",
         "tile1",
         "tile2",
         "tile3",

@@ -11,6 +11,22 @@
         {%- for block in section.blocks -%}
           <li {{ block.shopify_attributes }}>
             <a class="mr-tile" {% if block.settings.link != blank %}href="{{ block.settings.link }}"{% endif %}>
+              {%- if block.settings.image != blank -%}
+                {{
+                  block.settings.image
+                  | image_url: width: 800
+                  | image_tag: widths: '400, 800', sizes: '(min-width: 990px) 20vw, 50vw', loading: 'lazy', class: 'mr-tile__image', alt: ''
+                }}
+              {%- elsif block.settings.art != 'none' -%}
+                <img
+                  class="mr-tile__image"
+                  src="{{ 'mr-tile-' | append: block.settings.art | append: '.jpg' | asset_url }}"
+                  width="800"
+                  height="678"
+                  loading="lazy"
+                  alt=""
+                >
+              {%- endif -%}
               <span class="mr-tile__title">{{ block.settings.title | escape }}</span>
               {%- if block.settings.text != blank -%}
                 <span class="mr-tile__text">{{ block.settings.text | escape }}</span>
@@ -51,12 +67,30 @@
     flex-direction: column;
     gap: 0.6rem;
     height: 100%;
-    padding: 2rem 1.6rem;
+    padding: 0 0 2rem;
+    overflow: hidden;
     border: 1px dashed var(--mr-sky);
     border-radius: 0.8rem;
     background: #fff;
     color: rgb(var(--color-foreground));
     text-decoration: none;
+  }
+
+  .mr-tile__image {
+    display: block;
+    width: 100%;
+    height: auto;
+    aspect-ratio: 4 / 3;
+    object-fit: cover;
+  }
+
+  .mr-tile__title,
+  .mr-tile__text {
+    padding: 0 1.6rem;
+  }
+
+  .mr-tile__title {
+    margin-top: 0.4rem;
   }
 
   .mr-tile:hover {
@@ -123,6 +157,26 @@
           "type": "text",
           "id": "text",
           "label": "Short description"
+        },
+        {
+          "type": "select",
+          "id": "art",
+          "label": "Built-in picture",
+          "options": [
+            { "value": "none", "label": "None" },
+            { "value": "cosplay", "label": "Helmet (cosplay and props)" },
+            { "value": "model-making", "label": "Model cottage (model making)" },
+            { "value": "millinery", "label": "Hat (millinery)" },
+            { "value": "home-crafting", "label": "Cast pots (home crafting)" },
+            { "value": "all-materials", "label": "Silicone mould (all materials)" }
+          ],
+          "default": "none"
+        },
+        {
+          "type": "image_picker",
+          "id": "image",
+          "label": "Own picture",
+          "info": "Used instead of the built-in picture. Landscape, about 4 by 3."
         },
         {
           "type": "url",
