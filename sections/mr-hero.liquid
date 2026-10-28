@@ -1,4 +1,40 @@
-<div class="mr-hero color-{{ section.settings.color_scheme }} gradient">
+{%- liquid
+  assign art = section.settings.art
+  assign has_art = false
+  if section.settings.background != blank or art != 'none'
+    assign has_art = true
+  endif
+  assign is_photo = false
+  if section.settings.background != blank or art contains 'photo'
+    assign is_photo = true
+  endif
+-%}
+
+<div class="mr-hero color-{{ section.settings.color_scheme }} gradient{% if has_art %} mr-hero--art{% endif %}{% if is_photo %} mr-hero--photo{% endif %}">
+  {%- if has_art -%}
+    <div class="mr-hero__stage">
+      {%- if section.settings.background != blank -%}
+        {{
+          section.settings.background
+          | image_url: width: 2000
+          | image_tag: widths: '900, 1400, 2000', sizes: '100vw', loading: 'eager', fetchpriority: 'high', class: 'mr-hero__art', alt: ''
+        }}
+      {%- else -%}
+        {%- assign art_base = 'mr-hero-' | append: art -%}
+        <img
+          class="mr-hero__art"
+          src="{{ art_base | append: '-2000.jpg' | asset_url }}"
+          srcset="{{ art_base | append: '-900.jpg' | asset_url }} 900w, {{ art_base | append: '-2000.jpg' | asset_url }} 2000w"
+          sizes="100vw"
+          width="2000"
+          height="848"
+          alt=""
+          fetchpriority="high"
+        >
+      {%- endif -%}
+    </div>
+  {%- endif -%}
+
   <div class="mr-hero__inner page-width">
     {%- if section.settings.banner != blank -%}
       <div class="mr-hero__banner">
@@ -87,6 +123,59 @@
     border-radius: 0.8rem;
   }
 
+  .mr-hero--art {
+    position: relative;
+    padding: 0 0 3.2rem;
+  }
+
+  .mr-hero__stage {
+    margin-bottom: 2.4rem;
+  }
+
+  .mr-hero__art {
+    display: block;
+    width: 100%;
+    height: auto;
+    aspect-ratio: 2000 / 848;
+    object-fit: cover;
+    object-position: right center;
+  }
+
+  @media screen and (min-width: 990px) {
+    .mr-hero--art {
+      padding: 0;
+    }
+
+    .mr-hero--art .mr-hero__stage {
+      margin: 0;
+    }
+
+    .mr-hero--art .mr-hero__inner {
+      position: absolute;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      left: 0;
+      display: flex;
+      align-items: center;
+    }
+
+    .mr-hero--art .mr-hero__row {
+      width: 46%;
+    }
+
+    .mr-hero--photo .mr-hero__stage::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(90deg, rgba(246, 240, 226, 0.94) 0, rgba(246, 240, 226, 0.86) 34%, rgba(246, 240, 226, 0) 62%);
+    }
+
+    .mr-hero--art {
+      overflow: hidden;
+    }
+  }
+
   @media screen and (min-width: 990px) {
     .mr-hero__row--with-image {
       grid-template-columns: 1fr 1fr;
@@ -102,9 +191,29 @@
   "class": "section",
   "settings": [
     {
+      "type": "select",
+      "id": "art",
+      "label": "Hero artwork",
+      "info": "Built-in artwork. Pick an image below to use your own instead.",
+      "options": [
+        { "value": "watercolour-shelf", "label": "Watercolour, shelves and helmet" },
+        { "value": "watercolour-bunting", "label": "Watercolour, bunting and shelves" },
+        { "value": "photo-window", "label": "Photo, helmet by the window" },
+        { "value": "photo-shelves", "label": "Photo, helmet and paint shelves" },
+        { "value": "none", "label": "None" }
+      ],
+      "default": "watercolour-shelf"
+    },
+    {
+      "type": "image_picker",
+      "id": "background",
+      "label": "Own hero image",
+      "info": "Wide image, about 2000 by 850, with empty space on the left for the text."
+    },
+    {
       "type": "image_picker",
       "id": "banner",
-      "label": "Banner artwork"
+      "label": "Banner artwork (above the text, no hero image)"
     },
     {
       "type": "text",

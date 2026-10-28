@@ -525,14 +525,15 @@
     "hero": {
       "type": "mr-hero",
       "settings": {
-        "banner": "shopify://shop_images/Banner.jpg",
+        "banner": "",
         "heading": "Step inside the Makers Realm",
         "subheading": "Jesmonite, Worbla, glues, specialist tape and tools for cosplayers, prop makers, model makers and milliners.",
         "button_label_1": "Shop all materials",
         "button_link_1": "shopify://collections/all",
         "button_label_2": "",
         "button_link_2": "",
-        "color_scheme": "scheme-mr-cream"
+        "color_scheme": "scheme-mr-cream",
+        "art": "watercolour-shelf"
       }
     }
   },
