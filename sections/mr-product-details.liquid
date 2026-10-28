@@ -94,6 +94,23 @@
     display: none;
   }
 
+  .mr-pd__summary {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1.2rem;
+  }
+
+  .mr-pd__summary::after {
+    content: '+';
+    font-size: 2.4rem;
+    line-height: 1;
+  }
+
+  .mr-pd__block[open] > .mr-pd__summary::after {
+    content: '\2212';
+  }
+
   .mr-pd__summary h2 {
     margin: 0;
   }
@@ -142,8 +159,8 @@
       gap: 4rem;
     }
 
-    .mr-pd__summary {
-      pointer-events: none;
+    .mr-pd__summary::after {
+      display: none;
     }
   }
 {% endstylesheet %}

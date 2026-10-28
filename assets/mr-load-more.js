@@ -29,7 +29,7 @@ class MrLoadMore extends HTMLElement {
       if (next) {
         this.link.href = next.href;
       } else {
-        this.remove();
+        this.hidden = true;
       }
     } catch (error) {
       window.location.href = this.link.href;

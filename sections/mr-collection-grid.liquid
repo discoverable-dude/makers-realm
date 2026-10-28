@@ -1,5 +1,6 @@
 {%- liquid
   assign shown = 0
+  assign tile_index = 0
   for block in section.blocks
     if block.settings.collection != blank
       assign shown = shown | plus: 1
@@ -20,7 +21,8 @@
         {%- for block in section.blocks -%}
           {%- assign c = block.settings.collection -%}
           {%- if c != blank -%}
-            <li class="mr-cgrid__cell{% if forloop.first %} mr-cgrid__cell--large{% endif %}" {{ block.shopify_attributes }}>
+            {%- assign tile_index = tile_index | plus: 1 -%}
+            <li class="mr-cgrid__cell{% if tile_index == 1 %} mr-cgrid__cell--large{% endif %}" {{ block.shopify_attributes }}>
               <a class="mr-cgrid__tile" href="{{ c.url }}">
                 {%- if c.featured_image -%}
                   {{

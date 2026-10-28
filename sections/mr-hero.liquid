@@ -13,7 +13,7 @@
     <div class="mr-hero__row{% if section.settings.image != blank %} mr-hero__row--with-image{% endif %}">
       <div class="mr-hero__text">
         {%- if section.settings.heading != blank -%}
-          <h1 class="mr-hero__heading h0">{{ section.settings.heading | escape }}</h1>
+          <h2 class="mr-hero__heading h0">{{ section.settings.heading | escape }}</h2>
         {%- endif -%}
         {%- if section.settings.subheading != blank -%}
           <p class="mr-hero__sub">{{ section.settings.subheading | escape }}</p>
