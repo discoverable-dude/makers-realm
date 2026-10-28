@@ -121,7 +121,8 @@
         "swipe_on_mobile": true,
         "padding_top": 12,
         "padding_bottom": 12
-      }
+      },
+      "disabled": true
     },
     "rich_text": {
       "type": "rich-text",
@@ -172,7 +173,8 @@
         "swipe_on_mobile": false,
         "padding_top": 36,
         "padding_bottom": 52
-      }
+      },
+      "disabled": true
     },
     "collection_list": {
       "type": "collection-list",
@@ -424,32 +426,40 @@
     "trust_strip": {
       "type": "mr-trust-strip",
       "blocks": {
-        "item1": {
+        "i1": {
           "type": "item",
           "settings": {
-            "title": "Outstanding service",
-            "text": ""
+            "title": "Rated 4.8 by 2,400 customers",
+            "text": "Independent reviews"
           }
         },
-        "item2": {
+        "i2": {
           "type": "item",
           "settings": {
-            "title": "Exclusive pricing",
-            "text": ""
+            "title": "Dispatched from the UK",
+            "text": "Fast delivery across the mainland"
           }
         },
-        "item3": {
+        "i3": {
           "type": "item",
           "settings": {
-            "title": "Industry expertise",
-            "text": ""
+            "title": "Trusted by makers",
+            "text": "Supplying since 2009"
+          }
+        },
+        "i4": {
+          "type": "item",
+          "settings": {
+            "title": "Expert help",
+            "text": "Call 01234 567890"
           }
         }
       },
       "block_order": [
-        "item1",
-        "item2",
-        "item3"
+        "i1",
+        "i2",
+        "i3",
+        "i4"
       ],
       "settings": {
         "color_scheme": "scheme-mr-cream-dark"
@@ -519,8 +529,65 @@
     },
     "collection_grid": {
       "type": "mr-collection-grid",
-      "blocks": {},
-      "block_order": [],
+      "blocks": {
+        "t1": {
+          "type": "collection",
+          "settings": {
+            "collection": "",
+            "title": "Casting & mouldmaking",
+            "text": "48 products",
+            "link": "/search?q=jesmonite&type=product",
+            "art": "all-materials"
+          }
+        },
+        "t2": {
+          "type": "collection",
+          "settings": {
+            "collection": "",
+            "title": "Worbla & thermoplastics",
+            "text": "32 products",
+            "link": "/search?q=worbla&type=product",
+            "art": "cosplay"
+          }
+        },
+        "t3": {
+          "type": "collection",
+          "settings": {
+            "collection": "",
+            "title": "Glues & adhesives",
+            "text": "27 products",
+            "link": "/search?q=glue&type=product",
+            "art": "home-crafting"
+          }
+        },
+        "t4": {
+          "type": "collection",
+          "settings": {
+            "collection": "",
+            "title": "Specialist tape",
+            "text": "19 products",
+            "link": "/search?q=tape&type=product",
+            "art": "millinery"
+          }
+        },
+        "t5": {
+          "type": "collection",
+          "settings": {
+            "collection": "",
+            "title": "Tools",
+            "text": "41 products",
+            "link": "/search?q=tools&type=product",
+            "art": "model-making"
+          }
+        }
+      },
+      "block_order": [
+        "t1",
+        "t2",
+        "t3",
+        "t4",
+        "t5"
+      ],
       "settings": {
         "heading": "Shop by collection",
         "color_scheme": "scheme-mr-cream"
@@ -529,11 +596,12 @@
     "start_here": {
       "type": "mr-start-here",
       "settings": {
-        "heading": "",
-        "text": "",
-        "button_label": "",
-        "button_link": "",
-        "color_scheme": "scheme-mr-cream-dark"
+        "heading": "New to this? Start here",
+        "text": "<p>Not sure where to begin? These are the products most people start with, and our guides take you through the first steps.</p>",
+        "button_label": "Read the beginner's guide",
+        "button_link": "shopify://collections/top-picks",
+        "color_scheme": "scheme-mr-cream-dark",
+        "collection": "top-picks"
       }
     },
     "hero": {
@@ -549,18 +617,98 @@
         "color_scheme": "scheme-mr-cream",
         "art": "watercolour-shelf"
       }
+    },
+    "product_tabs": {
+      "type": "mr-product-tabs",
+      "blocks": {
+        "b1": {
+          "type": "tab",
+          "settings": {
+            "label": "Popular",
+            "collection": "top-picks"
+          }
+        },
+        "b2": {
+          "type": "tab",
+          "settings": {
+            "label": "New in",
+            "collection": "all"
+          }
+        },
+        "b3": {
+          "type": "tab",
+          "settings": {
+            "label": "Back in stock",
+            "collection": "all"
+          }
+        }
+      },
+      "block_order": [
+        "b1",
+        "b2",
+        "b3"
+      ],
+      "settings": {
+        "heading": "Right now at Makers Realm",
+        "color_scheme": "scheme-mr-cream"
+      }
+    },
+    "guides": {
+      "type": "mr-guides",
+      "blocks": {
+        "g1": {
+          "type": "guide",
+          "settings": {
+            "title": "Getting started with EVA foam",
+            "link": "",
+            "art": "cosplay",
+            "image": ""
+          }
+        },
+        "g2": {
+          "type": "guide",
+          "settings": {
+            "title": "Your first jesmonite cast",
+            "link": "",
+            "art": "all-materials",
+            "image": ""
+          }
+        },
+        "g3": {
+          "type": "guide",
+          "settings": {
+            "title": "Choosing the right thermoplastic",
+            "link": "",
+            "art": "model-making",
+            "image": ""
+          }
+        }
+      },
+      "block_order": [
+        "g1",
+        "g2",
+        "g3"
+      ],
+      "settings": {
+        "heading": "Guides and tutorials",
+        "all_label": "All guides",
+        "all_link": "",
+        "color_scheme": "scheme-mr-cream-dark"
+      }
     }
   },
   "order": [
     "hero",
-    "image_banner",
     "trust_strip",
-    "multicolumn",
-    "rich_text",
     "project_tiles",
     "collection_grid",
-    "featured_collection1",
     "start_here",
+    "product_tabs",
+    "guides",
+    "image_banner",
+    "multicolumn",
+    "rich_text",
+    "featured_collection1",
     "featured_collection2",
     "collection_list",
     "multicolumn1",

@@ -1,4 +1,8 @@
 {%- if section.settings.heading != blank and section.settings.button_link != blank -%}
+  {%- if section.settings.collection != blank -%}
+    {{ 'component-card.css' | asset_url | stylesheet_tag }}
+    {{ 'component-price.css' | asset_url | stylesheet_tag }}
+  {%- endif -%}
   <div class="mr-start-here color-{{ section.settings.color_scheme }} gradient">
     <div class="mr-start-here__inner page-width">
       <div class="mr-start-here__text">
@@ -7,7 +11,24 @@
           <div class="rte">{{ section.settings.text }}</div>
         {%- endif -%}
       </div>
-      <a class="button button--secondary" href="{{ section.settings.button_link }}">
+      {%- if section.settings.collection != blank -%}
+        <ul class="mr-start-here__products" role="list">
+          {%- for product in section.settings.collection.products limit: 4 -%}
+            <li>
+              {% render 'card-product',
+                card_product: product,
+                media_aspect_ratio: 'square',
+                lazy_load: true,
+                skip_styles: true,
+                section_id: section.id,
+                quick_add: 'none',
+                product_view_context: 'collection'
+              %}
+            </li>
+          {%- endfor -%}
+        </ul>
+      {%- endif -%}
+      <a class="button button--secondary mr-start-here__link" href="{{ section.settings.button_link }}">
         {{- section.settings.button_label | default: section.settings.heading | escape -}}
       </a>
     </div>
@@ -37,6 +58,36 @@
 
   .mr-start-here__text .rte > :last-child {
     margin-bottom: 0;
+  }
+
+  .mr-start-here__products {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    flex: 1 1 100%;
+    gap: 1.2rem;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+
+  @media screen and (min-width: 990px) {
+    .mr-start-here__inner {
+      flex-wrap: nowrap;
+      align-items: flex-start;
+    }
+
+    .mr-start-here__text {
+      flex: 0 0 30%;
+    }
+
+    .mr-start-here__products {
+      flex: 1 1 auto;
+      grid-template-columns: repeat(4, 1fr);
+    }
+
+    .mr-start-here__link {
+      display: none;
+    }
   }
 {% endstylesheet %}
 
@@ -69,6 +120,12 @@
       "type": "url",
       "id": "button_link",
       "label": "Button link"
+    },
+    {
+      "type": "collection",
+      "id": "collection",
+      "label": "Starter products (optional)",
+      "info": "Shows the first four products beside the text."
     },
     {
       "type": "color_scheme",

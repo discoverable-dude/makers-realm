@@ -4,6 +4,23 @@
   assign features = product.metafields.custom.features.value
   assign perfect_for = product.metafields.custom.perfect_for.value
   assign specs_text = product.metafields.custom.specifications.value
+  if section.settings.show_placeholder
+    if what_it_is == blank
+      assign what_it_is = 'A reliable material for makers, supplied ready to use and suitable for both workshop and home projects.'
+    endif
+    if why_choose == blank
+      assign why_choose = 'Consistent results from batch to batch, and clear guidance so you can get it right first time.'
+    endif
+    if features.size == 0
+      assign features = 'Easy to work with, Suitable for beginners and experienced makers, Clear instructions with every order' | split: ', '
+    endif
+    if perfect_for.size == 0
+      assign perfect_for = 'Props and costume pieces, Models and miniatures, Craft and home projects' | split: ', '
+    endif
+    if specs_text == blank
+      assign specs_text = 'Material: See product options<br />Dimensions: See product options<br />Grade: Standard<br />Pack size: See product options'
+    endif
+  endif
   assign has_content = false
   if what_it_is != blank or why_choose != blank or features.size > 0 or perfect_for.size > 0 or specs_text != blank
     assign has_content = true
@@ -52,7 +69,7 @@
         <aside class="mr-pd__specs">
           <h2 class="h4">Specifications</h2>
           <dl class="mr-pd__spec-list">
-            {%- assign spec_lines = specs_text | newline_to_br | split: '<br />' -%}
+            {%- assign spec_lines = specs_text | newline_to_br | replace: '<br>', '<br />' | split: '<br />' -%}
             {%- for line in spec_lines -%}
               {%- assign parts = line | strip | split: ':' -%}
               {%- if parts.size > 1 -%}
@@ -174,6 +191,13 @@
     {
       "type": "paragraph",
       "content": "Fills from product metafields in the 'custom' namespace: what_it_is, why_choose (multi-line text), features, perfect_for (list of single line text), specifications (multi-line text, one 'Label: value' per line). Each block only shows when it has content."
+    },
+    {
+      "type": "checkbox",
+      "id": "show_placeholder",
+      "label": "Show placeholder text when a product has none",
+      "info": "For demos only. Switch off before launch.",
+      "default": false
     },
     {
       "type": "color_scheme",

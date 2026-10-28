@@ -2,7 +2,7 @@
   assign shown = 0
   assign tile_index = 0
   for block in section.blocks
-    if block.settings.collection != blank
+    if block.settings.collection != blank or block.settings.title != blank
       assign shown = shown | plus: 1
     endif
   endfor
@@ -20,20 +20,39 @@
       <ul class="mr-cgrid__list" role="list">
         {%- for block in section.blocks -%}
           {%- assign c = block.settings.collection -%}
-          {%- if c != blank -%}
+          {%- if c != blank or block.settings.title != blank -%}
             {%- assign tile_index = tile_index | plus: 1 -%}
+            {%- assign tile_title = block.settings.title | default: c.title -%}
+            {%- assign tile_link = block.settings.link | default: c.url -%}
+            {%- if block.settings.text != blank -%}
+              {%- assign tile_text = block.settings.text -%}
+            {%- elsif c != blank -%}
+              {%- capture tile_text -%}{{ c.products_count }} {{ c.products_count | pluralize: 'product', 'products' }}{%- endcapture -%}
+            {%- else -%}
+              {%- assign tile_text = '' -%}
+            {%- endif -%}
             <li class="mr-cgrid__cell{% if tile_index == 1 %} mr-cgrid__cell--large{% endif %}" {{ block.shopify_attributes }}>
-              <a class="mr-cgrid__tile" href="{{ c.url }}">
-                {%- if c.featured_image -%}
+              <a class="mr-cgrid__tile" {% if tile_link != blank %}href="{{ tile_link }}"{% endif %}>
+                {%- if block.settings.image != blank -%}
+                  {{
+                    block.settings.image
+                    | image_url: width: 900
+                    | image_tag: loading: 'lazy', widths: '400, 600, 900', sizes: '(min-width: 990px) 25vw, 50vw', class: 'mr-cgrid__image', alt: ''
+                  }}
+                {%- elsif block.settings.art != 'none' -%}
+                  <img class="mr-cgrid__image" src="{{ 'mr-tile-' | append: block.settings.art | append: '.jpg' | asset_url }}" width="800" height="678" loading="lazy" alt="">
+                {%- elsif c.featured_image -%}
                   {{
                     c.featured_image
                     | image_url: width: 900
-                    | image_tag: loading: 'lazy', widths: '400, 600, 900', sizes: '(min-width: 990px) 25vw, 50vw', class: 'mr-cgrid__image', alt: c.title
+                    | image_tag: loading: 'lazy', widths: '400, 600, 900', sizes: '(min-width: 990px) 25vw, 50vw', class: 'mr-cgrid__image', alt: ''
                   }}
                 {%- endif -%}
                 <span class="mr-cgrid__label">
-                  <strong>{{ c.title | escape }}</strong>
-                  <span>{{ c.products_count }} {{ c.products_count | pluralize: 'product', 'products' }}</span>
+                  <strong>{{ tile_title | escape }}</strong>
+                  {%- if tile_text != blank -%}
+                    <span>{{ tile_text | escape }}</span>
+                  {%- endif -%}
                 </span>
               </a>
             </li>
@@ -150,7 +169,42 @@
         {
           "type": "collection",
           "id": "collection",
-          "label": "Collection"
+          "label": "Collection",
+          "info": "Takes the title, link, count and image from the collection."
+        },
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Title (overrides the collection)"
+        },
+        {
+          "type": "text",
+          "id": "text",
+          "label": "Small line under the title (overrides the count)"
+        },
+        {
+          "type": "url",
+          "id": "link",
+          "label": "Link (overrides the collection)"
+        },
+        {
+          "type": "select",
+          "id": "art",
+          "label": "Built-in picture",
+          "options": [
+            { "value": "none", "label": "None" },
+            { "value": "cosplay", "label": "Helmet" },
+            { "value": "model-making", "label": "Model cottage" },
+            { "value": "millinery", "label": "Hat" },
+            { "value": "home-crafting", "label": "Cast pots" },
+            { "value": "all-materials", "label": "Silicone mould" }
+          ],
+          "default": "none"
+        },
+        {
+          "type": "image_picker",
+          "id": "image",
+          "label": "Own picture"
         }
       ]
     }

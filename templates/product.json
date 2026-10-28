@@ -45,10 +45,10 @@
         "help_box": {
           "type": "mr_help_box",
           "settings": {
-            "heading": "",
-            "text": "",
-            "link_label": "",
-            "link": ""
+            "heading": "Not sure which to choose?",
+            "text": "Chat with us or read the guide.",
+            "link_label": "Open chat",
+            "link": "/pages/contact"
           }
         },
         "share": {
@@ -56,15 +56,31 @@
           "settings": {
             "share_label": "Share"
           }
+        },
+        "rating_line": {
+          "type": "text",
+          "settings": {
+            "text": "4.8 rating \u00b7 126 reviews",
+            "text_style": "body"
+          }
+        },
+        "delivery_line": {
+          "type": "text",
+          "settings": {
+            "text": "In stock \u00b7 Dispatched from the UK \u00b7 Delivery from \u00a33.95",
+            "text_style": "body"
+          }
         }
       },
       "block_order": [
         "title",
+        "rating_line",
         "price",
         "description",
         "variant_picker",
         "quantity_selector",
         "buy_buttons",
+        "delivery_line",
         "help_box",
         "share"
       ],
@@ -123,7 +139,8 @@
     "product_details": {
       "type": "mr-product-details",
       "settings": {
-        "color_scheme": "scheme-mr-cream-dark"
+        "color_scheme": "scheme-mr-cream-dark",
+        "show_placeholder": true
       }
     }
   },

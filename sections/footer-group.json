@@ -27,16 +27,24 @@
             "heading": "Quick links",
             "menu": "footer"
           }
+        },
+        "contact": {
+          "type": "text",
+          "settings": {
+            "heading": "Contact",
+            "subtext": "<p>hello@makersrealm.co.uk<br>01234 567890<br>Mon to Fri, 9am to 5pm</p>"
+          }
         }
       },
       "block_order": [
         "trading_name",
-        "link_list"
+        "link_list",
+        "contact"
       ],
       "settings": {
         "color_scheme": "scheme-mr-navy",
-        "newsletter_enable": false,
-        "newsletter_heading": "Subscribe to our emails",
+        "newsletter_enable": true,
+        "newsletter_heading": "Project ideas and restock alerts",
         "enable_follow_on_shop": true,
         "show_social": true,
         "enable_country_selector": true,

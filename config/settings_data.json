@@ -125,6 +125,7 @@
     "cart_type": "drawer",
     "show_vendor": false,
     "show_cart_note": true,
+    "free_delivery_threshold": 75,
     "cart_drawer_collection": "",
     "cart_color_scheme": "scheme-1",
     "sections": {
