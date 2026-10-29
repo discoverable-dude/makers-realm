@@ -1,9 +1,19 @@
 {%- liquid
   assign what_it_is = product.metafields.custom.what_it_is.value
+  assign how_to_use = product.metafields.custom.how_to_use.value
   assign why_choose = product.metafields.custom.why_choose.value
   assign features = product.metafields.custom.features.value
   assign perfect_for = product.metafields.custom.perfect_for.value
+  assign in_the_box = product.metafields.custom.in_the_box.value
+  assign works_on = product.metafields.custom.works_on.value
   assign specs_text = product.metafields.custom.specifications.value
+  assign mix_ratio = product.metafields.custom.mix_ratio.value
+  assign dry_time = product.metafields.custom.dry_time.value
+  assign coverage = product.metafields.custom.coverage.value
+  assign difficulty = product.metafields.custom.difficulty.value
+  assign safety_note = product.metafields.custom.safety_note.value
+  assign safety_sheet = product.metafields.custom.safety_data_sheet.value
+  assign faqs = product.metafields.custom.faqs.value
   if section.settings.show_placeholder
     if what_it_is == blank
       assign what_it_is = 'A reliable material for makers, supplied ready to use and suitable for both workshop and home projects.'
@@ -21,8 +31,12 @@
       assign specs_text = 'Material: See product options<br />Dimensions: See product options<br />Grade: Standard<br />Pack size: See product options'
     endif
   endif
+  assign has_facts = false
+  if mix_ratio != blank or dry_time != blank or coverage != blank or difficulty != blank
+    assign has_facts = true
+  endif
   assign has_content = false
-  if what_it_is != blank or why_choose != blank or features.size > 0 or perfect_for.size > 0 or specs_text != blank
+  if what_it_is != blank or how_to_use != blank or why_choose != blank or features.size > 0 or perfect_for.size > 0 or in_the_box.size > 0 or safety_note != blank or faqs.size > 0 or specs_text != blank or has_facts
     assign has_content = true
   endif
 -%}
@@ -30,11 +44,34 @@
 {%- if has_content -%}
   <div class="mr-pd color-{{ section.settings.color_scheme }} gradient">
     <div class="mr-pd__inner page-width">
+      {%- if has_facts -%}
+        <ul class="mr-pd__facts" role="list">
+          {%- if difficulty != blank -%}
+            <li><span class="mr-pd__fact-label">Skill level</span><strong>{{ difficulty | escape }}</strong></li>
+          {%- endif -%}
+          {%- if mix_ratio != blank -%}
+            <li><span class="mr-pd__fact-label">Mix ratio</span><strong>{{ mix_ratio | escape }}</strong></li>
+          {%- endif -%}
+          {%- if dry_time != blank -%}
+            <li><span class="mr-pd__fact-label">Dries or cures in</span><strong>{{ dry_time | escape }}</strong></li>
+          {%- endif -%}
+          {%- if coverage != blank -%}
+            <li><span class="mr-pd__fact-label">Coverage</span><strong>{{ coverage | escape }}</strong></li>
+          {%- endif -%}
+        </ul>
+      {%- endif -%}
+
       <div class="mr-pd__main">
         {%- if what_it_is != blank -%}
           <details class="mr-pd__block" open>
             <summary class="mr-pd__summary"><h2 class="h3">What it is</h2></summary>
             <div class="mr-pd__body rte">{{ what_it_is | newline_to_br }}</div>
+          </details>
+        {%- endif -%}
+        {%- if how_to_use != blank -%}
+          <details class="mr-pd__block" open>
+            <summary class="mr-pd__summary"><h2 class="h3">How to use it</h2></summary>
+            <div class="mr-pd__body rte">{{ how_to_use | newline_to_br }}</div>
           </details>
         {%- endif -%}
         {%- if why_choose != blank -%}
@@ -63,23 +100,72 @@
             </ul>
           </details>
         {%- endif -%}
+        {%- if in_the_box.size > 0 -%}
+          <details class="mr-pd__block" open>
+            <summary class="mr-pd__summary"><h2 class="h3">In the box</h2></summary>
+            <ul class="mr-pd__body mr-pd__list">
+              {%- for item in in_the_box -%}
+                <li>{{ item | escape }}</li>
+              {%- endfor -%}
+            </ul>
+          </details>
+        {%- endif -%}
+        {%- if safety_note != blank -%}
+          <details class="mr-pd__block" open>
+            <summary class="mr-pd__summary"><h2 class="h3">Safety</h2></summary>
+            <div class="mr-pd__body mr-pd__safety">{{ safety_note | newline_to_br }}</div>
+          </details>
+        {%- endif -%}
+        {%- if faqs.size > 0 -%}
+          <details class="mr-pd__block" open>
+            <summary class="mr-pd__summary"><h2 class="h3">Questions people ask</h2></summary>
+            <div class="mr-pd__body mr-pd__faqs">
+              {%- for faq in faqs -%}
+                <details class="mr-pd__faq">
+                  <summary>{{ faq.q | escape }}</summary>
+                  <p>{{ faq.a | escape }}</p>
+                </details>
+              {%- endfor -%}
+            </div>
+          </details>
+          <script type="application/ld+json">
+            {"@context":"https://schema.org","@type":"FAQPage","mainEntity":[
+              {%- for faq in faqs -%}
+                {"@type":"Question","name":{{ faq.q | json }},"acceptedAnswer":{"@type":"Answer","text":{{ faq.a | json }}}}{% unless forloop.last %},{% endunless %}
+              {%- endfor -%}
+            ]}
+          </script>
+        {%- endif -%}
       </div>
 
-      {%- if specs_text != blank -%}
+      {%- if specs_text != blank or works_on.size > 0 or safety_sheet != blank -%}
         <aside class="mr-pd__specs">
-          <h2 class="h4">Specifications</h2>
-          <dl class="mr-pd__spec-list">
-            {%- assign spec_lines = specs_text | newline_to_br | replace: '<br>', '<br />' | split: '<br />' -%}
-            {%- for line in spec_lines -%}
-              {%- assign parts = line | strip | split: ':' -%}
-              {%- if parts.size > 1 -%}
-                <div class="mr-pd__spec-row">
-                  <dt>{{ parts[0] | strip | escape }}</dt>
-                  <dd>{{ parts | slice: 1, parts.size | join: ':' | strip | escape }}</dd>
-                </div>
-              {%- endif -%}
-            {%- endfor -%}
-          </dl>
+          {%- if specs_text != blank -%}
+            <h2 class="h4">Specifications</h2>
+            <dl class="mr-pd__spec-list">
+              {%- assign spec_lines = specs_text | newline_to_br | replace: '<br>', '<br />' | split: '<br />' -%}
+              {%- for line in spec_lines -%}
+                {%- assign parts = line | strip | split: ':' -%}
+                {%- if parts.size > 1 -%}
+                  <div class="mr-pd__spec-row">
+                    <dt>{{ parts[0] | strip | escape }}</dt>
+                    <dd>{{ parts | slice: 1, parts.size | join: ':' | strip | escape }}</dd>
+                  </div>
+                {%- endif -%}
+              {%- endfor -%}
+            </dl>
+          {%- endif -%}
+          {%- if works_on.size > 0 -%}
+            <h3 class="mr-pd__works-heading">Works on</h3>
+            <ul class="mr-pd__works" role="list">
+              {%- for surface in works_on -%}
+                <li>{{ surface | escape }}</li>
+              {%- endfor -%}
+            </ul>
+          {%- endif -%}
+          {%- if safety_sheet != blank -%}
+            <a class="mr-pd__sds" href="{{ safety_sheet.url | default: safety_sheet }}" target="_blank" rel="noopener">Safety data sheet (PDF)</a>
+          {%- endif -%}
         </aside>
       {%- endif -%}
     </div>
@@ -176,8 +262,89 @@
       gap: 4rem;
     }
 
+    .mr-pd__facts {
+      grid-column: 1 / -1;
+    }
+
     .mr-pd__summary::after {
       display: none;
+    }
+  }
+
+  .mr-pd__facts {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.2rem;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+
+  .mr-pd__facts li {
+    display: flex;
+    flex-direction: column;
+    gap: 0.2rem;
+    padding: 1.2rem 1.6rem;
+    border: 1px dashed var(--mr-sky);
+    border-radius: 0.8rem;
+    background: #fff;
+  }
+
+  .mr-pd__fact-label {
+    color: var(--mr-muted);
+    font-size: 1.3rem;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+  }
+
+  .mr-pd__safety {
+    padding: 1.2rem 1.6rem;
+    border: 1px solid var(--mr-red);
+    border-radius: 0.4rem;
+  }
+
+  .mr-pd__faq {
+    border-top: 1px solid var(--mr-tan);
+  }
+
+  .mr-pd__faq summary {
+    padding: 1.2rem 0;
+    font-weight: 700;
+    cursor: pointer;
+  }
+
+  .mr-pd__faq p {
+    margin: 0 0 1.2rem;
+  }
+
+  .mr-pd__works-heading {
+    margin: 2rem 0 0.8rem;
+    font-size: 1.6rem;
+  }
+
+  .mr-pd__works {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.6rem;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+
+  .mr-pd__works li {
+    padding: 0.2rem 1.2rem;
+    border: 1px solid var(--mr-navy);
+    border-radius: 4rem;
+  }
+
+  .mr-pd__sds {
+    display: inline-block;
+    margin-top: 1.6rem;
+  }
+
+  @media screen and (min-width: 750px) {
+    .mr-pd__facts {
+      grid-template-columns: repeat(4, 1fr);
     }
   }
 {% endstylesheet %}
