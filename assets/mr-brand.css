@@ -189,8 +189,6 @@
   overflow: hidden;
   border: 1px dashed var(--mr-sky);
   border-radius: 0.8rem;
-  background: #fff;
-  color: var(--mr-navy);
   text-decoration: none;
 }
 
@@ -269,4 +267,45 @@
 /* Grid promo cell must not inherit card hover lifts */
 .mr-promo {
   list-style: none;
+}
+
+/* Back to top button */
+.mr-to-top {
+  position: fixed;
+  right: max(1.6rem, env(safe-area-inset-right, 0px));
+  bottom: calc(1.6rem + env(safe-area-inset-bottom, 0px) + 6rem);
+  z-index: 15;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 4.4rem;
+  height: 4.4rem;
+  padding: 0;
+  border: 1px solid var(--mr-navy);
+  border-radius: 50%;
+  background: var(--mr-cream);
+  color: var(--mr-navy);
+  cursor: pointer;
+}
+
+.mr-to-top[hidden] {
+  display: none;
+}
+
+@media screen and (min-width: 750px) {
+  .mr-to-top {
+    bottom: calc(1.6rem + env(safe-area-inset-bottom, 0px));
+  }
+}
+
+/* Colour options shared by promo cards and mega menu promos */
+[data-colour='navy'] { background: var(--mr-navy); color: #fff; }
+[data-colour='red'] { background: var(--mr-red); color: #fff; }
+[data-colour='blue'] { background: var(--mr-blue); color: #fff; }
+[data-colour='sky'] { background: var(--mr-sky); color: var(--mr-navy); }
+[data-colour='gold'] { background: var(--mr-gold); color: var(--mr-navy); }
+[data-colour='cream'] { background: var(--mr-cream-dark); color: var(--mr-navy); }
+
+.mr-promo__card:hover .mr-promo__button {
+  color: var(--mr-navy);
 }

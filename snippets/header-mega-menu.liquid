@@ -74,7 +74,7 @@
                       {%- assign promo_key = block.settings.menu_item | downcase | strip -%}
                       {%- if promo_key == link_key -%}
                         <li class="mr-mega-promo" {{ block.shopify_attributes }}>
-                          <a class="mr-mega-promo__card"{% if block.settings.link != blank %} href="{{ block.settings.link }}"{% endif %}>
+                          <a class="mr-mega-promo__card" data-colour="{{ block.settings.colour | default: 'cream' | escape }}"{% if block.settings.link != blank %} href="{{ block.settings.link }}"{% endif %}>
                             {%- if block.settings.image != blank -%}
                               {{
                                 block.settings.image

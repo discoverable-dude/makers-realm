@@ -1253,6 +1253,13 @@
         "default": 40
       },
       {
+        "type": "number",
+        "id": "new_badge_days",
+        "label": "Show a New badge on products published in the last (days)",
+        "info": "Leave empty or 0 to switch off.",
+        "default": 0
+      },
+      {
         "type": "color_scheme",
         "id": "sale_badge_color_scheme",
         "label": "t:settings_schema.badges.settings.sale_badge_color_scheme.label",

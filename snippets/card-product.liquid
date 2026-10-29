@@ -22,6 +22,8 @@
   @example
   {% render 'card-product', card_product: product, media_aspect_ratio: 'adapt', show_secondary_image: true, section_id: section.id, quick_add: 'standard', product_view_context: 'collection' %}
 {% enddoc %}
+
+{%- capture mr_new_flag -%}{%- render 'mr-new-flag', product: card_product -%}{%- endcapture -%}
 {%- unless skip_styles -%}
   {{ 'component-rating.css' | asset_url | stylesheet_tag }}
   {{ 'component-volume-pricing.css' | asset_url | stylesheet_tag }}
@@ -143,6 +145,8 @@
                 >
                   {{- 'products.product.on_sale' | t -}}
                 </span>
+              {%- elsif mr_new_flag != blank -%}
+                <span class="badge badge--bottom-left color-scheme-mr-navy">New</span>
               {%- endif -%}
             </div>
           </div>
@@ -567,6 +571,8 @@
               >
                 {{- 'products.product.on_sale' | t -}}
               </span>
+            {%- elsif mr_new_flag != blank -%}
+              <span class="badge badge--bottom-left color-scheme-mr-navy">New</span>
             {%- endif -%}
           </div>
         </div>

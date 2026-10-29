@@ -1,0 +1,10 @@
+{% doc %}
+  Outputs "new" when a product was published within the number of days set in Theme settings > Badges. Outputs nothing otherwise.
+
+  @param {product} product - The product to check.
+{% enddoc %}
+
+{%- if settings.new_badge_days > 0 and product.published_at != blank -%}
+  {%- assign age_days = 'now' | date: '%s' | minus: product.published_at | date: '%s' | divided_by: 86400 -%}
+  {%- if age_days <= settings.new_badge_days -%}new{%- endif -%}
+{%- endif -%}
