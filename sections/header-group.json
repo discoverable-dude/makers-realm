@@ -17,7 +17,7 @@
         "announcement-bar-0": {
           "type": "announcement",
           "settings": {
-            "text": "Free UK delivery over \u00a375 \u00b7 Dispatched from the UK",
+            "text": "Free UK delivery over £75 · Dispatched from the UK",
             "link": ""
           }
         },
