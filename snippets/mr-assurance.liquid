@@ -1,0 +1,17 @@
+{% doc %}
+  Three short reassurance lines with icons, for the product page.
+
+  @param {object} block - The assurance block. Uses item_1, item_2 and item_3.
+{% enddoc %}
+
+<ul class="mr-assurance" role="list" {{ block.shopify_attributes }}>
+  {%- if block.settings.item_1 != blank -%}
+    <li>{% render 'mr-icon', name: 'truck' %}<span>{{ block.settings.item_1 | escape }}</span></li>
+  {%- endif -%}
+  {%- if block.settings.item_2 != blank -%}
+    <li>{% render 'mr-icon', name: 'shield' %}<span>{{ block.settings.item_2 | escape }}</span></li>
+  {%- endif -%}
+  {%- if block.settings.item_3 != blank -%}
+    <li>{% render 'mr-icon', name: 'chat' %}<span>{{ block.settings.item_3 | escape }}</span></li>
+  {%- endif -%}
+</ul>

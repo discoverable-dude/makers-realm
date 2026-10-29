@@ -497,6 +497,15 @@
                     section_id: section.id,
                     show_pickup_availability: true
                   -%}
+                {%- when 'mr_summary' -%}
+                  {%- capture mr_summary -%}{%- render 'mr-product-summary', product: product -%}{%- endcapture -%}
+                  {%- if mr_summary != blank -%}
+                    <div class="product__description rte mr-summary" {{ block.shopify_attributes }}>
+                      {{ mr_summary | newline_to_br }}
+                    </div>
+                  {%- endif -%}
+                {%- when 'mr_assurance' -%}
+                  {%- render 'mr-assurance', block: block -%}
                 {%- when 'mr_info_popup' -%}
                   {%- if block.settings.label != blank and block.settings.content != blank -%}
                     <div class="mr-info-popup" {{ block.shopify_attributes }}>
@@ -1261,6 +1270,39 @@
           "id": "page",
           "type": "page",
           "label": "t:sections.main-product.blocks.popup.settings.page.label"
+        }
+      ]
+    },
+    {
+      "type": "mr_summary",
+      "name": "Short summary",
+      "limit": 1,
+      "settings": [
+        {
+          "type": "paragraph",
+          "content": "Shows the 'What it is' metafield, or the first paragraph of the description if that is empty. Use this in place of the full description."
+        }
+      ]
+    },
+    {
+      "type": "mr_assurance",
+      "name": "Assurance row",
+      "limit": 1,
+      "settings": [
+        {
+          "type": "text",
+          "id": "item_1",
+          "label": "First line (van icon)"
+        },
+        {
+          "type": "text",
+          "id": "item_2",
+          "label": "Second line (shield icon)"
+        },
+        {
+          "type": "text",
+          "id": "item_3",
+          "label": "Third line (speech bubble icon)"
         }
       ]
     },

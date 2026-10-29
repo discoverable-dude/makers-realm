@@ -27,10 +27,6 @@
           "type": "price",
           "settings": {}
         },
-        "description": {
-          "type": "description",
-          "settings": {}
-        },
         "variant_picker": {
           "type": "variant_picker",
           "settings": {
@@ -89,6 +85,30 @@
             "block_heading": "Frequently bought together",
             "make_collapsible_row": false
           }
+        },
+        "summary": {
+          "type": "mr_summary",
+          "settings": {}
+        },
+        "sku": {
+          "type": "sku",
+          "settings": {
+            "text_style": "body"
+          }
+        },
+        "inventory": {
+          "type": "inventory",
+          "settings": {
+            "text_style": "body"
+          }
+        },
+        "assurance": {
+          "type": "mr_assurance",
+          "settings": {
+            "item_1": "Dispatched from the UK",
+            "item_2": "Secure checkout",
+            "item_3": "Help from people who make things"
+          }
         }
       },
       "block_order": [
@@ -96,11 +116,14 @@
         "rating_line",
         "rating",
         "price",
-        "description",
+        "summary",
+        "sku",
         "variant_picker",
         "quantity_selector",
+        "inventory",
         "buy_buttons",
         "delivery_line",
+        "assurance",
         "size_guide",
         "help_box",
         "complementary",

@@ -7,7 +7,10 @@
 
 {%- if product.available -%}
   <div class="mr-sticky-atc" data-form-id="{{ product_form_id }}" hidden>
-    <span class="mr-sticky-atc__title">{{ product.title | escape }}</span>
+    <span class="mr-sticky-atc__title">
+      {{ product.title | escape }}
+      <span class="mr-sticky-atc__price">{% if product.price_varies %}From {% endif %}{{ product.price | money }}</span>
+    </span>
     <button type="button" class="button mr-sticky-atc__button">
       {{- 'products.product.add_to_cart' | t -}}
     </button>
@@ -41,6 +44,12 @@
     overflow: hidden;
     text-overflow: ellipsis;
     white-space: nowrap;
+  }
+
+  .mr-sticky-atc__price {
+    display: block;
+    color: var(--mr-muted);
+    font-size: 1.4rem;
   }
 
   .mr-sticky-atc__button {

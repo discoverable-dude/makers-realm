@@ -387,3 +387,29 @@
     opacity: 0.35;
   }
 }
+
+/* Product page: summary and assurance row */
+.mr-summary {
+  margin: 0 0 1.6rem;
+  font-size: 1.8rem;
+}
+
+.mr-assurance {
+  display: grid;
+  gap: 0.8rem;
+  margin: 1.6rem 0 0;
+  padding: 0;
+  list-style: none;
+}
+
+.mr-assurance li {
+  display: flex;
+  align-items: center;
+  gap: 1.2rem;
+  color: var(--mr-navy);
+}
+
+.mr-assurance .mr-icon {
+  flex: 0 0 auto;
+  color: var(--mr-red);
+}

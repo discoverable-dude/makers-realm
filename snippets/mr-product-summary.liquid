@@ -1,0 +1,13 @@
+{% doc %}
+  Outputs a short product summary: the "What it is" metafield, or else the first paragraph of the description.
+
+  @param {product} product - The product to summarise.
+{% enddoc %}
+
+{%- liquid
+  assign summary = product.metafields.custom.what_it_is.value
+  if summary == blank
+    assign summary = product.description | replace: '<br><br>', '|||' | replace: '<br /><br />', '|||' | replace: '</p><p>', '|||' | strip_html | split: '|||' | first | strip
+  endif
+  echo summary
+-%}
