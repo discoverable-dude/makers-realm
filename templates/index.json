@@ -472,22 +472,13 @@
     "project_tiles": {
       "type": "mr-project-tiles",
       "blocks": {
-        "tile0": {
-          "type": "tile",
-          "settings": {
-            "title": "All materials",
-            "text": "Browse everything",
-            "art": "all-materials",
-            "link": "shopify://collections/all"
-          }
-        },
         "tile1": {
           "type": "tile",
           "settings": {
             "title": "Cosplay & props",
             "text": "For cosplayers and prop makers",
-            "link": "/search?q=cosplay&type=product",
-            "art": "cosplay"
+            "art": "cosplay",
+            "link": "/search?q=cosplay&type=product"
           }
         },
         "tile2": {
@@ -495,35 +486,44 @@
           "settings": {
             "title": "Model making",
             "text": "For model makers",
-            "link": "/search?q=model&type=product",
-            "art": "model-making"
+            "art": "model-making",
+            "link": "/search?q=model&type=product"
           }
         },
         "tile3": {
           "type": "tile",
           "settings": {
-            "title": "Millinery",
-            "text": "For milliners",
-            "link": "/search?q=millinery&type=product",
-            "art": "millinery"
+            "title": "Special effects & make-up",
+            "text": "Latex, fake blood and face paint",
+            "art": "millinery",
+            "link": "/search?q=special+effects&type=product"
           }
         },
         "tile4": {
           "type": "tile",
           "settings": {
-            "title": "Home crafting",
-            "text": "For crafters at home",
-            "link": "/search?q=craft&type=product",
-            "art": "home-crafting"
+            "title": "Casting & home crafting",
+            "text": "Jesmonite, plaster and moulds",
+            "art": "home-crafting",
+            "link": "/search?q=jesmonite&type=product"
+          }
+        },
+        "tile5": {
+          "type": "tile",
+          "settings": {
+            "title": "Weathering & finishing",
+            "text": "Ageing, gilding and special finishes",
+            "art": "all-materials",
+            "link": "/search?q=weathering&type=product"
           }
         }
       },
       "block_order": [
-        "tile0",
         "tile1",
         "tile2",
         "tile3",
-        "tile4"
+        "tile4",
+        "tile5"
       ],
       "settings": {
         "heading": "What are you making?",
@@ -613,7 +613,7 @@
       "settings": {
         "banner": "",
         "heading": "Step inside the Makers Realm",
-        "subheading": "Jesmonite, Worbla, glues, specialist tape and tools for cosplayers, prop makers, model makers and milliners.",
+        "subheading": "Jesmonite, Worbla, glues, specialist tape and tools for cosplayers, prop makers, model makers and effects artists.",
         "button_label_1": "Shop all materials",
         "button_link_1": "shopify://collections/all",
         "button_label_2": "",

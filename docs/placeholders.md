@@ -6,7 +6,7 @@ Everything below was added so the preview looks like the mockups. None of it is 
 - Announcement bar: "Free UK delivery over £75 · Dispatched from the UK" (header group). Also set Theme settings > Cart > Free UK delivery threshold to 75, which switches on the basket progress message.
 - Trust strip: "Rated 4.8 by 2,400 customers", "Supplying since 2009", "Call 01234 567890" and the delivery line. All invented.
 - Collection grid: five tiles (Casting & mouldmaking, Worbla & thermoplastics, Glues & adhesives, Specialist tape, Tools) with invented product counts (48, 32, 27, 19, 41). Links go to store searches. Replace with real collections using the Collection field on each block.
-- Project tiles: names are the recommended structure from client Question 1, not confirmed. Links are store searches.
+- Project tiles: Cosplay & props, Model making, Special effects & make-up, Casting & home crafting, Weathering & finishing. These follow what is stocked (see `docs/product-data-analysis.md`), not a confirmed client answer. Millinery was dropped because the catalogue has one millinery product. Pictures are borrowed from other categories: the hat for special effects and the silicone mould for weathering, so they need their own images. Links are store searches.
 - Start here: heading, text and button label are invented. It shows products from the existing `top-picks` collection.
 - Right now at Makers Realm: tabs use `top-picks` for Popular and `all` for New in and Back in stock, so the last two are not really "new" or "back in stock". Point each tab at a real collection.
 - Guides and tutorials: three invented titles with no links. There is no blog.

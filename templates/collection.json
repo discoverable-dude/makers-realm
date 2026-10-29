@@ -40,17 +40,25 @@
         "c3": {
           "type": "chip",
           "settings": {
-            "label": "Millinery",
-            "text": "For hats and headpieces",
-            "value": "Millinery"
+            "label": "Special effects & make-up",
+            "text": "For latex, blood and face paint",
+            "value": "Special effects & make-up"
           }
         },
         "c4": {
           "type": "chip",
           "settings": {
-            "label": "Home crafting",
-            "text": "For home and gifts",
-            "value": "Home crafting"
+            "label": "Casting & home crafting",
+            "text": "For casting and gifts",
+            "value": "Casting & home crafting"
+          }
+        },
+        "c5": {
+          "type": "chip",
+          "settings": {
+            "label": "Weathering & finishing",
+            "text": "For ageing and special finishes",
+            "value": "Weathering & finishing"
           }
         }
       },
@@ -58,7 +66,8 @@
         "c1",
         "c2",
         "c3",
-        "c4"
+        "c4",
+        "c5"
       ],
       "settings": {
         "heading": "What are you making?",
