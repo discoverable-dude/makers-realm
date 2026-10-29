@@ -9,7 +9,23 @@
   }
 {%- endstyle -%}
 
-<div class="collection-hero{% if section.settings.show_collection_image and collection.image %} collection-hero--with-image{% endif %} color-{{ section.settings.color_scheme }} gradient">
+{%- assign mr_art = section.settings.banner_art -%}
+<div class="collection-hero{% if section.settings.show_collection_image and collection.image %} collection-hero--with-image{% endif %}{% if mr_art != 'none' %} mr-collection-hero--art{% if mr_art contains 'photo' %} mr-collection-hero--photo{% endif %}{% endif %} color-{{ section.settings.color_scheme }} gradient">
+  {%- if mr_art != 'none' -%}
+    <div class="mr-collection-art" aria-hidden="true">
+      {%- assign mr_art_base = 'mr-hero-' | append: mr_art -%}
+      <img
+        class="mr-collection-art__image"
+        src="{{ mr_art_base | append: '-900.jpg' | asset_url }}"
+        srcset="{{ mr_art_base | append: '-900.jpg' | asset_url }} 900w, {{ mr_art_base | append: '-2000.jpg' | asset_url }} 2000w"
+        sizes="100vw"
+        width="2000"
+        height="848"
+        alt=""
+        loading="eager"
+      >
+    </div>
+  {%- endif -%}
   <div class="collection-hero__inner page-width {% if settings.animations_reveal_on_scroll %} scroll-trigger animate--fade-in{% endif %}">
     <div class="collection-hero__text-wrapper">
       {%- render 'mr-breadcrumbs', collection: collection -%}
@@ -66,6 +82,20 @@
       "id": "show_collection_image",
       "default": false,
       "label": "t:sections.main-collection-banner.settings.show_collection_image.label"
+    },
+    {
+      "type": "select",
+      "id": "banner_art",
+      "label": "Banner artwork",
+      "info": "Built-in picture behind the title, on the right.",
+      "options": [
+        { "value": "none", "label": "None" },
+        { "value": "watercolour-shelf", "label": "Watercolour, shelves and helmet" },
+        { "value": "watercolour-bunting", "label": "Watercolour, bunting and shelves" },
+        { "value": "photo-window", "label": "Photo, helmet by the window" },
+        { "value": "photo-shelves", "label": "Photo, helmet and paint shelves" }
+      ],
+      "default": "none"
     },
     {
       "type": "color_scheme",

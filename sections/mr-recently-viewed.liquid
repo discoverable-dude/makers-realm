@@ -1,0 +1,102 @@
+<mr-recently-viewed
+  class="mr-rv color-{{ section.settings.color_scheme }} gradient"
+  {% if template.name == 'product' %}
+    data-handle="{{ product.handle }}"
+  {% endif %}
+  data-limit="{{ section.settings.limit }}"
+  data-currency="{{ cart.currency.iso_code }}"
+  hidden
+>
+  <div class="mr-rv__inner page-width">
+    {%- if section.settings.heading != blank -%}
+      <h2 class="mr-rv__heading h2">{{ section.settings.heading | escape }}</h2>
+    {%- endif -%}
+    <ul class="mr-rv__list" role="list"></ul>
+  </div>
+</mr-recently-viewed>
+<script src="{{ 'mr-recently-viewed.js' | asset_url }}" defer="defer"></script>
+
+{% stylesheet %}
+  .mr-rv {
+    padding: 4rem 0;
+  }
+
+  .mr-rv__heading {
+    margin: 0 0 2.4rem;
+  }
+
+  .mr-rv__list {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.6rem;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+
+  .mr-rv__item a {
+    display: flex;
+    flex-direction: column;
+    gap: 0.4rem;
+    color: var(--mr-navy);
+    text-decoration: none;
+  }
+
+  .mr-rv__item img {
+    display: block;
+    width: 100%;
+    aspect-ratio: 1;
+    object-fit: cover;
+    border: 1px solid var(--mr-tan);
+  }
+
+  .mr-rv__title {
+    font-weight: 700;
+  }
+
+  .mr-rv__price {
+    color: var(--mr-muted);
+  }
+
+  @media screen and (min-width: 990px) {
+    .mr-rv__list {
+      grid-template-columns: repeat(5, 1fr);
+    }
+  }
+{% endstylesheet %}
+
+{% schema %}
+{
+  "name": "Recently viewed",
+  "tag": "section",
+  "class": "section",
+  "settings": [
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Heading",
+      "default": "Recently viewed"
+    },
+    {
+      "type": "range",
+      "id": "limit",
+      "label": "Products to show",
+      "min": 2,
+      "max": 5,
+      "step": 1,
+      "default": 5
+    },
+    {
+      "type": "color_scheme",
+      "id": "color_scheme",
+      "label": "Colour scheme",
+      "default": "scheme-mr-cream"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Recently viewed"
+    }
+  ]
+}
+{% endschema %}

@@ -19,7 +19,7 @@
         "rating_line": {
           "type": "text",
           "settings": {
-            "text": "4.8 rating · 126 reviews",
+            "text": "4.8 rating \u00b7 126 reviews",
             "text_style": "body"
           }
         },
@@ -52,7 +52,7 @@
         "delivery_line": {
           "type": "text",
           "settings": {
-            "text": "In stock · Dispatched from the UK · Delivery from £3.95",
+            "text": "In stock \u00b7 Dispatched from the UK \u00b7 Delivery from \u00a33.95",
             "text_style": "body"
           }
         },
@@ -70,18 +70,40 @@
           "settings": {
             "share_label": "Share"
           }
+        },
+        "rating": {
+          "type": "rating",
+          "settings": {}
+        },
+        "size_guide": {
+          "type": "mr_info_popup",
+          "settings": {
+            "label": "Pack and size guide",
+            "title": "Pack and size guide",
+            "content": "<p>Sizes are shown on each option. If you are not sure how much you need, get in touch and we will help you work it out.</p>"
+          }
+        },
+        "complementary": {
+          "type": "complementary",
+          "settings": {
+            "block_heading": "Frequently bought together",
+            "make_collapsible_row": false
+          }
         }
       },
       "block_order": [
         "title",
         "rating_line",
+        "rating",
         "price",
         "description",
         "variant_picker",
         "quantity_selector",
         "buy_buttons",
         "delivery_line",
+        "size_guide",
         "help_box",
+        "complementary",
         "share"
       ],
       "settings": {
@@ -147,6 +169,14 @@
         "padding_top": 36,
         "padding_bottom": 44
       }
+    },
+    "recently_viewed": {
+      "type": "mr-recently-viewed",
+      "settings": {
+        "heading": "Recently viewed",
+        "limit": 5,
+        "color_scheme": "scheme-mr-cream"
+      }
     }
   },
   "order": [
@@ -154,6 +184,7 @@
     "product_details",
     "disclosures",
     "quick-order-list",
-    "related-products"
+    "related-products",
+    "recently_viewed"
   ]
 }

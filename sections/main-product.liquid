@@ -497,6 +497,22 @@
                     section_id: section.id,
                     show_pickup_availability: true
                   -%}
+                {%- when 'mr_info_popup' -%}
+                  {%- if block.settings.label != blank and block.settings.content != blank -%}
+                    <div class="mr-info-popup" {{ block.shopify_attributes }}>
+                      <button type="button" class="mr-info-popup__open link" data-mr-dialog="MrInfo-{{ block.id }}">
+                        {{- block.settings.label | escape -}}
+                      </button>
+                      <dialog id="MrInfo-{{ block.id }}" class="mr-dialog" aria-labelledby="MrInfo-{{ block.id }}-title">
+                        <div class="mr-dialog__panel">
+                          <button type="button" class="mr-dialog__close" aria-label="Close" data-mr-dialog-close>&times;</button>
+                          <h2 id="MrInfo-{{ block.id }}-title" class="mr-dialog__title h3">{{ block.settings.title | default: block.settings.label | escape }}</h2>
+                          <div class="rte">{{ block.settings.content }}</div>
+                        </div>
+                      </dialog>
+                    </div>
+                    <script src="{{ 'mr-dialog.js' | asset_url }}" defer="defer"></script>
+                  {%- endif -%}
                 {%- when 'mr_help_box' -%}
                   {%- if block.settings.heading != blank and block.settings.link != blank -%}
                     <div class="mr-help-box" {{ block.shopify_attributes }}>
@@ -1245,6 +1261,32 @@
           "id": "page",
           "type": "page",
           "label": "t:sections.main-product.blocks.popup.settings.page.label"
+        }
+      ]
+    },
+    {
+      "type": "mr_info_popup",
+      "name": "Info popup",
+      "settings": [
+        {
+          "type": "paragraph",
+          "content": "A link that opens a pop-up, for a size guide, pack guide or safety note. Hidden until a label and content are filled in."
+        },
+        {
+          "type": "text",
+          "id": "label",
+          "label": "Link label",
+          "default": "Size guide"
+        },
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Pop-up title"
+        },
+        {
+          "type": "richtext",
+          "id": "content",
+          "label": "Content"
         }
       ]
     },
