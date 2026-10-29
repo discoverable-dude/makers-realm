@@ -1,0 +1,99 @@
+{% doc %}
+  Promo card shown inside a collection grid. Each collection can override the text, link, picture and position with
+  collection metafields in the `custom` namespace: promo_heading, promo_text, promo_button, promo_link, promo_image.
+
+  @param {section} section - The collection grid section that owns the card.
+  @param {collection} collection - The collection being viewed.
+{% enddoc %}
+
+{%- liquid
+  assign heading = collection.metafields.custom.promo_heading.value | default: section.settings.promo_heading
+  assign text = collection.metafields.custom.promo_text.value | default: section.settings.promo_text
+  assign button = collection.metafields.custom.promo_button.value | default: section.settings.promo_button
+  assign link = collection.metafields.custom.promo_link.value | default: section.settings.promo_link
+  assign image = collection.metafields.custom.promo_image.value | default: section.settings.promo_image
+  assign art = section.settings.promo_art
+-%}
+
+{%- if heading != blank -%}
+  <a class="mr-promo__card"{% if link != blank %} href="{{ link }}"{% endif %}>
+    {%- if image != blank -%}
+      {{
+        image
+        | image_url: width: 900
+        | image_tag: loading: 'lazy', widths: '400, 700, 900', sizes: '(min-width: 990px) 33vw, 100vw', class: 'mr-promo__image', alt: ''
+      }}
+    {%- elsif art != 'none' -%}
+      <img class="mr-promo__image" src="{{ 'mr-tile-' | append: art | append: '.jpg' | asset_url }}" width="800" height="678" loading="lazy" alt="">
+    {%- endif -%}
+    <span class="mr-promo__body">
+      <span class="mr-promo__heading">{{ heading | escape }}</span>
+      {%- if text != blank -%}
+        <span class="mr-promo__text">{{ text | escape }}</span>
+      {%- endif -%}
+      {%- if button != blank -%}
+        <span class="mr-promo__button">{{ button | escape }}</span>
+      {%- endif -%}
+    </span>
+  </a>
+{%- endif -%}
+
+{% stylesheet %}
+  .mr-promo__card {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    min-height: 24rem;
+    overflow: hidden;
+    border: 1px dashed var(--mr-sky);
+    border-radius: 0.8rem;
+    background: var(--mr-navy);
+    color: #fff;
+    text-decoration: none;
+  }
+
+  .mr-promo__image {
+    display: block;
+    width: 100%;
+    height: 14rem;
+    object-fit: cover;
+  }
+
+  .mr-promo__body {
+    display: flex;
+    flex: 1 1 auto;
+    flex-direction: column;
+    gap: 0.8rem;
+    padding: 1.6rem;
+  }
+
+  .mr-promo__heading {
+    font-family: var(--mr-font-hand);
+    font-size: 3rem;
+    line-height: 1.05;
+  }
+
+  .mr-promo__text {
+    color: #e6edf6;
+  }
+
+  .mr-promo__button {
+    align-self: flex-start;
+    margin-top: auto;
+    padding: 0.8rem 1.6rem;
+    border: 1px solid #fff;
+    border-radius: 0.6rem;
+  }
+
+  .mr-promo__card:hover .mr-promo__button {
+    background: #fff;
+    color: var(--mr-navy);
+  }
+
+  @media screen and (min-width: 990px) {
+    .mr-promo--wide {
+      grid-column: span 2;
+    }
+  }
+{% endstylesheet %}

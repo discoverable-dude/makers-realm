@@ -27,7 +27,10 @@
                 aria-current="true"
               {% endunless %}
             >
-              {{- section.settings.all_label | escape -}}
+              <span class="mr-chip__title">{{ section.settings.all_label | escape }}</span>
+              {%- if section.settings.all_text != blank -%}
+                <span class="mr-chip__text">{{ section.settings.all_text | escape }}</span>
+              {%- endif -%}
             </a>
           </li>
         {%- endif -%}
@@ -52,7 +55,10 @@
                 aria-current="true"
               {% endif %}
             >
-              {{- block.settings.label | escape -}}
+              <span class="mr-chip__title">{{ block.settings.label | escape }}</span>
+              {%- if block.settings.text != blank -%}
+                <span class="mr-chip__text">{{ block.settings.text | escape }}</span>
+              {%- endif -%}
             </a>
           </li>
         {%- endfor -%}
@@ -67,7 +73,37 @@
   }
 
   .mr-chips__heading {
-    margin: 0 0 0.4rem;
+    margin: 0 0 1.2rem;
+    color: var(--mr-muted);
+    font-family: var(--mr-font-body);
+    font-size: 1.3rem;
+    font-weight: 400;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+  }
+
+  .mr-chip {
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+    gap: 0.2rem;
+    border-radius: 0;
+    background: #fff;
+  }
+
+  .mr-chip__title {
+    font-family: var(--mr-font-hand);
+    font-size: 2.2rem;
+    line-height: 1.1;
+  }
+
+  .mr-chip__text {
+    color: var(--mr-muted);
+    font-size: 1.4rem;
+  }
+
+  .mr-chip--active .mr-chip__text {
+    color: inherit;
   }
 
   .mr-chips__intro {
@@ -85,12 +121,10 @@
 
   .mr-chip {
     display: inline-flex;
-    align-items: center;
     min-height: 4.4rem;
-    padding: 0 1.8rem;
-    border: 1px solid rgb(var(--color-foreground));
-    border-radius: 4rem;
-    color: rgb(var(--color-foreground));
+    padding: 1rem 1.8rem;
+    border: 1px solid var(--mr-navy);
+    color: var(--mr-navy);
     text-decoration: none;
     white-space: nowrap;
   }
@@ -100,8 +134,8 @@
   }
 
   .mr-chip--active {
-    background: rgb(var(--color-foreground));
-    color: rgb(var(--color-background));
+    background: var(--mr-navy);
+    color: #fff;
   }
 
   @media screen and (max-width: 749px) {
@@ -148,6 +182,11 @@
       "default": "All"
     },
     {
+      "type": "text",
+      "id": "all_text",
+      "label": "Small line under the clear chip"
+    },
+    {
       "type": "color_scheme",
       "id": "color_scheme",
       "label": "Colour scheme",
@@ -163,6 +202,11 @@
           "type": "text",
           "id": "label",
           "label": "Label"
+        },
+        {
+          "type": "text",
+          "id": "text",
+          "label": "Small line under the label"
         },
         {
           "type": "text",

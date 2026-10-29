@@ -19,20 +19,59 @@
     },
     "project-chips": {
       "type": "mr-filter-chips",
-      "blocks": {},
-      "block_order": [],
+      "blocks": {
+        "c1": {
+          "type": "chip",
+          "settings": {
+            "label": "Cosplay & props",
+            "text": "For armour and props",
+            "value": "Cosplay & props"
+          }
+        },
+        "c2": {
+          "type": "chip",
+          "settings": {
+            "label": "Model making",
+            "text": "For models and miniatures",
+            "value": "Model making"
+          }
+        },
+        "c3": {
+          "type": "chip",
+          "settings": {
+            "label": "Millinery",
+            "text": "For hats and headpieces",
+            "value": "Millinery"
+          }
+        },
+        "c4": {
+          "type": "chip",
+          "settings": {
+            "label": "Home crafting",
+            "text": "For home and gifts",
+            "value": "Home crafting"
+          }
+        }
+      },
+      "block_order": [
+        "c1",
+        "c2",
+        "c3",
+        "c4"
+      ],
       "settings": {
         "heading": "What are you making?",
         "intro": "",
         "filter_param": "filter.p.m.custom.project_type",
         "all_label": "All",
-        "color_scheme": "scheme-mr-cream"
+        "color_scheme": "scheme-mr-cream",
+        "all_text": "Everything in this collection"
       }
     },
     "product-grid": {
       "type": "main-collection-product-grid",
       "settings": {
-        "products_per_page": 20,
+        "products_per_page": 12,
         "columns_desktop": 3,
         "columns_mobile": "2",
         "color_scheme": "scheme-mr-cream",
@@ -46,23 +85,92 @@
         "filter_type": "vertical",
         "enable_sorting": true,
         "padding_top": 36,
-        "padding_bottom": 36
+        "padding_bottom": 36,
+        "promo_enabled": true,
+        "promo_position": 4,
+        "promo_span": "1",
+        "promo_heading": "Need a hand choosing?",
+        "promo_text": "Chat to our team about moulds, resins and release agents.",
+        "promo_button": "Get in touch",
+        "promo_link": "/pages/contact",
+        "promo_art": "all-materials"
       }
     },
     "start-here": {
       "type": "mr-start-here",
       "settings": {
-        "heading": "",
-        "text": "",
-        "button_label": "",
-        "button_link": "",
+        "heading": "New to casting? Start here",
+        "text": "<p>One line pointing to the beginner guide for this collection.</p>",
+        "button_label": "Read the guide",
+        "button_link": "/",
         "color_scheme": "scheme-mr-cream-dark"
+      }
+    },
+    "material-chips": {
+      "type": "mr-filter-chips",
+      "blocks": {
+        "m1": {
+          "type": "chip",
+          "settings": {
+            "label": "Jesmonite",
+            "text": "",
+            "value": "Jesmonite"
+          }
+        },
+        "m2": {
+          "type": "chip",
+          "settings": {
+            "label": "Mouldmaking",
+            "text": "",
+            "value": "Mouldmaking"
+          }
+        },
+        "m3": {
+          "type": "chip",
+          "settings": {
+            "label": "Casting",
+            "text": "",
+            "value": "Casting"
+          }
+        },
+        "m4": {
+          "type": "chip",
+          "settings": {
+            "label": "Mixing",
+            "text": "",
+            "value": "Mixing"
+          }
+        },
+        "m5": {
+          "type": "chip",
+          "settings": {
+            "label": "Measuring",
+            "text": "",
+            "value": "Measuring"
+          }
+        }
+      },
+      "block_order": [
+        "m1",
+        "m2",
+        "m3",
+        "m4",
+        "m5"
+      ],
+      "settings": {
+        "heading": "Material",
+        "intro": "",
+        "filter_param": "filter.p.tag",
+        "all_label": "All",
+        "all_text": "",
+        "color_scheme": "scheme-mr-cream"
       }
     }
   },
   "order": [
     "banner",
     "project-chips",
+    "material-chips",
     "product-grid",
     "start-here"
   ]

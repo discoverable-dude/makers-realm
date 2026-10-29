@@ -3,6 +3,9 @@
     <ul class="mr-trust__list page-width" role="list">
       {%- for block in section.blocks -%}
         <li class="mr-trust__item" {{ block.shopify_attributes }}>
+          {%- if block.settings.icon != 'none' -%}
+            <span class="mr-trust__icon">{% render 'mr-icon', name: block.settings.icon %}</span>
+          {%- endif -%}
           <strong class="mr-trust__title">{{ block.settings.title | escape }}</strong>
           {%- if block.settings.text != blank -%}
             <span class="mr-trust__text">{{ block.settings.text | escape }}</span>
@@ -22,17 +25,37 @@
   .mr-trust__list {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
-    gap: 1.6rem 2.4rem;
+    gap: 2.4rem 1.6rem;
     margin: 0 auto;
-    padding-top: 2rem;
-    padding-bottom: 2rem;
+    padding-top: 3.2rem;
+    padding-bottom: 3.2rem;
     list-style: none;
   }
 
   .mr-trust__item {
     display: flex;
     flex-direction: column;
-    gap: 0.2rem;
+    align-items: center;
+    gap: 0.4rem;
+    text-align: center;
+  }
+
+  .mr-trust__icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 5.2rem;
+    height: 5.2rem;
+    margin-bottom: 0.6rem;
+    border: 1px dashed var(--mr-sky);
+    border-radius: 50%;
+    background: #fff;
+    color: var(--mr-red);
+  }
+
+  .mr-trust__title {
+    color: var(--mr-navy);
+    font-size: 1.8rem;
   }
 
   .mr-trust__text {
@@ -68,6 +91,23 @@
       "type": "item",
       "name": "Item",
       "settings": [
+        {
+          "type": "select",
+          "id": "icon",
+          "label": "Icon",
+          "options": [
+            { "value": "none", "label": "None" },
+            { "value": "star", "label": "Star" },
+            { "value": "truck", "label": "Delivery van" },
+            { "value": "heart", "label": "Heart" },
+            { "value": "chat", "label": "Speech bubble" },
+            { "value": "shield", "label": "Shield with tick" },
+            { "value": "tag", "label": "Price tag" },
+            { "value": "clock", "label": "Clock" },
+            { "value": "box", "label": "Parcel" }
+          ],
+          "default": "star"
+        },
         {
           "type": "text",
           "id": "title",

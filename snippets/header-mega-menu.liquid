@@ -68,6 +68,38 @@
                       {%- endif -%}
                     </li>
                   {%- endfor -%}
+                  {%- assign link_key = link.title | downcase | strip -%}
+                  {%- for block in section.blocks -%}
+                    {%- if block.type == 'mr_promo' -%}
+                      {%- assign promo_key = block.settings.menu_item | downcase | strip -%}
+                      {%- if promo_key == link_key -%}
+                        <li class="mr-mega-promo" {{ block.shopify_attributes }}>
+                          <a class="mr-mega-promo__card"{% if block.settings.link != blank %} href="{{ block.settings.link }}"{% endif %}>
+                            {%- if block.settings.image != blank -%}
+                              {{
+                                block.settings.image
+                                | image_url: width: 600
+                                | image_tag: loading: 'lazy', widths: '300, 600', sizes: '300px', class: 'mr-mega-promo__image', alt: ''
+                              }}
+                            {%- elsif block.settings.art != 'none' -%}
+                              <img class="mr-mega-promo__image" src="{{ 'mr-tile-' | append: block.settings.art | append: '.jpg' | asset_url }}" width="800" height="678" loading="lazy" alt="">
+                            {%- endif -%}
+                            <span class="mr-mega-promo__body">
+                              {%- if block.settings.heading != blank -%}
+                                <strong class="mr-mega-promo__heading">{{ block.settings.heading | escape }}</strong>
+                              {%- endif -%}
+                              {%- if block.settings.text != blank -%}
+                                <span>{{ block.settings.text | escape }}</span>
+                              {%- endif -%}
+                              {%- if block.settings.link_label != blank -%}
+                                <span class="mr-mega-promo__link">{{ block.settings.link_label | escape }}</span>
+                              {%- endif -%}
+                            </span>
+                          </a>
+                        </li>
+                      {%- endif -%}
+                    {%- endif -%}
+                  {%- endfor -%}
                 </ul>
               </div>
             </details>

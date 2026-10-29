@@ -165,3 +165,108 @@
   color: var(--mr-navy);
   text-decoration: underline;
 }
+
+/* Header: white menu bar gets a navy rule underneath, as in the mockups */
+@media screen and (min-width: 990px) {
+  .header--top-left .header__inline-menu::before {
+    border-bottom: 2px solid var(--mr-navy);
+  }
+}
+
+/* Mega menu: level-2 headings in the hand font, promo card on the right */
+.mega-menu__link--level-2 {
+  font-family: var(--mr-font-hand);
+  font-size: 2.2rem;
+  color: var(--mr-red);
+}
+
+.mr-mega-promo {
+  grid-column: span 2;
+}
+
+.mr-mega-promo__card {
+  display: block;
+  overflow: hidden;
+  border: 1px dashed var(--mr-sky);
+  border-radius: 0.8rem;
+  background: #fff;
+  color: var(--mr-navy);
+  text-decoration: none;
+}
+
+.mr-mega-promo__image {
+  display: block;
+  width: 100%;
+  height: 14rem;
+  object-fit: cover;
+}
+
+.mr-mega-promo__body {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+  padding: 1.2rem 1.6rem 1.6rem;
+}
+
+.mr-mega-promo__heading {
+  font-family: var(--mr-font-hand);
+  font-size: 2.4rem;
+  line-height: 1.1;
+}
+
+.mr-mega-promo__link {
+  text-decoration: underline;
+}
+
+/* Product cards: names in the body face, image square, quick add outlined */
+.card__heading,
+.card__heading a {
+  font-family: var(--mr-font-body);
+  font-size: 1.7rem;
+  font-weight: 700;
+  color: var(--mr-navy);
+}
+
+.card-wrapper .card__media,
+.card-wrapper .card__inner {
+  border-radius: 0;
+}
+
+.card-wrapper {
+  border: 0;
+}
+
+.card-wrapper .card__inner {
+  border: 1px solid var(--mr-tan);
+}
+
+.card-information .price {
+  color: var(--mr-muted);
+}
+
+/* Filter sidebar: bold group titles, tan rules */
+.facets__summary,
+.facets__heading {
+  font-weight: 700;
+  color: var(--mr-navy);
+}
+
+.facets__disclosure,
+.facets__disclosure-vertical {
+  border-color: var(--mr-tan);
+}
+
+/* Collection title */
+.collection-hero__title {
+  font-size: clamp(4rem, 7vw, 6rem);
+}
+
+.collection-hero__description {
+  color: var(--mr-muted);
+  font-size: 1.8rem;
+}
+
+/* Grid promo cell must not inherit card hover lifts */
+.mr-promo {
+  list-style: none;
+}

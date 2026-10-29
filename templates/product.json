@@ -109,7 +109,8 @@
         "color_scheme": "scheme-2",
         "padding_top": 36,
         "padding_bottom": 16
-      }
+      },
+      "disabled": true
     },
     "related-products": {
       "type": "related-products",

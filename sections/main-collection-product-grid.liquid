@@ -147,6 +147,9 @@
               class="collection{% if section.settings.filter_type != 'vertical' %} page-width{% endif %}"
             >
               <div class="loading-overlay gradient"></div>
+              {%- liquid
+                assign promo_position = collection.metafields.custom.promo_position.value | default: section.settings.promo_position
+              -%}
               <ul
                 id="product-grid"
                 data-id="{{ section.id }}"
@@ -184,6 +187,11 @@
                     %}
                   </li>
                   {%- assign skip_card_product_styles = true -%}
+                  {%- if section.settings.promo_enabled and paginate.current_page == 1 and forloop.index == promo_position -%}
+                    <li class="grid__item mr-promo{% if section.settings.promo_span == '2' %} mr-promo--wide{% endif %}">
+                      {% render 'mr-promo-card', section: section, collection: collection %}
+                    </li>
+                  {%- endif -%}
                 {%- endfor -%}
               </ul>
 
@@ -214,6 +222,79 @@
   "name": "t:sections.main-collection-product-grid.name",
   "class": "section",
   "settings": [
+    {
+      "type": "header",
+      "content": "Promo card"
+    },
+    {
+      "type": "paragraph",
+      "content": "A picture card inside the product grid. Each collection can change its own text, link, picture and position with collection metafields (see docs/promo-cards.md)."
+    },
+    {
+      "type": "checkbox",
+      "id": "promo_enabled",
+      "label": "Show a promo card",
+      "default": false
+    },
+    {
+      "type": "range",
+      "id": "promo_position",
+      "label": "Position in the grid",
+      "min": 1,
+      "max": 12,
+      "step": 1,
+      "default": 4,
+      "info": "After this many products. First page only."
+    },
+    {
+      "type": "select",
+      "id": "promo_span",
+      "label": "Width on desktop",
+      "options": [
+        { "value": "1", "label": "One column" },
+        { "value": "2", "label": "Two columns" }
+      ],
+      "default": "1"
+    },
+    {
+      "type": "text",
+      "id": "promo_heading",
+      "label": "Default heading"
+    },
+    {
+      "type": "text",
+      "id": "promo_text",
+      "label": "Default text"
+    },
+    {
+      "type": "text",
+      "id": "promo_button",
+      "label": "Default button label"
+    },
+    {
+      "type": "url",
+      "id": "promo_link",
+      "label": "Default link"
+    },
+    {
+      "type": "select",
+      "id": "promo_art",
+      "label": "Default built-in picture",
+      "options": [
+        { "value": "none", "label": "None" },
+        { "value": "cosplay", "label": "Helmet" },
+        { "value": "model-making", "label": "Model cottage" },
+        { "value": "millinery", "label": "Hat" },
+        { "value": "home-crafting", "label": "Cast pots" },
+        { "value": "all-materials", "label": "Silicone mould" }
+      ],
+      "default": "none"
+    },
+    {
+      "type": "image_picker",
+      "id": "promo_image",
+      "label": "Default own picture"
+    },
     {
       "type": "range",
       "id": "products_per_page",

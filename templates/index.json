@@ -430,28 +430,32 @@
           "type": "item",
           "settings": {
             "title": "Rated 4.8 by 2,400 customers",
-            "text": "Independent reviews"
+            "text": "Independent reviews",
+            "icon": "star"
           }
         },
         "i2": {
           "type": "item",
           "settings": {
             "title": "Dispatched from the UK",
-            "text": "Fast delivery across the mainland"
+            "text": "Fast delivery across the mainland",
+            "icon": "truck"
           }
         },
         "i3": {
           "type": "item",
           "settings": {
             "title": "Trusted by makers",
-            "text": "Supplying since 2009"
+            "text": "Supplying since 2009",
+            "icon": "heart"
           }
         },
         "i4": {
           "type": "item",
           "settings": {
             "title": "Expert help",
-            "text": "Call 01234 567890"
+            "text": "Call 01234 567890",
+            "icon": "chat"
           }
         }
       },

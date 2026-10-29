@@ -26,3 +26,8 @@ Everything below was added so the preview looks like the mockups. None of it is 
 - Main menu and footer menus are store data. Edit them in Content > Menus.
 - Logo is the text wordmark until a transparent logo file is uploaded in Theme settings.
 - Search & Discovery filters, metafield definitions and product tagging are admin tasks (see `docs/collection-setup.md` and `docs/product-page.md`).
+
+## Added in design round two
+- Collection page: "What are you making?" tiles and the Material chips are placeholders. They filter by metafield `custom.project_type` and by product tag, so clicking one shows no products until those exist.
+- Collection page: promo card "Need a hand choosing?" links to `/pages/contact`, which may not exist. "New to casting? Start here" strip links to `/`.
+- Trust strip icons are chosen per item in the theme editor.
