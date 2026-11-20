@@ -18,3 +18,16 @@ The sub-category tiles only show once the main menu has the five collections at 
 ## Notes
 - The 'Casting Mouldmaking and Sculpting Materials' collection has 73 products, not 66, because the collection also pulls in products tagged Dispenser, Mixing, Resin Pigment or Universal Pigment. Those 7 products use the default product template.
 - There is a duplicate empty collection, `tapes-adhesives-and-fastenings-1`.
+
+## Shop-by-project pages (20 Nov 2026)
+Five pages created in the store, each with its own template and a hero plus a shopping list grouped into stages (for example Shape it, Join and fill, Prime and paint). Products in the lists are real products picked by me from the catalogue, so the client should approve the picks.
+
+| Page | Template |
+|---|---|
+| /pages/cosplay-and-props | page.project-cosplay |
+| /pages/model-making | page.project-model-making |
+| /pages/special-effects-and-make-up | page.project-special-effects |
+| /pages/casting-and-home-crafting | page.project-casting |
+| /pages/weathering-and-finishing | page.project-weathering |
+
+The pages are published (the store is still password protected). To change a list: theme editor > Pages > the page > Project stages > pick a stage > Products. The home page "What are you making?" tiles link to these pages.

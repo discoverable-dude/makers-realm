@@ -478,7 +478,7 @@
             "title": "Cosplay & props",
             "text": "For cosplayers and prop makers",
             "art": "cosplay",
-            "link": "/search?q=cosplay&type=product"
+            "link": "/pages/cosplay-and-props"
           }
         },
         "tile2": {
@@ -487,7 +487,7 @@
             "title": "Model making",
             "text": "For model makers",
             "art": "model-making",
-            "link": "/search?q=model&type=product"
+            "link": "/pages/model-making"
           }
         },
         "tile3": {
@@ -496,7 +496,7 @@
             "title": "Special effects & make-up",
             "text": "Latex, fake blood and face paint",
             "art": "millinery",
-            "link": "/search?q=special+effects&type=product"
+            "link": "/pages/special-effects-and-make-up"
           }
         },
         "tile4": {
@@ -505,7 +505,7 @@
             "title": "Casting & home crafting",
             "text": "Jesmonite, plaster and moulds",
             "art": "home-crafting",
-            "link": "/search?q=jesmonite&type=product"
+            "link": "/pages/casting-and-home-crafting"
           }
         },
         "tile5": {
@@ -514,7 +514,7 @@
             "title": "Weathering & finishing",
             "text": "Ageing, gilding and special finishes",
             "art": "all-materials",
-            "link": "/search?q=weathering&type=product"
+            "link": "/pages/weathering-and-finishing"
           }
         }
       },
