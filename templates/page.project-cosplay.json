@@ -1,0 +1,189 @@
+{
+  "sections": {
+    "hero": {
+      "type": "mr-hero",
+      "settings": {
+        "art": "photo-window",
+        "heading": "Cosplay & props",
+        "heading_tag": "h1",
+        "subheading": "Armour, props and costume pieces. Shape it, join it, paint it, then finish it. Here is what to buy at each stage.",
+        "button_label_1": "",
+        "button_link_1": "",
+        "color_scheme": "scheme-mr-cream"
+      }
+    },
+    "stages": {
+      "type": "mr-project-stages",
+      "blocks": {
+        "s1": {
+          "type": "stage",
+          "settings": {
+            "heading": "Shape it",
+            "text": "Thermoplastic sheets and foam give you the base for armour and props.",
+            "products": [
+              "worbla-thermoplastic",
+              "rhenoflex-sheet-thermoplastic",
+              "wonderflex-sheet-thermoplastic",
+              "eva-foam",
+              "fosshape",
+              "varaform-sheet"
+            ]
+          }
+        },
+        "s2": {
+          "type": "stage",
+          "settings": {
+            "heading": "Join and fill",
+            "text": "Glues and fillers for strong joins and smooth seams.",
+            "products": [
+              "evo-stik-impact-adhesive",
+              "araldite-2-part-epoxy-adhesive-rapid",
+              "gorilla-polyurethane-glue-60-ml",
+              "flexible-polyester-filler-few-1-5-kg",
+              "milliput",
+              "flexi-filler-seam-and-gap-filler-100-g"
+            ]
+          }
+        },
+        "s3": {
+          "type": "stage",
+          "settings": {
+            "heading": "Prime and paint",
+            "text": "Primers and paints for plastics and foam.",
+            "products": [
+              "plastic-primer-cgp-1-l",
+              "flexi-paint",
+              "plastikote-spray-primer-400-ml",
+              "hato-design-acrylic-paint",
+              "kobra-metallic-spray-paints",
+              "montana-metallic-spray-paints-400-ml"
+            ]
+          }
+        },
+        "s4": {
+          "type": "stage",
+          "settings": {
+            "heading": "Finish and weather",
+            "text": "Gilding, dirt and sealers to make it look worn and real.",
+            "products": [
+              "dirty-down-spray-400-ml",
+              "goldfinger-gilding-paste",
+              "liquid-leaf-metallic-paint",
+              "rust-effect-paint",
+              "flexible-clear-coating-gloss",
+              "plastikote-spray-sealer-400-ml"
+            ]
+          }
+        },
+        "s5": {
+          "type": "stage",
+          "settings": {
+            "heading": "Cut and tools",
+            "text": "Blades, cutters and tools for clean edges.",
+            "products": [
+              "hot-knife-foam-cutter",
+              "olfa-knife",
+              "stanley-titan-retractable-knife",
+              "olfa-double-sided-self-healing-cutting-mat-a2"
+            ]
+          }
+        }
+      },
+      "block_order": [
+        "s1",
+        "s2",
+        "s3",
+        "s4",
+        "s5"
+      ],
+      "settings": {
+        "heading": "What you will need",
+        "color_scheme": "scheme-mr-cream"
+      }
+    },
+    "help": {
+      "type": "mr-start-here",
+      "settings": {
+        "heading": "Not sure what you need?",
+        "text": "<p>Tell us what you are making and we will point you to the right materials.</p>",
+        "button_label": "Get in touch",
+        "button_link": "/pages/contact",
+        "collection": "",
+        "color_scheme": "scheme-mr-cream-dark"
+      }
+    },
+    "brands": {
+      "type": "mr-brand-list",
+      "blocks": {
+        "b1": {
+          "type": "brand",
+          "settings": {
+            "name": "Jesmonite"
+          }
+        },
+        "b2": {
+          "type": "brand",
+          "settings": {
+            "name": "Olfa"
+          }
+        },
+        "b3": {
+          "type": "brand",
+          "settings": {
+            "name": "PlastiKote"
+          }
+        },
+        "b4": {
+          "type": "brand",
+          "settings": {
+            "name": "Hato"
+          }
+        },
+        "b5": {
+          "type": "brand",
+          "settings": {
+            "name": "Stanley"
+          }
+        },
+        "b6": {
+          "type": "brand",
+          "settings": {
+            "name": "Dirty Down"
+          }
+        },
+        "b7": {
+          "type": "brand",
+          "settings": {
+            "name": "Polyvine"
+          }
+        },
+        "b8": {
+          "type": "brand",
+          "settings": {
+            "name": "Evo-Stik"
+          }
+        }
+      },
+      "block_order": [
+        "b1",
+        "b2",
+        "b3",
+        "b4",
+        "b5",
+        "b6",
+        "b7",
+        "b8"
+      ],
+      "settings": {
+        "heading": "Brands we stock",
+        "color_scheme": "scheme-mr-cream"
+      }
+    }
+  },
+  "order": [
+    "hero",
+    "stages",
+    "help",
+    "brands"
+  ]
+}

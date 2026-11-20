@@ -49,7 +49,7 @@
     <div class="mr-hero__row{% if section.settings.image != blank %} mr-hero__row--with-image{% endif %}">
       <div class="mr-hero__text">
         {%- if section.settings.heading != blank -%}
-          <h2 class="mr-hero__heading h0">{{ section.settings.heading | escape }}</h2>
+          <{{ section.settings.heading_tag }} class="mr-hero__heading h0">{{ section.settings.heading | escape }}</{{ section.settings.heading_tag }}>
         {%- endif -%}
         {%- if section.settings.subheading != blank -%}
           <p class="mr-hero__sub">{{ section.settings.subheading | escape }}</p>
@@ -220,6 +220,17 @@
       "id": "heading",
       "label": "Headline",
       "default": "Step inside the Makers Realm"
+    },
+    {
+      "type": "select",
+      "id": "heading_tag",
+      "label": "Heading level",
+      "info": "Use H1 on pages that have no other main heading. The home page already has one in the header.",
+      "options": [
+        { "value": "h2", "label": "H2" },
+        { "value": "h1", "label": "H1" }
+      ],
+      "default": "h2"
     },
     {
       "type": "text",

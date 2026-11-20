@@ -1,0 +1,181 @@
+{
+  "sections": {
+    "hero": {
+      "type": "mr-hero",
+      "settings": {
+        "art": "watercolour-bunting",
+        "heading": "Special effects & make-up",
+        "heading_tag": "h1",
+        "subheading": "Latex, blood, gore and face paint, with the sprays that add dirt and age.",
+        "button_label_1": "",
+        "button_link_1": "",
+        "color_scheme": "scheme-mr-cream"
+      }
+    },
+    "stages": {
+      "type": "mr-project-stages",
+      "blocks": {
+        "s1": {
+          "type": "stage",
+          "settings": {
+            "heading": "Wounds and prosthetics",
+            "text": "Latex, gels and gore for skin effects.",
+            "products": [
+              "liquid-latex-for-make-up-effects",
+              "latex-thickener-100-g",
+              "bruise-gel",
+              "dirty-down-gore-and-snot",
+              "za22-skin-safe-silicone"
+            ]
+          }
+        },
+        "s2": {
+          "type": "stage",
+          "settings": {
+            "heading": "Blood",
+            "text": "A range of fake blood for different looks.",
+            "products": [
+              "fake-blood-original-problood",
+              "fake-blood-dark-problood",
+              "fake-congealed-blood",
+              "fake-blood-kryolan",
+              "fake-blood-pigs-might-fly",
+              "permblood-blood-effect-for-costume"
+            ]
+          }
+        },
+        "s3": {
+          "type": "stage",
+          "settings": {
+            "heading": "Face and body",
+            "text": "Face paint to start with.",
+            "products": [
+              "face-paint-snazaroo-mini-starter-kit"
+            ]
+          }
+        },
+        "s4": {
+          "type": "stage",
+          "settings": {
+            "heading": "Dirt and ageing",
+            "text": "Sprays for grime, frost and dust.",
+            "products": [
+              "dirty-down-spray-400-ml",
+              "dirty-down-frost-snow-spray-400-ml",
+              "dirty-down-mould-spray-400-ml",
+              "dirty-down-rust-spray-400-ml"
+            ]
+          }
+        },
+        "s5": {
+          "type": "stage",
+          "settings": {
+            "heading": "Glow and UV",
+            "text": "Effects that show up in the dark or under UV.",
+            "products": [
+              "glow-in-the-dark-paint",
+              "invisible-uv-acrylic-paint",
+              "rustoleum-glow-in-the-dark-spray-paint-400-ml",
+              "glow-gaffer-tape"
+            ]
+          }
+        }
+      },
+      "block_order": [
+        "s1",
+        "s2",
+        "s3",
+        "s4",
+        "s5"
+      ],
+      "settings": {
+        "heading": "What you will need",
+        "color_scheme": "scheme-mr-cream"
+      }
+    },
+    "help": {
+      "type": "mr-start-here",
+      "settings": {
+        "heading": "Not sure what you need?",
+        "text": "<p>Tell us what you are making and we will point you to the right materials.</p>",
+        "button_label": "Get in touch",
+        "button_link": "/pages/contact",
+        "collection": "",
+        "color_scheme": "scheme-mr-cream-dark"
+      }
+    },
+    "brands": {
+      "type": "mr-brand-list",
+      "blocks": {
+        "b1": {
+          "type": "brand",
+          "settings": {
+            "name": "Jesmonite"
+          }
+        },
+        "b2": {
+          "type": "brand",
+          "settings": {
+            "name": "Olfa"
+          }
+        },
+        "b3": {
+          "type": "brand",
+          "settings": {
+            "name": "PlastiKote"
+          }
+        },
+        "b4": {
+          "type": "brand",
+          "settings": {
+            "name": "Hato"
+          }
+        },
+        "b5": {
+          "type": "brand",
+          "settings": {
+            "name": "Stanley"
+          }
+        },
+        "b6": {
+          "type": "brand",
+          "settings": {
+            "name": "Dirty Down"
+          }
+        },
+        "b7": {
+          "type": "brand",
+          "settings": {
+            "name": "Polyvine"
+          }
+        },
+        "b8": {
+          "type": "brand",
+          "settings": {
+            "name": "Evo-Stik"
+          }
+        }
+      },
+      "block_order": [
+        "b1",
+        "b2",
+        "b3",
+        "b4",
+        "b5",
+        "b6",
+        "b7",
+        "b8"
+      ],
+      "settings": {
+        "heading": "Brands we stock",
+        "color_scheme": "scheme-mr-cream"
+      }
+    }
+  },
+  "order": [
+    "hero",
+    "stages",
+    "help",
+    "brands"
+  ]
+}

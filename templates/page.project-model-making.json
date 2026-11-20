@@ -1,0 +1,188 @@
+{
+  "sections": {
+    "hero": {
+      "type": "mr-hero",
+      "settings": {
+        "art": "watercolour-shelf",
+        "heading": "Model making",
+        "heading_tag": "h1",
+        "subheading": "Models, miniatures and dioramas, from the first cut to the last wash of weathering.",
+        "button_label_1": "",
+        "button_link_1": "",
+        "color_scheme": "scheme-mr-cream"
+      }
+    },
+    "stages": {
+      "type": "mr-project-stages",
+      "blocks": {
+        "s1": {
+          "type": "stage",
+          "settings": {
+            "heading": "Build",
+            "text": "Balsa, board and fillers to make the shape.",
+            "products": [
+              "balsa-wood-variety-pack",
+              "polystyrene-balls",
+              "black-foam-board",
+              "milliput",
+              "rigid-pvc-board-605-x-605-x-3-mm",
+              "plasticine"
+            ]
+          }
+        },
+        "s2": {
+          "type": "stage",
+          "settings": {
+            "heading": "Cut and shape",
+            "text": "Blades, files and a cutting mat.",
+            "products": [
+              "olfa-knife",
+              "scalpel-handle",
+              "disposable-scalpel",
+              "surform",
+              "olfa-double-sided-self-healing-cutting-mat-a2",
+              "stainless-steel-ruler"
+            ]
+          }
+        },
+        "s3": {
+          "type": "stage",
+          "settings": {
+            "heading": "Glue",
+            "text": "Adhesives for small parts and bigger joins.",
+            "products": [
+              "zap-a-gap-super-glue",
+              "super-glue",
+              "high-viscosity-super-glue-50-g",
+              "evo-stik-pva",
+              "e6000-multi-purpose-adhesive"
+            ]
+          }
+        },
+        "s4": {
+          "type": "stage",
+          "settings": {
+            "heading": "Paint",
+            "text": "Primers and acrylics for detail.",
+            "products": [
+              "spectrum-acrylic-white-gesso-primer",
+              "hato-design-acrylic-paint",
+              "liquitex-high-gloss-varnish-946-ml",
+              "very-black-paint-1-l",
+              "fluorescent-acrylic-paint"
+            ]
+          }
+        },
+        "s5": {
+          "type": "stage",
+          "settings": {
+            "heading": "Weather and finish",
+            "text": "Ageing, crackle and dulling effects.",
+            "products": [
+              "dirty-down-matt-dulling-spray-400-ml",
+              "polyvine-crackle-glaze",
+              "crackle-varnish-1-l",
+              "rust-effect-paint",
+              "dirty-down-brushable-paints"
+            ]
+          }
+        }
+      },
+      "block_order": [
+        "s1",
+        "s2",
+        "s3",
+        "s4",
+        "s5"
+      ],
+      "settings": {
+        "heading": "What you will need",
+        "color_scheme": "scheme-mr-cream"
+      }
+    },
+    "help": {
+      "type": "mr-start-here",
+      "settings": {
+        "heading": "Not sure what you need?",
+        "text": "<p>Tell us what you are making and we will point you to the right materials.</p>",
+        "button_label": "Get in touch",
+        "button_link": "/pages/contact",
+        "collection": "",
+        "color_scheme": "scheme-mr-cream-dark"
+      }
+    },
+    "brands": {
+      "type": "mr-brand-list",
+      "blocks": {
+        "b1": {
+          "type": "brand",
+          "settings": {
+            "name": "Jesmonite"
+          }
+        },
+        "b2": {
+          "type": "brand",
+          "settings": {
+            "name": "Olfa"
+          }
+        },
+        "b3": {
+          "type": "brand",
+          "settings": {
+            "name": "PlastiKote"
+          }
+        },
+        "b4": {
+          "type": "brand",
+          "settings": {
+            "name": "Hato"
+          }
+        },
+        "b5": {
+          "type": "brand",
+          "settings": {
+            "name": "Stanley"
+          }
+        },
+        "b6": {
+          "type": "brand",
+          "settings": {
+            "name": "Dirty Down"
+          }
+        },
+        "b7": {
+          "type": "brand",
+          "settings": {
+            "name": "Polyvine"
+          }
+        },
+        "b8": {
+          "type": "brand",
+          "settings": {
+            "name": "Evo-Stik"
+          }
+        }
+      },
+      "block_order": [
+        "b1",
+        "b2",
+        "b3",
+        "b4",
+        "b5",
+        "b6",
+        "b7",
+        "b8"
+      ],
+      "settings": {
+        "heading": "Brands we stock",
+        "color_scheme": "scheme-mr-cream"
+      }
+    }
+  },
+  "order": [
+    "hero",
+    "stages",
+    "help",
+    "brands"
+  ]
+}

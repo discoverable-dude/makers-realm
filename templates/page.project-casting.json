@@ -1,0 +1,185 @@
+{
+  "sections": {
+    "hero": {
+      "type": "mr-hero",
+      "settings": {
+        "art": "photo-shelves",
+        "heading": "Casting & home crafting",
+        "heading_tag": "h1",
+        "subheading": "Take a mould, cast it in Jesmonite, plaster or resin, then colour and seal it.",
+        "button_label_1": "",
+        "button_link_1": "",
+        "color_scheme": "scheme-mr-cream"
+      }
+    },
+    "stages": {
+      "type": "mr-project-stages",
+      "blocks": {
+        "s1": {
+          "type": "stage",
+          "settings": {
+            "heading": "Make the mould",
+            "text": "Silicone, alginate and bandage to take an impression.",
+            "products": [
+              "rtv-silicone-rubber",
+              "alginate-550-g",
+              "za22-skin-safe-silicone",
+              "plaster-bandage",
+              "mod-roc",
+              "paper-cup"
+            ]
+          }
+        },
+        "s2": {
+          "type": "stage",
+          "settings": {
+            "heading": "Mix and cast",
+            "text": "Jesmonite, plaster and resin to fill the mould.",
+            "products": [
+              "jesmonite-ac100",
+              "jesmonite-ac730-kit",
+              "jesmonite-mini-kits-coasters",
+              "jesmonite-mini-kits-tea-light",
+              "crystacal-r-plaster-25-kg",
+              "general-casting-plaster"
+            ]
+          }
+        },
+        "s3": {
+          "type": "stage",
+          "settings": {
+            "heading": "Release agents",
+            "text": "Stop the cast sticking to the mould.",
+            "products": [
+              "universal-mould-release-12-oz-0-34-kg",
+              "mould-release-wax-500-g",
+              "formula-6-spray-release-agent"
+            ]
+          }
+        },
+        "s4": {
+          "type": "stage",
+          "settings": {
+            "heading": "Colour",
+            "text": "Pigments for casts and silicone.",
+            "products": [
+              "jesmonite-pigment",
+              "pigments-for-silicone",
+              "mixol-universal-stainer",
+              "tranparent-resin-pigment-500-g",
+              "polyester-resin-pigment"
+            ]
+          }
+        },
+        "s5": {
+          "type": "stage",
+          "settings": {
+            "heading": "Seal and protect",
+            "text": "Sealers for the finished cast.",
+            "products": [
+              "jesmonite-flexiguard-sealer",
+              "jesmonite-penetrating-sealer",
+              "jesmonite-acrylic-sealer",
+              "stone-and-brick-protector-1-l"
+            ]
+          }
+        }
+      },
+      "block_order": [
+        "s1",
+        "s2",
+        "s3",
+        "s4",
+        "s5"
+      ],
+      "settings": {
+        "heading": "What you will need",
+        "color_scheme": "scheme-mr-cream"
+      }
+    },
+    "help": {
+      "type": "mr-start-here",
+      "settings": {
+        "heading": "Not sure what you need?",
+        "text": "<p>Tell us what you are making and we will point you to the right materials.</p>",
+        "button_label": "Get in touch",
+        "button_link": "/pages/contact",
+        "collection": "",
+        "color_scheme": "scheme-mr-cream-dark"
+      }
+    },
+    "brands": {
+      "type": "mr-brand-list",
+      "blocks": {
+        "b1": {
+          "type": "brand",
+          "settings": {
+            "name": "Jesmonite"
+          }
+        },
+        "b2": {
+          "type": "brand",
+          "settings": {
+            "name": "Olfa"
+          }
+        },
+        "b3": {
+          "type": "brand",
+          "settings": {
+            "name": "PlastiKote"
+          }
+        },
+        "b4": {
+          "type": "brand",
+          "settings": {
+            "name": "Hato"
+          }
+        },
+        "b5": {
+          "type": "brand",
+          "settings": {
+            "name": "Stanley"
+          }
+        },
+        "b6": {
+          "type": "brand",
+          "settings": {
+            "name": "Dirty Down"
+          }
+        },
+        "b7": {
+          "type": "brand",
+          "settings": {
+            "name": "Polyvine"
+          }
+        },
+        "b8": {
+          "type": "brand",
+          "settings": {
+            "name": "Evo-Stik"
+          }
+        }
+      },
+      "block_order": [
+        "b1",
+        "b2",
+        "b3",
+        "b4",
+        "b5",
+        "b6",
+        "b7",
+        "b8"
+      ],
+      "settings": {
+        "heading": "Brands we stock",
+        "color_scheme": "scheme-mr-cream"
+      }
+    }
+  },
+  "order": [
+    "hero",
+    "stages",
+    "help",
+    "brands"
+  ]
+}
