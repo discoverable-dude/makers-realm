@@ -431,3 +431,16 @@
   color: var(--mr-navy);
   text-decoration: underline;
 }
+
+/* Mobile menu and cart drawers: hand-font headings */
+.menu-drawer__menu-item,
+.menu-drawer__menu .list-menu__item {
+  font-family: var(--mr-font-hand);
+  font-size: 2.4rem;
+}
+
+.drawer__heading,
+.cart-drawer__heading,
+.cart__empty-text {
+  font-family: var(--mr-font-hand);
+}

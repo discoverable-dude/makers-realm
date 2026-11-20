@@ -1,0 +1,22 @@
+{
+  "sections": {
+    "main": {
+      "type": "main-page",
+      "settings": {
+        "padding_top": 36,
+        "padding_bottom": 20
+      }
+    },
+    "brands": {
+      "type": "mr-brand-index",
+      "settings": {
+        "heading": "All brands",
+        "color_scheme": "scheme-mr-cream"
+      }
+    }
+  },
+  "order": [
+    "main",
+    "brands"
+  ]
+}
