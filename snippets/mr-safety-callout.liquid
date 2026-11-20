@@ -1,0 +1,43 @@
+{% doc %}
+  Safety callout for the buy box: the safety note and a link to the data sheet. Prints nothing when a product has neither.
+
+  @param {product} product - The product on the page.
+{% enddoc %}
+
+{%- assign callout_note = product.metafields.custom.safety_note.value -%}
+{%- assign callout_sheet = product.metafields.custom.safety_data_sheet.value -%}
+
+{%- if callout_note != blank or callout_sheet != blank -%}
+  <div class="mr-safety" role="note">
+    <span class="mr-safety__icon">{% render 'mr-icon', name: 'shield' %}</span>
+    <div>
+      <strong>Safety</strong>
+      {%- if callout_note != blank -%}
+        <p>{{ callout_note | escape | newline_to_br }}</p>
+      {%- endif -%}
+      {%- if callout_sheet != blank -%}
+        <a href="{{ callout_sheet.url | default: callout_sheet }}" target="_blank" rel="noopener">Safety data sheet (PDF)</a>
+      {%- endif -%}
+    </div>
+  </div>
+{%- endif -%}
+
+{% stylesheet %}
+  .mr-safety {
+    display: flex;
+    gap: 1.2rem;
+    margin: 1.6rem 0;
+    padding: 1.2rem 1.6rem;
+    border: 1px solid var(--mr-red);
+    border-radius: 0.6rem;
+    background: #fff;
+  }
+
+  .mr-safety__icon {
+    color: var(--mr-red);
+  }
+
+  .mr-safety p {
+    margin: 0.4rem 0;
+  }
+{% endstylesheet %}

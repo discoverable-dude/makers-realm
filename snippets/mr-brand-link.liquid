@@ -1,0 +1,12 @@
+{% doc %}
+  Brand link above the product title. Prints nothing when the vendor is just the shop name.
+
+  @param {product} product - The product on the page.
+  @param {object} block - The block that renders this, for editor highlighting.
+{% enddoc %}
+
+{%- if product.vendor != shop.name -%}
+  <p class="mr-brand" {{ block.shopify_attributes }}>
+    <a href="{{ product.vendor | url_for_vendor }}">{{ product.vendor | escape }}</a>
+  </p>
+{%- endif -%}

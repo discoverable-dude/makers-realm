@@ -1,0 +1,141 @@
+{%- liquid
+  assign parent_link = blank
+  for link in linklists[section.settings.menu].links
+    if link.title == collection.title or link.url == collection.url
+      assign parent_link = link
+      break
+    endif
+  endfor
+-%}
+
+{%- if parent_link != blank and parent_link.links.size > 0 -%}
+  <div class="mr-sub color-{{ section.settings.color_scheme }} gradient">
+    <div class="mr-sub__inner page-width">
+      {%- if section.settings.heading != blank -%}
+        <h2 class="mr-sub__heading h3">{{ section.settings.heading | escape }}</h2>
+      {%- endif -%}
+      <ul class="mr-sub__list" role="list">
+        {%- for child in parent_link.links -%}
+          {%- assign child_collection = child.object -%}
+          <li>
+            <a class="mr-sub__tile" href="{{ child.url }}">
+              {%- if child.type == 'collection_link' and child_collection.image -%}
+                {{
+                  child_collection.image
+                  | image_url: width: 500
+                  | image_tag: loading: 'lazy', widths: '250, 500', sizes: '(min-width: 990px) 18vw, 45vw', class: 'mr-sub__image', alt: ''
+                }}
+              {%- endif -%}
+              <span class="mr-sub__title">{{ child.title | escape }}</span>
+              {%- if child.type == 'collection_link' -%}
+                <span class="mr-sub__count">{{ child_collection.products_count }} {{ child_collection.products_count | pluralize: 'product', 'products' }}</span>
+              {%- endif -%}
+            </a>
+          </li>
+        {%- endfor -%}
+      </ul>
+    </div>
+  </div>
+{%- endif -%}
+
+{% stylesheet %}
+  .mr-sub {
+    padding: 2.4rem 0 0.8rem;
+  }
+
+  .mr-sub__heading {
+    margin: 0 0 1.2rem;
+  }
+
+  .mr-sub__list {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.2rem;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+
+  .mr-sub__tile {
+    display: flex;
+    flex-direction: column;
+    gap: 0.2rem;
+    height: 100%;
+    overflow: hidden;
+    border: 1px dashed var(--mr-sky);
+    border-radius: 0.8rem;
+    background: #fff;
+    color: var(--mr-navy);
+    text-decoration: none;
+  }
+
+  .mr-sub__tile:hover {
+    border-style: solid;
+  }
+
+  .mr-sub__image {
+    display: block;
+    width: 100%;
+    aspect-ratio: 4 / 3;
+    object-fit: cover;
+  }
+
+  .mr-sub__title {
+    padding: 1.2rem 1.4rem 0;
+    font-family: var(--mr-font-hand);
+    font-size: 2.4rem;
+    line-height: 1.1;
+  }
+
+  .mr-sub__count {
+    padding: 0 1.4rem 1.2rem;
+    color: var(--mr-muted);
+  }
+
+  .mr-sub__tile > :first-child:not(.mr-sub__image) {
+    padding-top: 1.6rem;
+  }
+
+  @media screen and (min-width: 990px) {
+    .mr-sub__list {
+      grid-template-columns: repeat(5, 1fr);
+    }
+  }
+{% endstylesheet %}
+
+{% schema %}
+{
+  "name": "Sub-category tiles",
+  "tag": "section",
+  "class": "section",
+  "settings": [
+    {
+      "type": "paragraph",
+      "content": "Shows the second-level items under this collection's entry in the menu as picture tiles. Fill-in is automatic: build the menu with the collection as a top-level item and its sub-collections underneath."
+    },
+    {
+      "type": "link_list",
+      "id": "menu",
+      "label": "Menu",
+      "default": "main-menu"
+    },
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Heading",
+      "default": "Shop by type"
+    },
+    {
+      "type": "color_scheme",
+      "id": "color_scheme",
+      "label": "Colour scheme",
+      "default": "scheme-mr-cream"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Sub-category tiles"
+    }
+  ]
+}
+{% endschema %}

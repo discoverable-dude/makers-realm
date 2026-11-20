@@ -1,0 +1,54 @@
+{% doc %}
+  Compact row of key facts for the buy box: skill level, mix ratio, dry time and coverage. Prints nothing when a product has none.
+
+  @param {product} product - The product on the page.
+{% enddoc %}
+
+{%- assign facts_difficulty = product.metafields.custom.difficulty.value -%}
+{%- assign facts_mix = product.metafields.custom.mix_ratio.value -%}
+{%- assign facts_dry = product.metafields.custom.dry_time.value -%}
+{%- assign facts_coverage = product.metafields.custom.coverage.value -%}
+
+{%- if facts_difficulty != blank or facts_mix != blank or facts_dry != blank or facts_coverage != blank -%}
+  <ul class="mr-kf" role="list">
+    {%- if facts_difficulty != blank -%}
+      <li><span class="mr-kf__label">Skill level</span><strong>{{ facts_difficulty | escape }}</strong></li>
+    {%- endif -%}
+    {%- if facts_mix != blank -%}
+      <li><span class="mr-kf__label">Mix ratio</span><strong>{{ facts_mix | escape }}</strong></li>
+    {%- endif -%}
+    {%- if facts_dry != blank -%}
+      <li><span class="mr-kf__label">Dries or cures in</span><strong>{{ facts_dry | escape }}</strong></li>
+    {%- endif -%}
+    {%- if facts_coverage != blank -%}
+      <li><span class="mr-kf__label">Coverage</span><strong>{{ facts_coverage | escape }}</strong></li>
+    {%- endif -%}
+  </ul>
+{%- endif -%}
+
+{% stylesheet %}
+  .mr-kf {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 0.8rem;
+    margin: 1.6rem 0;
+    padding: 0;
+    list-style: none;
+  }
+
+  .mr-kf li {
+    display: flex;
+    flex-direction: column;
+    padding: 0.8rem 1.2rem;
+    border: 1px dashed var(--mr-sky);
+    border-radius: 0.6rem;
+    background: #fff;
+  }
+
+  .mr-kf__label {
+    color: var(--mr-muted);
+    font-size: 1.2rem;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+  }
+{% endstylesheet %}

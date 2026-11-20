@@ -444,3 +444,22 @@
 .cart__empty-text {
   font-family: var(--mr-font-hand);
 }
+
+/* Brand chip, used on the home page, collection pages and the brand index */
+.mr-brand-chip {
+  display: inline-flex;
+  align-items: center;
+  min-height: 4.4rem;
+  padding: 0 2rem;
+  border: 1px solid var(--mr-navy);
+  background: #fff;
+  color: var(--mr-navy);
+  font-family: var(--mr-font-hand);
+  font-size: 2.2rem;
+  text-decoration: none;
+}
+
+.mr-brand-chip:hover {
+  background: var(--mr-navy);
+  color: #fff;
+}

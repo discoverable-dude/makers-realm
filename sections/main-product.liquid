@@ -497,12 +497,12 @@
                     section_id: section.id,
                     show_pickup_availability: true
                   -%}
+                {%- when 'mr_key_facts' -%}
+                  {%- render 'mr-key-facts', product: product -%}
+                {%- when 'mr_safety' -%}
+                  {%- render 'mr-safety-callout', product: product -%}
                 {%- when 'mr_brand' -%}
-                  {%- if product.vendor != shop.name -%}
-                    <p class="mr-brand" {{ block.shopify_attributes }}>
-                      <a href="{{ product.vendor | url_for_vendor }}">{{ product.vendor | escape }}</a>
-                    </p>
-                  {%- endif -%}
+                  {%- render 'mr-brand-link', product: product, block: block -%}
                 {%- when 'mr_summary' -%}
                   {%- capture mr_summary -%}{%- render 'mr-product-summary', product: product -%}{%- endcapture -%}
                   {%- if mr_summary != blank -%}
@@ -1276,6 +1276,28 @@
           "id": "page",
           "type": "page",
           "label": "t:sections.main-product.blocks.popup.settings.page.label"
+        }
+      ]
+    },
+    {
+      "type": "mr_key_facts",
+      "name": "Key facts",
+      "limit": 1,
+      "settings": [
+        {
+          "type": "paragraph",
+          "content": "Skill level, mix ratio, dry time and coverage from the product's metafields. Hidden when none are filled in."
+        }
+      ]
+    },
+    {
+      "type": "mr_safety",
+      "name": "Safety callout",
+      "limit": 1,
+      "settings": [
+        {
+          "type": "paragraph",
+          "content": "The product's safety note and data sheet link in a boxed callout. Hidden when neither is filled in."
         }
       ]
     },

@@ -1,0 +1,71 @@
+{%- liquid
+  assign brand_count = 0
+  for vendor in collection.all_vendors
+    if vendor != shop.name
+      assign brand_count = brand_count | plus: 1
+    endif
+  endfor
+-%}
+
+{%- if brand_count > 0 -%}
+  <div class="mr-cb color-{{ section.settings.color_scheme }} gradient">
+    <div class="mr-cb__inner page-width">
+      {%- if section.settings.heading != blank -%}
+        <h2 class="mr-cb__heading h3">{{ section.settings.heading | escape }}</h2>
+      {%- endif -%}
+      <ul class="mr-cb__list" role="list">
+        {%- for vendor in collection.all_vendors -%}
+          {%- if vendor != shop.name -%}
+            <li><a class="mr-brand-chip" href="{{ vendor | url_for_vendor }}">{{ vendor | escape }}</a></li>
+          {%- endif -%}
+        {%- endfor -%}
+      </ul>
+    </div>
+  </div>
+{%- endif -%}
+
+{% stylesheet %}
+  .mr-cb {
+    padding: 2rem 0 0.8rem;
+  }
+
+  .mr-cb__heading {
+    margin: 0 0 1.2rem;
+  }
+
+  .mr-cb__list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.8rem;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+{% endstylesheet %}
+
+{% schema %}
+{
+  "name": "Brands in this collection",
+  "tag": "section",
+  "class": "section",
+  "settings": [
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Heading",
+      "default": "Brands in this collection"
+    },
+    {
+      "type": "color_scheme",
+      "id": "color_scheme",
+      "label": "Colour scheme",
+      "default": "scheme-mr-cream"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Brands in this collection"
+    }
+  ]
+}
+{% endschema %}

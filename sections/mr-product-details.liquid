@@ -33,8 +33,11 @@
   endif
   assign has_facts = false
   if mix_ratio != blank or dry_time != blank or coverage != blank or difficulty != blank
-    assign has_facts = true
+    assign has_facts = section.settings.show_facts
   endif
+  unless section.settings.show_safety
+    assign safety_note = ''
+  endunless
   assign has_content = false
   if what_it_is != blank or how_to_use != blank or why_choose != blank or features.size > 0 or perfect_for.size > 0 or in_the_box.size > 0 or safety_note != blank or faqs.size > 0 or specs_text != blank or has_facts
     assign has_content = true
@@ -358,6 +361,20 @@
     {
       "type": "paragraph",
       "content": "Fills from product metafields in the 'custom' namespace: what_it_is, why_choose (multi-line text), features, perfect_for (list of single line text), specifications (multi-line text, one 'Label: value' per line). Each block only shows when it has content."
+    },
+    {
+      "type": "checkbox",
+      "id": "show_facts",
+      "label": "Show the key facts row",
+      "info": "Switch off when the product template already shows key facts in the buy box.",
+      "default": true
+    },
+    {
+      "type": "checkbox",
+      "id": "show_safety",
+      "label": "Show the safety block",
+      "info": "Switch off when the product template already shows a safety callout in the buy box.",
+      "default": true
     },
     {
       "type": "checkbox",
