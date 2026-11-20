@@ -497,6 +497,12 @@
                     section_id: section.id,
                     show_pickup_availability: true
                   -%}
+                {%- when 'mr_brand' -%}
+                  {%- if product.vendor != shop.name -%}
+                    <p class="mr-brand" {{ block.shopify_attributes }}>
+                      <a href="{{ product.vendor | url_for_vendor }}">{{ product.vendor | escape }}</a>
+                    </p>
+                  {%- endif -%}
                 {%- when 'mr_summary' -%}
                   {%- capture mr_summary -%}{%- render 'mr-product-summary', product: product -%}{%- endcapture -%}
                   {%- if mr_summary != blank -%}
@@ -1270,6 +1276,17 @@
           "id": "page",
           "type": "page",
           "label": "t:sections.main-product.blocks.popup.settings.page.label"
+        }
+      ]
+    },
+    {
+      "type": "mr_brand",
+      "name": "Brand link",
+      "limit": 1,
+      "settings": [
+        {
+          "type": "paragraph",
+          "content": "Shows the product's brand above the title and links to everything from that brand. Hidden for products whose vendor is just the shop name."
         }
       ]
     },

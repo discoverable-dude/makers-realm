@@ -11,11 +11,78 @@
   "sections": {
     "main": {
       "type": "main-404",
+      "settings": {}
+    },
+    "quick_links": {
+      "type": "mr-quick-links",
+      "blocks": {
+        "l1": {
+          "type": "link",
+          "settings": {
+            "label": "Jesmonite",
+            "link": ""
+          }
+        },
+        "l2": {
+          "type": "link",
+          "settings": {
+            "label": "Worbla",
+            "link": ""
+          }
+        },
+        "l3": {
+          "type": "link",
+          "settings": {
+            "label": "Spray paint",
+            "link": ""
+          }
+        },
+        "l4": {
+          "type": "link",
+          "settings": {
+            "label": "Gaffer tape",
+            "link": ""
+          }
+        },
+        "l5": {
+          "type": "link",
+          "settings": {
+            "label": "Silicone",
+            "link": ""
+          }
+        },
+        "l6": {
+          "type": "link",
+          "settings": {
+            "label": "Fake blood",
+            "link": ""
+          }
+        },
+        "l7": {
+          "type": "link",
+          "settings": {
+            "label": "Craft knives",
+            "link": ""
+          }
+        }
+      },
+      "block_order": [
+        "l1",
+        "l2",
+        "l3",
+        "l4",
+        "l5",
+        "l6",
+        "l7"
+      ],
       "settings": {
+        "heading": "Popular searches",
+        "color_scheme": "scheme-mr-cream"
       }
     }
   },
   "order": [
-    "main"
+    "main",
+    "quick_links"
   ]
 }

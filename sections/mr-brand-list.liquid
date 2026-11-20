@@ -1,0 +1,100 @@
+{%- if section.blocks.size > 0 -%}
+  <div class="mr-brands color-{{ section.settings.color_scheme }} gradient">
+    <div class="mr-brands__inner page-width">
+      {%- if section.settings.heading != blank -%}
+        <h2 class="mr-brands__heading h2">{{ section.settings.heading | escape }}</h2>
+      {%- endif -%}
+      <ul class="mr-brands__list" role="list">
+        {%- for block in section.blocks -%}
+          {%- if block.settings.name != blank -%}
+            <li {{ block.shopify_attributes }}>
+              <a class="mr-brand-chip" href="{{ block.settings.name | url_for_vendor }}">{{ block.settings.name | escape }}</a>
+            </li>
+          {%- endif -%}
+        {%- endfor -%}
+      </ul>
+    </div>
+  </div>
+{%- endif -%}
+
+{% stylesheet %}
+  .mr-brands {
+    padding: 4rem 0;
+  }
+
+  .mr-brands__heading {
+    margin: 0 0 2rem;
+  }
+
+  .mr-brands__list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.8rem 1.2rem;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+
+  .mr-brand-chip {
+    display: inline-flex;
+    align-items: center;
+    min-height: 4.4rem;
+    padding: 0 2rem;
+    border: 1px solid var(--mr-navy);
+    background: #fff;
+    color: var(--mr-navy);
+    font-family: var(--mr-font-hand);
+    font-size: 2.2rem;
+    text-decoration: none;
+  }
+
+  .mr-brand-chip:hover {
+    background: var(--mr-navy);
+    color: #fff;
+  }
+{% endstylesheet %}
+
+{% schema %}
+{
+  "name": "Brand list",
+  "tag": "section",
+  "class": "section",
+  "settings": [
+    {
+      "type": "paragraph",
+      "content": "Brand names linking to everything from that brand. The name must match the product Vendor exactly."
+    },
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Heading",
+      "default": "Brands we stock"
+    },
+    {
+      "type": "color_scheme",
+      "id": "color_scheme",
+      "label": "Colour scheme",
+      "default": "scheme-mr-cream"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "brand",
+      "name": "Brand",
+      "settings": [
+        {
+          "type": "text",
+          "id": "name",
+          "label": "Brand name"
+        }
+      ]
+    }
+  ],
+  "max_blocks": 24,
+  "presets": [
+    {
+      "name": "Brand list"
+    }
+  ]
+}
+{% endschema %}

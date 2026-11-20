@@ -413,3 +413,21 @@
   flex: 0 0 auto;
   color: var(--mr-red);
 }
+
+/* Brand link above the product title */
+.mr-brand {
+  margin: 0 0 0.4rem;
+  font-size: 1.4rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.mr-brand a {
+  color: var(--mr-muted);
+  text-decoration: none;
+}
+
+.mr-brand a:hover {
+  color: var(--mr-navy);
+  text-decoration: underline;
+}

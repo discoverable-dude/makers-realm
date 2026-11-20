@@ -699,6 +699,101 @@
         "all_link": "",
         "color_scheme": "scheme-mr-cream-dark"
       }
+    },
+    "brand_list": {
+      "type": "mr-brand-list",
+      "blocks": {
+        "b1": {
+          "type": "brand",
+          "settings": {
+            "name": "Jesmonite"
+          }
+        },
+        "b2": {
+          "type": "brand",
+          "settings": {
+            "name": "Olfa"
+          }
+        },
+        "b3": {
+          "type": "brand",
+          "settings": {
+            "name": "PlastiKote"
+          }
+        },
+        "b4": {
+          "type": "brand",
+          "settings": {
+            "name": "Hato"
+          }
+        },
+        "b5": {
+          "type": "brand",
+          "settings": {
+            "name": "Stanley"
+          }
+        },
+        "b6": {
+          "type": "brand",
+          "settings": {
+            "name": "Dirty Down"
+          }
+        },
+        "b7": {
+          "type": "brand",
+          "settings": {
+            "name": "Polyvine"
+          }
+        },
+        "b8": {
+          "type": "brand",
+          "settings": {
+            "name": "Evo-Stik"
+          }
+        },
+        "b9": {
+          "type": "brand",
+          "settings": {
+            "name": "Kobra"
+          }
+        },
+        "b10": {
+          "type": "brand",
+          "settings": {
+            "name": "Montana"
+          }
+        },
+        "b11": {
+          "type": "brand",
+          "settings": {
+            "name": "Proxxon"
+          }
+        },
+        "b12": {
+          "type": "brand",
+          "settings": {
+            "name": "Plastidip"
+          }
+        }
+      },
+      "block_order": [
+        "b1",
+        "b2",
+        "b3",
+        "b4",
+        "b5",
+        "b6",
+        "b7",
+        "b8",
+        "b9",
+        "b10",
+        "b11",
+        "b12"
+      ],
+      "settings": {
+        "heading": "Brands we stock",
+        "color_scheme": "scheme-mr-cream"
+      }
     }
   },
   "order": [
@@ -707,6 +802,7 @@
     "project_tiles",
     "collection_grid",
     "start_here",
+    "brand_list",
     "product_tabs",
     "guides",
     "image_banner",

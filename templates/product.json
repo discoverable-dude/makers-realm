@@ -109,9 +109,14 @@
             "item_2": "Secure checkout",
             "item_3": "Help from people who make things"
           }
+        },
+        "brand": {
+          "type": "mr_brand",
+          "settings": {}
         }
       },
       "block_order": [
+        "brand",
         "title",
         "rating_line",
         "rating",

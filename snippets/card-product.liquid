@@ -169,10 +169,7 @@
               </a>
             </h3>
             <div class="card-information">
-              {%- if show_vendor -%}
-                <span class="visually-hidden">{{ 'accessibility.vendor' | t }}</span>
-                <div class="caption-with-letter-spacing light">{{ card_product.vendor }}</div>
-              {%- endif -%}
+              {%- render 'mr-card-vendor', product: card_product, show_vendor: show_vendor -%}
 
               <span class="caption-large light">{{ block.settings.description | escape }}</span>
 

@@ -1,0 +1,11 @@
+{% doc %}
+  Shows the brand on a product card. Hidden when the vendor is just the shop name.
+
+  @param {product} product - The product on the card.
+  @param {boolean} show_vendor - Whether the section wants vendors shown.
+{% enddoc %}
+
+{%- if show_vendor and product.vendor != shop.name -%}
+  <span class="visually-hidden">{{ 'accessibility.vendor' | t }}</span>
+  <div class="caption-with-letter-spacing light">{{ product.vendor | escape }}</div>
+{%- endif -%}
