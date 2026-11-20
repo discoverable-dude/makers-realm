@@ -12,3 +12,8 @@ promo_heading, promo_text, promo_button (single line text) Â· promo_link (URL) Â
 
 ## Still to do in the admin
 - Apps > Search & Discovery > Filters: add Project types, Skill level and Works on as storefront filters.
+
+## Values written (20 Nov 2026)
+Test values on three products only: jesmonite-ac100, worbla-thermoplastic, dirty-down-gore-and-snot (what_it_is, how_to_use, faqs, perfect_for, project_types, and mix_ratio for Jesmonite AC100). Text is from the existing descriptions, split into fields. US spellings are kept as in the source and still need a UK spelling pass.
+
+Known problems in `docs/product-metafields-import.csv` (to fix before the full import): the "Best for" line is glued onto the last FAQ answer, works_on is unreliable, and project_types puts "Weathering & finishing" on too many products.
