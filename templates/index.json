@@ -429,9 +429,9 @@
         "i1": {
           "type": "item",
           "settings": {
-            "title": "Rated 4.8 by 2,400 customers",
-            "text": "Independent reviews",
-            "icon": "star"
+            "title": "Secure checkout",
+            "text": "Pay by card, PayPal or Klarna",
+            "icon": "shield"
           }
         },
         "i2": {

@@ -16,13 +16,6 @@
           "type": "title",
           "settings": {}
         },
-        "rating_line": {
-          "type": "text",
-          "settings": {
-            "text": "4.8 rating \u00b7 126 reviews",
-            "text_style": "body"
-          }
-        },
         "price": {
           "type": "price",
           "settings": {}
@@ -121,7 +114,6 @@
       "block_order": [
         "brand",
         "title",
-        "rating_line",
         "rating",
         "price",
         "summary",

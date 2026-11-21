@@ -595,3 +595,9 @@
   .mr-promo .mr-promo__card { min-height: 16rem; }
   .mr-promo .mr-promo__image { max-height: 14rem; object-fit: cover; }
 }
+
+/* Start here: tighter gap between hero and finder on mobile */
+@media screen and (max-width: 749px) {
+  .shopify-section:has(.mr-hero--art):has(+ .shopify-section .mr-finder) .mr-hero--art { padding-bottom: 0.8rem; }
+  .shopify-section:has(.mr-hero--art) + .shopify-section .mr-finder { padding-top: 2rem; }
+}
