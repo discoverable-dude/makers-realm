@@ -591,6 +591,6 @@
 
 /* Mobile: the promo card spans the full row so it does not stretch its neighbours */
 @media screen and (max-width: 749px) {
-  .mr-promo { grid-column: 1 / -1; }
+  .mr-promo { grid-column: 1 / -1; width: 100%; max-width: 100%; }
   .mr-promo .mr-promo__card { min-height: 16rem; }
 }
