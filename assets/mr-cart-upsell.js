@@ -107,6 +107,7 @@ class MrCartUpsell extends HTMLElement {
         if (typeof publish === 'function' && typeof PUB_SUB_EVENTS !== 'undefined') {
           publish(PUB_SUB_EVENTS.cartUpdate, { source: 'mr-cart-upsell', productVariantId: variantId, cartData: data });
         }
+        cart.classList.remove('is-empty');
         cart.renderContents(data);
       } else {
         window.location = window.routes.cart_url;
