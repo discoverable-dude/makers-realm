@@ -1,0 +1,36 @@
+{% doc %}
+  "Brands" group for predictive search: the distinct brands (vendors) of the matched products, each linking to that brand's page.
+  Prints nothing when none of the matches has a brand other than the shop name.
+
+  @param {object} products - The predictive search product results.
+{% enddoc %}
+
+{%- liquid
+  assign seen = '|'
+  assign shown = 0
+  capture items
+    for product in products
+      assign marker = product.vendor | prepend: '|' | append: '|'
+      unless seen contains marker or product.vendor == shop.name
+        assign seen = seen | append: product.vendor | append: '|'
+        assign shown = shown | plus: 1
+        if shown <= 4
+          echo '<li class="predictive-search__list-item" role="option" aria-selected="false"><a href="'
+          echo product.vendor | url_for_vendor
+          echo '" class="predictive-search__item link link--text" tabindex="-1"><div class="predictive-search__item-content predictive-search__item-content--centered"><p class="predictive-search__item-heading h5">'
+          echo product.vendor | escape
+          echo '</p></div></a></li>'
+        endif
+      endunless
+    endfor
+  endcapture
+-%}
+
+{%- if shown > 0 -%}
+  <div>
+    <h2 id="predictive-search-brands" class="predictive-search__heading text-body caption-with-letter-spacing">Brands</h2>
+    <ul id="predictive-search-results-brands-list" class="predictive-search__results-list list-unstyled" role="group" aria-labelledby="predictive-search-brands">
+      {{ items }}
+    </ul>
+  </div>
+{%- endif -%}

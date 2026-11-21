@@ -1,7 +1,10 @@
 {% comment %}theme-check-disable ImgLazyLoading{% endcomment %}
 <div id="predictive-search-results" role="listbox">
   {%- if predictive_search.performed -%}
+    {%- capture mr_brands -%}{%- render 'mr-predictive-brands', products: predictive_search.resources.products -%}{%- endcapture -%}
+    {%- assign mr_brands_bump = mr_brands | strip | size | at_most: 1 -%}
     {% assign first_column_results_size = predictive_search.resources.queries.size
+      | plus: mr_brands_bump
       | plus: predictive_search.resources.collections.size
       | plus: predictive_search.resources.pages.size
       | plus: predictive_search.resources.articles.size
@@ -62,6 +65,7 @@
         </ul>
       </div>
     {%- endif -%}
+    {{ mr_brands }}
     {%- if predictive_search.resources.articles.size > 0 or predictive_search.resources.pages.size > 0 -%}
       <div class="predictive-search__pages-wrapper">
         <h2

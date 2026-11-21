@@ -1,20 +1,67 @@
 {% doc %}
-  Visible search field for the desktop header. On small screens the theme's search icon is used instead.
+  Visible search field for the desktop header. Uses the theme's predictive search for suggestions and shows popular searches
+  (the "popular-searches" menu) when the field is focused and empty. On small screens the theme's search icon is used instead.
 {% enddoc %}
 
-<form class="mr-header-search" action="{{ routes.search_url }}" method="get" role="search">
-  <label class="visually-hidden" for="MrHeaderSearch">{{ 'general.search.search' | t }}</label>
-  <input
-    id="MrHeaderSearch"
-    class="mr-header-search__input"
-    type="search"
-    name="q"
-    value="{{ search.terms | escape }}"
-    placeholder="Search materials, for example EVA foam or jesmonite"
-    autocomplete="off"
-  >
-  <input type="hidden" name="options[prefix]" value="last">
-  <button class="mr-header-search__button" type="submit" aria-label="{{ 'general.search.search' | t }}">
-    <span class="svg-wrapper">{{- 'icon-search.svg' | inline_asset_content -}}</span>
-  </button>
-</form>
+<div class="mr-header-search">
+  {%- if settings.predictive_search_enabled -%}
+    <predictive-search class="mr-header-search__form" data-loading-text="{{ 'accessibility.loading' | t }}">
+  {%- endif -%}
+  <form action="{{ routes.search_url }}" method="get" role="search" class="search mr-header-search__search">
+    <div class="field">
+      <input
+        class="search__input field__input mr-header-search__input"
+        id="MrHeaderSearch"
+        type="search"
+        name="q"
+        value="{{ search.terms | escape }}"
+        placeholder="Search materials, for example EVA foam or jesmonite"
+        {%- if settings.predictive_search_enabled -%}
+          role="combobox"
+          aria-expanded="false"
+          aria-owns="predictive-search-results"
+          aria-controls="predictive-search-results"
+          aria-haspopup="listbox"
+          aria-autocomplete="list"
+          autocorrect="off"
+          autocomplete="off"
+          autocapitalize="off"
+          spellcheck="false"
+        {%- else -%}
+          autocomplete="off"
+        {%- endif -%}
+      >
+      <label class="field__label visually-hidden" for="MrHeaderSearch">{{ 'general.search.search' | t }}</label>
+      <input type="hidden" name="options[prefix]" value="last">
+      <button type="reset" class="reset__button field__button{% if search.terms == blank %} hidden{% endif %}" aria-label="{{ 'general.search.reset' | t }}">
+        <span class="svg-wrapper">{{- 'icon-reset.svg' | inline_asset_content -}}</span>
+      </button>
+      <button class="search__button field__button" aria-label="{{ 'general.search.search' | t }}">
+        <span class="svg-wrapper">{{- 'icon-search.svg' | inline_asset_content -}}</span>
+      </button>
+    </div>
+
+    {%- if settings.predictive_search_enabled -%}
+      <div class="predictive-search predictive-search--header mr-header-search__results" tabindex="-1" data-predictive-search>
+        {%- render 'loading-spinner', class: 'predictive-search__loading-state' -%}
+      </div>
+      <span class="predictive-search-status visually-hidden" role="status" aria-hidden="true"></span>
+    {%- endif -%}
+
+    {%- assign popular = linklists['popular-searches'] -%}
+    {%- if popular.links.size > 0 -%}
+      <div class="mr-header-search__popular" hidden>
+        <p class="mr-header-search__popular-heading">Popular searches</p>
+        <ul class="mr-header-search__popular-list" role="list">
+          {%- for link in popular.links -%}
+            <li><a href="{{ link.url }}">{{ link.title | escape }}</a></li>
+          {%- endfor -%}
+        </ul>
+      </div>
+    {%- endif -%}
+  </form>
+  {%- if settings.predictive_search_enabled -%}
+    </predictive-search>
+  {%- endif -%}
+</div>
+<script src="{{ 'mr-header-search.js' | asset_url }}" defer="defer"></script>
