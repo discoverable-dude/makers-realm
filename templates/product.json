@@ -46,11 +46,8 @@
           }
         },
         "delivery_line": {
-          "type": "text",
-          "settings": {
-            "text": "In stock \u00b7 Dispatched from the UK \u00b7 Delivery from \u00a33.95",
-            "text_style": "body"
-          }
+          "type": "mr_delivery",
+          "settings": {}
         },
         "help_box": {
           "type": "mr_help_box",

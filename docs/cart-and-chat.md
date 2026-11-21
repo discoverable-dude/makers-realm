@@ -41,3 +41,13 @@ Navy bar fixed to the bottom of the screen below 750px: Home, Shop (opens the me
 It reuses the theme's own menu, search and basket controls, so it opens whatever they open. The sticky Add to basket bar on product pages and the back to top button sit above it. Switch it off in Theme settings > Makers Realm > "Show the bottom bar on phones".
 
 If a chat app is added later, set its launcher to sit above the bar (about 6 rem from the bottom on phones).
+
+## Free delivery threshold (21 Nov 2026)
+One number drives the messages: Theme settings > Cart > "Free UK delivery threshold" (pounds). It is currently **75, a placeholder** until the client confirms their real figure.
+- Cart drawer and cart page: progress bar and "You are £x away from free UK delivery".
+- Product pages: a delivery line under the buy box, "Free UK delivery over £75 · Dispatched from the UK" (the part after the dot is Theme settings > Makers Realm > "Delivery note on product pages"). It replaces the earlier placeholder line that also quoted an invented "from £3.95".
+- Clear the number to hide the cart bar and the product page line.
+
+Still manual, because the CLI access has no shipping permission:
+1. Settings > Shipping and delivery > the general profile > UK rate: add a free shipping rate with the minimum order value set to the same figure, so checkout actually matches the message.
+2. The announcement bar text ("Free UK delivery over £75 · Dispatched from the UK") is a plain text field. Change it by hand if the threshold changes.

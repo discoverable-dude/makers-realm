@@ -1474,6 +1474,17 @@
         "label": "Show the bottom bar on phones",
         "info": "Home, Shop, Search and Basket along the bottom of the screen on small screens.",
         "default": true
+      },
+      {
+        "type": "paragraph",
+        "content": "The free delivery threshold itself is in the Cart group (Free UK delivery threshold). The cart message and the product page line both use it."
+      },
+      {
+        "type": "text",
+        "id": "delivery_note",
+        "label": "Delivery note on product pages",
+        "info": "Shown after the free delivery line, for example 'Dispatched from the UK'. Leave empty to hide.",
+        "default": "Dispatched from the UK"
       }
     ]
   }

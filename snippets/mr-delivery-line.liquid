@@ -1,0 +1,34 @@
+{% doc %}
+  Delivery line for the product page, driven by Theme settings > Makers Realm: the free delivery threshold and a short delivery note.
+  Prints nothing when neither is set.
+{% enddoc %}
+
+{%- assign delivery_threshold = settings.free_delivery_threshold | default: 0 -%}
+
+{%- if delivery_threshold > 0 or settings.delivery_note != blank -%}
+  <p class="mr-delivery">
+    {% render 'mr-icon', name: 'truck' %}
+    <span>
+      {%- if delivery_threshold > 0 -%}
+        Free UK delivery over {{ delivery_threshold | times: 100 | money_without_trailing_zeros }}
+      {%- endif -%}
+      {%- if delivery_threshold > 0 and settings.delivery_note != blank %} &middot; {% endif -%}
+      {{- settings.delivery_note | escape -}}
+    </span>
+  </p>
+{%- endif -%}
+
+{% stylesheet %}
+  .mr-delivery {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin: 1.2rem 0 0;
+    color: var(--mr-navy);
+  }
+
+  .mr-delivery .mr-icon {
+    flex: 0 0 auto;
+    color: var(--mr-red);
+  }
+{% endstylesheet %}
