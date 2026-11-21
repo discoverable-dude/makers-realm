@@ -35,3 +35,18 @@ About 137 of the 315 products have a brand at the start of the title. The rest a
 
 ## Where to build it
 Content > Menus > Main menu. Add each item above, then drag the second-level items under their parent. Link each one to a collection. For the sub-groups, use a filtered collection URL such as `/collections/casting?filter.p.tag=Jesmonite`, or make smart collections from the tags. After that, the "Mega menu promo" block in the Header section adds a picture card to any top-level item.
+
+## Applied, 21 Nov 2026
+The main menu (`main-menu`) in the store was replaced with this structure through the Shopify CLI. Before the change it read: Home, Shop All, Brands (linking to the Jesmonite collection), Contact, Blog, About Us. To restore it, rebuild those six items in Content > Menus.
+
+Top level, with short labels so they fit on one row:
+- Casting & moulds (8 items): Jesmonite, Mouldmaking, Soft casting materials, Hard casting materials, Plaster, Clay & sculpting, Casting additives, Release agents
+- Paints & finishes (8): Special effects, Spray paint, Metallic finishes, Gilding, Acrylic paint, Fabric paints, Sealers, Varnish
+- Materials & plastics (9): Thermoplastics, Sheet materials, Foam, Rope, Cords, Wire, Fabric, Fillers, Wooden components
+- Tapes & glues (9): Tapes, Gaffer tape, Fluorescent tapes, Adhesives, Spray adhesive, Contact adhesive, Two-part glue, Glue guns, Rivets
+- Tools & sundries (8): Knives, Cutting, Brushes, Mixing, Measuring, Drawing, Propmaking tools, Sundries
+- Shop by project (5): the five project pages
+- Brands (13): the 12 biggest brands plus All brands (the new Brands page, which lists every brand automatically)
+- Contact
+
+Every sub-item points at an existing collection (these were already in the store, most made from tags). Several are small (3 to 5 products), which is why the "Shop by type" tiles on the main collection pages matter. The old Home, Shop All, Blog and About Us items are not in the main menu now. About us and Contact are better in the footer. A Start here item and a Guides item are left out until those pages exist.
