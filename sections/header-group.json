@@ -72,7 +72,7 @@
         "promo1": {
           "type": "mr_promo",
           "settings": {
-            "menu_item": "Casting & moulds",
+            "menu_item": "Casting",
             "art": "all-materials",
             "image": "",
             "colour": "cream",
@@ -85,7 +85,7 @@
         "promo2": {
           "type": "mr_promo",
           "settings": {
-            "menu_item": "Paints & finishes",
+            "menu_item": "Paints",
             "art": "cosplay",
             "image": "",
             "colour": "cream",
@@ -98,7 +98,7 @@
         "promo3": {
           "type": "mr_promo",
           "settings": {
-            "menu_item": "Materials & plastics",
+            "menu_item": "Materials",
             "art": "none",
             "image": "",
             "colour": "navy",
@@ -124,7 +124,7 @@
         "promo5": {
           "type": "mr_promo",
           "settings": {
-            "menu_item": "Tools & sundries",
+            "menu_item": "Tools",
             "art": "model-making",
             "image": "",
             "colour": "cream",
