@@ -1,0 +1,234 @@
+{%- if section.blocks.size > 0 -%}
+  <div class="mr-kits color-{{ section.settings.color_scheme }} gradient">
+    <div class="mr-kits__inner page-width">
+      {%- if section.settings.heading != blank -%}
+        <h2 class="mr-kits__heading h2">{{ section.settings.heading | escape }}</h2>
+      {%- endif -%}
+      {%- if section.settings.intro != blank -%}
+        <p class="mr-kits__intro">{{ section.settings.intro | escape }}</p>
+      {%- endif -%}
+      <div class="mr-kits__grid">
+        {%- for block in section.blocks -%}
+          {%- if block.settings.products.size > 0 -%}
+            <mr-kit class="mr-kit" data-currency="{{ cart.currency.iso_code }}" {{ block.shopify_attributes }}>
+              <h3 class="mr-kit__title h3">{{ block.settings.title | escape }}</h3>
+              {%- if block.settings.text != blank -%}
+                <p class="mr-kit__text">{{ block.settings.text | escape }}</p>
+              {%- endif -%}
+              <ul class="mr-kit__items" role="list">
+                {%- for product in block.settings.products limit: 6 -%}
+                  {%- assign options = product.variants | where: 'available', true | sort: 'price' -%}
+                  {%- if options.size > 0 -%}
+                    <li class="mr-kit__item">
+                      <a class="mr-kit__thumb" href="{{ product.url }}" tabindex="-1" aria-hidden="true">
+                        {%- if product.featured_image -%}
+                          {{ product.featured_image | image_url: width: 120 | image_tag: loading: 'lazy', widths: '60, 120', sizes: '60px', alt: '' }}
+                        {%- endif -%}
+                      </a>
+                      <div class="mr-kit__info">
+                        <a class="mr-kit__name" href="{{ product.url }}">{{ product.title | escape }}</a>
+                        {%- if options.size > 1 -%}
+                          <label class="visually-hidden" for="Kit-{{ block.id }}-{{ product.id }}">{{ product.title | escape }}</label>
+                          <select class="mr-kit__select" id="Kit-{{ block.id }}-{{ product.id }}">
+                            {%- for variant in options -%}
+                              <option value="{{ variant.id }}" data-price="{{ variant.price }}">{{ variant.title | escape }} ({{ variant.price | money }})</option>
+                            {%- endfor -%}
+                          </select>
+                        {%- else -%}
+                          <input type="hidden" class="mr-kit__fixed" value="{{ options.first.id }}" data-price="{{ options.first.price }}">
+                          <span class="mr-kit__price">{{ options.first.price | money }}</span>
+                        {%- endif -%}
+                      </div>
+                    </li>
+                  {%- endif -%}
+                {%- endfor -%}
+              </ul>
+              <div class="mr-kit__foot">
+                <span class="mr-kit__total-label">Kit total</span>
+                <strong class="mr-kit__total">&nbsp;</strong>
+                <button type="button" class="button mr-kit__add">{{ block.settings.button_label | default: 'Add kit to basket' | escape }}</button>
+              </div>
+              <p class="mr-kit__status visually-hidden" role="status"></p>
+            </mr-kit>
+          {%- endif -%}
+        {%- endfor -%}
+      </div>
+    </div>
+  </div>
+  <script src="{{ 'mr-kit.js' | asset_url }}" defer="defer"></script>
+{%- endif -%}
+
+{% stylesheet %}
+  .mr-kits {
+    padding: 4rem 0;
+  }
+
+  .mr-kits__heading {
+    margin: 0 0 0.8rem;
+  }
+
+  .mr-kits__intro {
+    max-width: 60ch;
+    margin: 0 0 2.4rem;
+    color: var(--mr-muted);
+  }
+
+  .mr-kits__grid {
+    display: grid;
+    gap: 1.6rem;
+  }
+
+  .mr-kit {
+    display: flex;
+    flex-direction: column;
+    padding: 2rem;
+    border: 1px dashed var(--mr-sky);
+    border-radius: 0.8rem;
+    background: #fff;
+  }
+
+  .mr-kit__title {
+    margin: 0 0 0.4rem;
+  }
+
+  .mr-kit__text {
+    margin: 0 0 1.2rem;
+    color: var(--mr-muted);
+  }
+
+  .mr-kit__items {
+    display: grid;
+    gap: 1rem;
+    margin: 0 0 1.6rem;
+    padding: 0;
+    list-style: none;
+  }
+
+  .mr-kit__item {
+    display: grid;
+    grid-template-columns: 6rem 1fr;
+    align-items: center;
+    gap: 1.2rem;
+  }
+
+  .mr-kit__thumb img {
+    display: block;
+    width: 6rem;
+    height: 6rem;
+    object-fit: cover;
+    border: 1px solid var(--mr-tan);
+  }
+
+  .mr-kit__info {
+    display: flex;
+    flex-direction: column;
+    gap: 0.4rem;
+    min-width: 0;
+  }
+
+  .mr-kit__name {
+    color: var(--mr-navy);
+    font-weight: 700;
+    text-decoration: none;
+  }
+
+  .mr-kit__select {
+    width: 100%;
+    min-height: 4rem;
+    padding: 0 0.8rem;
+    border: 1px solid var(--mr-tan);
+    border-radius: 0.4rem;
+    background: #fff;
+    color: var(--mr-navy);
+    font: inherit;
+  }
+
+  .mr-kit__price {
+    color: var(--mr-muted);
+  }
+
+  .mr-kit__foot {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 0.8rem 1.2rem;
+    margin-top: auto;
+    padding-top: 1.2rem;
+    border-top: 1px solid var(--mr-tan);
+  }
+
+  .mr-kit__total {
+    flex: 1 1 auto;
+    font-size: 2rem;
+  }
+
+  @media screen and (min-width: 990px) {
+    .mr-kits__grid {
+      grid-template-columns: repeat(3, 1fr);
+    }
+  }
+{% endstylesheet %}
+
+{% schema %}
+{
+  "name": "Starter kits",
+  "tag": "section",
+  "class": "section",
+  "settings": [
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Heading",
+      "default": "Starter kits"
+    },
+    {
+      "type": "text",
+      "id": "intro",
+      "label": "Intro line"
+    },
+    {
+      "type": "color_scheme",
+      "id": "color_scheme",
+      "label": "Colour scheme",
+      "default": "scheme-mr-cream"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "kit",
+      "name": "Kit",
+      "settings": [
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Kit name"
+        },
+        {
+          "type": "text",
+          "id": "text",
+          "label": "One line about the kit"
+        },
+        {
+          "type": "product_list",
+          "id": "products",
+          "label": "Products",
+          "limit": 6,
+          "info": "Each shows its cheapest option that is in stock. Shoppers can change it before adding."
+        },
+        {
+          "type": "text",
+          "id": "button_label",
+          "label": "Button label",
+          "default": "Add kit to basket"
+        }
+      ]
+    }
+  ],
+  "max_blocks": 3,
+  "presets": [
+    {
+      "name": "Starter kits"
+    }
+  ]
+}
+{% endschema %}

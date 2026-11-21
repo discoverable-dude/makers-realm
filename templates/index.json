@@ -794,6 +794,69 @@
         "heading": "Brands we stock",
         "color_scheme": "scheme-mr-cream"
       }
+    },
+    "starter_kits": {
+      "type": "mr-starter-kits",
+      "blocks": {
+        "kit1": {
+          "type": "kit",
+          "settings": {
+            "title": "First casting set",
+            "text": "Everything for a first Jesmonite cast, apart from your mould.",
+            "products": [
+              "jesmonite-ac730-kit",
+              "jesmonite-pigment",
+              "universal-mould-release-12-oz-0-34-kg",
+              "flex-e-bowl",
+              "mixing-sticks-ahhh-sticks-100-pack",
+              "jesmonite-acrylic-sealer"
+            ],
+            "button_label": "Add kit to basket"
+          }
+        },
+        "kit2": {
+          "type": "kit",
+          "settings": {
+            "title": "Armour starter set",
+            "text": "Shape, glue, prime and paint a first armour piece.",
+            "products": [
+              "worbla-thermoplastic",
+              "evo-stik-impact-adhesive",
+              "plastic-primer-cgp-1-l",
+              "plastikote-black-matt-spray-paint-400-ml",
+              "olfa-knife",
+              "olfa-double-sided-self-healing-cutting-mat-a2"
+            ],
+            "button_label": "Add kit to basket"
+          }
+        },
+        "kit3": {
+          "type": "kit",
+          "settings": {
+            "title": "Wounds and blood set",
+            "text": "Latex, gel, blood and a starter face paint kit.",
+            "products": [
+              "liquid-latex-for-make-up-effects",
+              "bruise-gel",
+              "fake-blood-original-problood",
+              "fake-congealed-blood",
+              "face-paint-snazaroo-mini-starter-kit",
+              "budget-brush"
+            ],
+            "button_label": "Add kit to basket"
+          }
+        }
+      },
+      "block_order": [
+        "kit1",
+        "kit2",
+        "kit3"
+      ],
+      "settings": {
+        "heading": "Starter kits",
+        "intro": "A sensible first basket for each project. Change any option before you add it.",
+        "color_scheme": "scheme-mr-cream"
+      }
     }
   },
   "order": [
@@ -802,6 +865,7 @@
     "project_tiles",
     "collection_grid",
     "start_here",
+    "starter_kits",
     "brand_list",
     "product_tabs",
     "guides",

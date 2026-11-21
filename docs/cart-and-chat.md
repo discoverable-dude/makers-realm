@@ -18,3 +18,13 @@ Decision deferred by George. When an app is chosen: install it, set brand colour
 "You might also need" row in the cart drawer (3 products) and on the cart page (4). For each product in the cart it asks Shopify for complementary products, falls back to related products, and skips anything already in the cart or out of stock. Single-variant products get an Add button that adds in place and refreshes the drawer. Products with options show "Choose options". Nothing shows for an empty cart or if no recommendations exist.
 
 The quality depends on the pairings. Set complementary products per product in Apps > Search & Discovery > Recommendations, for example Jesmonite with pigment, sealer and release agent. Until then Shopify's automatic "related" suggestions are used.
+
+## Starter kits (21 Nov 2026)
+"Starter kits" section on the home page, after the Start here strip. Each kit lists up to six real products. Each product shows its cheapest option in stock, and a drop-down lets the shopper change it (the kit total updates). One button adds the whole kit to the basket in a single request and opens the basket drawer.
+
+Draft kits, picked from the catalogue for the client to approve:
+- First casting set: Jesmonite AC730 Kits, Jesmonite Pigment, Universal Mould Release, Flex-e-Bowl, Mixing Sticks, Jesmonite Acrylic Sealer
+- Armour starter set: Worbla Thermoplastic Sheets, Evo-stik Impact Adhesive, Plastic Primer CGP, PlastiKote Matt Black Spray Paint, Olfa Knife, Olfa self-healing cutting mat
+- Wounds and blood set: Liquid Latex for Make Up Effects, Bruise Gel, Problood Original, Fake Congealed Blood, Snazaroo starter face paint kit, Budget Brush
+
+No bundle discount is applied. If the client wants one, it needs a Shopify automatic discount (a commercial decision). Edit kits in the theme editor: Starter kits > a Kit block > Products.
