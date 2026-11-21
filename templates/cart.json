@@ -67,11 +67,20 @@
         "padding_top": 28,
         "padding_bottom": 24
       }
+    },
+    "upsell": {
+      "type": "mr-cart-upsell",
+      "settings": {
+        "heading": "You might also need",
+        "limit": 4,
+        "color_scheme": "scheme-mr-cream"
+      }
     }
   },
   "order": [
     "cart-items",
     "cart-footer",
+    "upsell",
     "featured-collection"
   ]
 }

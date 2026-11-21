@@ -1,0 +1,45 @@
+<div class="mr-upsell-section color-{{ section.settings.color_scheme }} gradient">
+  <div class="page-width">
+    {%- render 'mr-cart-upsell', heading: section.settings.heading, limit: section.settings.limit, mode: 'page' -%}
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "Cart upsell",
+  "tag": "section",
+  "class": "section",
+  "settings": [
+    {
+      "type": "paragraph",
+      "content": "Products that go with what is in the cart, from Shopify's recommendations. Set complementary products in the Search & Discovery app for the best results. Nothing shows for an empty cart."
+    },
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Heading",
+      "default": "You might also need"
+    },
+    {
+      "type": "range",
+      "id": "limit",
+      "label": "Products to show",
+      "min": 2,
+      "max": 6,
+      "step": 1,
+      "default": 4
+    },
+    {
+      "type": "color_scheme",
+      "id": "color_scheme",
+      "label": "Colour scheme",
+      "default": "scheme-mr-cream"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Cart upsell"
+    }
+  ]
+}
+{% endschema %}

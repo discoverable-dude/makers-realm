@@ -13,3 +13,8 @@ Decision deferred by George. When an app is chosen: install it, set brand colour
 ## Needs from client
 - Free delivery threshold, or confirmation there is none.
 - A curated collection for cart recommendations.
+
+## Cart upsell (21 Nov 2026)
+"You might also need" row in the cart drawer (3 products) and on the cart page (4). For each product in the cart it asks Shopify for complementary products, falls back to related products, and skips anything already in the cart or out of stock. Single-variant products get an Add button that adds in place and refreshes the drawer. Products with options show "Choose options". Nothing shows for an empty cart or if no recommendations exist.
+
+The quality depends on the pairings. Set complementary products per product in Apps > Search & Discovery > Recommendations, for example Jesmonite with pigment, sealer and release agent. Until then Shopify's automatic "related" suggestions are used.

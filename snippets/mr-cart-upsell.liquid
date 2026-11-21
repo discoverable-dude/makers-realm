@@ -1,0 +1,103 @@
+{% doc %}
+  "You might also need" row for the cart drawer and cart page. Fetches Shopify's recommended products for what is in the cart
+  (complementary first, related as a fallback) and shows ones not already in the cart. Prints nothing for an empty cart.
+
+  @param {string} [heading] - Heading text. Defaults to "You might also need".
+  @param {number} [limit] - How many products to show. Defaults to 3.
+  @param {string} [mode] - "drawer" or "page". Defaults to "drawer".
+{% enddoc %}
+
+{%- if cart.item_count > 0 -%}
+  <mr-cart-upsell
+    class="mr-upsell mr-upsell--{{ mode | default: 'drawer' }}"
+    data-product-ids="{{ cart.items | map: 'product_id' | join: ',' }}"
+    data-limit="{{ limit | default: 3 }}"
+    data-currency="{{ cart.currency.iso_code }}"
+    hidden
+  >
+    <h3 class="mr-upsell__heading h4">{{ heading | default: 'You might also need' | escape }}</h3>
+    <ul class="mr-upsell__list" role="list"></ul>
+  </mr-cart-upsell>
+  <script src="{{ 'mr-cart-upsell.js' | asset_url }}" defer="defer"></script>
+{%- endif -%}
+
+{% stylesheet %}
+  .mr-upsell {
+    display: block;
+    margin: 2rem 0;
+    padding: 1.6rem 0 0;
+    border-top: 1px solid var(--mr-tan);
+  }
+
+  .mr-upsell[hidden] {
+    display: none;
+  }
+
+  .mr-upsell__heading {
+    margin: 0 0 1.2rem;
+  }
+
+  .mr-upsell__list {
+    display: grid;
+    gap: 1.2rem;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+
+  .mr-upsell__item {
+    display: grid;
+    grid-template-columns: 6.4rem 1fr auto;
+    align-items: center;
+    gap: 1.2rem;
+  }
+
+  .mr-upsell__image {
+    display: block;
+    width: 6.4rem;
+    height: 6.4rem;
+    object-fit: cover;
+    border: 1px solid var(--mr-tan);
+    background: #fff;
+  }
+
+  .mr-upsell__name {
+    display: block;
+    color: var(--mr-navy);
+    font-weight: 700;
+    text-decoration: none;
+  }
+
+  .mr-upsell__price {
+    display: block;
+    color: var(--mr-muted);
+  }
+
+  .mr-upsell__button {
+    min-height: 4.4rem;
+    padding: 0 1.4rem;
+    border: 1px solid var(--mr-navy);
+    border-radius: 0.6rem;
+    background: transparent;
+    color: var(--mr-navy);
+    font: inherit;
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    cursor: pointer;
+  }
+
+  .mr-upsell__button:hover {
+    background: var(--mr-navy);
+    color: #fff;
+  }
+
+  .mr-upsell__button[aria-disabled='true'] {
+    opacity: 0.6;
+    pointer-events: none;
+  }
+
+  .mr-upsell--page .mr-upsell__list {
+    grid-template-columns: repeat(auto-fit, minmax(28rem, 1fr));
+  }
+{% endstylesheet %}
