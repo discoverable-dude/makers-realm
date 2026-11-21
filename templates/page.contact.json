@@ -9,28 +9,59 @@
  */
 {
   "sections": {
-    "main": {
-      "type": "main-page",
-      "disabled": true,
+    "hero": {
+      "type": "mr-hero",
       "settings": {
-        "padding_top": 36,
-        "padding_bottom": 36
+        "art": "photo-window",
+        "heading": "Contact us",
+        "heading_tag": "h1",
+        "subheading": "Questions about a product, an order or a project? Send us a message and we will help.",
+        "button_label_1": "",
+        "button_link_1": "",
+        "color_scheme": "scheme-mr-cream"
       }
     },
-    "image_banner": {
-      "type": "image-banner",
+    "help": {
+      "type": "mr-info-columns",
+      "blocks": {
+        "a": {
+          "type": "item",
+          "settings": {
+            "title": "Before you order",
+            "text": "Not sure a product suits your project? Ask us first and we will tell you honestly.",
+            "link_label": "",
+            "link": ""
+          }
+        },
+        "b": {
+          "type": "item",
+          "settings": {
+            "title": "About an order",
+            "text": "Include your order number so we can find it quickly.",
+            "link_label": "",
+            "link": ""
+          }
+        },
+        "c": {
+          "type": "item",
+          "settings": {
+            "title": "Trade and bulk",
+            "text": "Tell us what you use and how often and we will send a quote.",
+            "link_label": "",
+            "link": ""
+          }
+        }
+      },
+      "block_order": [
+        "a",
+        "b",
+        "c"
+      ],
       "settings": {
-        "image": "shopify://shop_images/Image_banner_2x_8.png",
-        "image_overlay_opacity": 20,
-        "image_height": "adapt",
-        "desktop_content_position": "middle-left",
-        "show_text_box": false,
-        "desktop_content_alignment": "left",
-        "color_scheme": "",
-        "image_behavior": "none",
-        "mobile_content_alignment": "center",
-        "stack_images_on_mobile": true,
-        "show_text_below": true
+        "heading": "How we can help",
+        "show_page_content": false,
+        "intro": "",
+        "color_scheme": "scheme-mr-white"
       }
     },
     "form": {
@@ -38,15 +69,15 @@
       "settings": {
         "heading": "Questions or comments? Get in touch and we'll be happy to help.",
         "heading_size": "h2",
-        "color_scheme": "scheme-1",
+        "color_scheme": "scheme-mr-cream",
         "padding_top": 36,
         "padding_bottom": 36
       }
     }
   },
   "order": [
-    "main",
-    "image_banner",
+    "hero",
+    "help",
     "form"
   ]
 }

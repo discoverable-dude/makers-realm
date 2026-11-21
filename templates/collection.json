@@ -175,10 +175,23 @@
         "all_text": "",
         "color_scheme": "scheme-mr-cream"
       }
+    },
+    "intro": {
+      "type": "mr-collection-intro",
+      "settings": {
+        "heading": "How to choose",
+        "fallback_text": "Not sure which to pick? Tell us what you are making and we will build you a shopping list.",
+        "finder_label": "Find your kit",
+        "finder_link": "/pages/start-here",
+        "help_label": "Ask us before you order",
+        "help_link": "/pages/contact",
+        "color_scheme": "scheme-mr-white"
+      }
     }
   },
   "order": [
     "banner",
+    "intro",
     "project-chips",
     "material-chips",
     "product-grid",

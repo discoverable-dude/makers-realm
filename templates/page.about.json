@@ -1,0 +1,147 @@
+{
+  "sections": {
+    "hero": {
+      "type": "mr-hero",
+      "settings": {
+        "art": "photo-window",
+        "heading": "About Makers Realm",
+        "heading_tag": "h1",
+        "subheading": "One place for cosplayers, prop makers, model makers, effects artists and crafters to find the materials they need.",
+        "button_label_1": "",
+        "button_link_1": "",
+        "color_scheme": "scheme-mr-cream"
+      }
+    },
+    "story": {
+      "type": "mr-info-columns",
+      "settings": {
+        "heading": "Our story",
+        "show_page_content": true,
+        "intro": "",
+        "color_scheme": "scheme-mr-white"
+      }
+    },
+    "pillars": {
+      "type": "mr-info-columns",
+      "blocks": {
+        "a": {
+          "type": "item",
+          "settings": {
+            "title": "Made for makers",
+            "text": "We stock the materials people ask for when they are building something real: Jesmonite, thermoplastics, glues, paints, tapes and tools.",
+            "link_label": "",
+            "link": ""
+          }
+        },
+        "b": {
+          "type": "item",
+          "settings": {
+            "title": "Help that knows the job",
+            "text": "Not sure what suits your project? Tell us what you are making and we will point you to the right products.",
+            "link_label": "Find your kit",
+            "link": "/pages/start-here"
+          }
+        },
+        "c": {
+          "type": "item",
+          "settings": {
+            "title": "Supplying studios too",
+            "text": "We supply workshops and studios as well as hobbyists, with quotes and regular supply on request.",
+            "link_label": "Ask about trade",
+            "link": "/pages/contact"
+          }
+        }
+      },
+      "block_order": [
+        "a",
+        "b",
+        "c"
+      ],
+      "settings": {
+        "heading": "What we do",
+        "show_page_content": false,
+        "intro": "",
+        "color_scheme": "scheme-mr-cream"
+      }
+    },
+    "projects": {
+      "type": "mr-project-tiles",
+      "blocks": {
+        "tile1": {
+          "type": "tile",
+          "settings": {
+            "title": "Cosplay & props",
+            "text": "For cosplayers and prop makers",
+            "art": "cosplay",
+            "link": "/pages/cosplay-and-props"
+          }
+        },
+        "tile2": {
+          "type": "tile",
+          "settings": {
+            "title": "Model making",
+            "text": "For model makers",
+            "art": "model-making",
+            "link": "/pages/model-making"
+          }
+        },
+        "tile3": {
+          "type": "tile",
+          "settings": {
+            "title": "Special effects & make-up",
+            "text": "Latex, fake blood and face paint",
+            "art": "millinery",
+            "link": "/pages/special-effects-and-make-up"
+          }
+        },
+        "tile4": {
+          "type": "tile",
+          "settings": {
+            "title": "Casting & home crafting",
+            "text": "Jesmonite, plaster and moulds",
+            "art": "home-crafting",
+            "link": "/pages/casting-and-home-crafting"
+          }
+        },
+        "tile5": {
+          "type": "tile",
+          "settings": {
+            "title": "Weathering & finishing",
+            "text": "Ageing, gilding and special finishes",
+            "art": "all-materials",
+            "link": "/pages/weathering-and-finishing"
+          }
+        }
+      },
+      "block_order": [
+        "tile1",
+        "tile2",
+        "tile3",
+        "tile4",
+        "tile5"
+      ],
+      "settings": {
+        "heading": "What are you making?",
+        "intro": "Pick a project type and we will show the materials that suit it.",
+        "color_scheme": "scheme-mr-cream"
+      }
+    },
+    "cta": {
+      "type": "mr-cta-band",
+      "settings": {
+        "heading": "Ready to start?",
+        "text": "Tell us what you are making and we will build you a shopping list.",
+        "button_label": "Find your kit",
+        "button_link": "/pages/start-here",
+        "color_scheme": "scheme-mr-navy"
+      }
+    }
+  },
+  "order": [
+    "hero",
+    "story",
+    "pillars",
+    "projects",
+    "cta"
+  ]
+}

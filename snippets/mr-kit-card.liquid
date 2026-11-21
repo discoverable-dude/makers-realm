@@ -4,7 +4,8 @@
   @param {string} uid - Unique id for form fields.
   @param {string} title - Kit name.
   @param {string} [text] - One line about the kit.
-  @param {object} products - Up to six products.
+  @param {object} [products] - Up to six products.
+  @param {object} [handles] - Product handles to use when no products are passed.
   @param {string} [button_label] - Button text.
   @param {string} [attributes] - Extra HTML attributes for the wrapper.
 {% enddoc %}
@@ -15,9 +16,12 @@
       <p class="mr-kit__text">{{ text | escape }}</p>
     {%- endif -%}
     <ul class="mr-kit__items" role="list">
-      {%- for product in products limit: 6 -%}
+      {%- assign kit_items = products -%}
+      {%- if kit_items == blank -%}{%- assign kit_items = handles -%}{%- endif -%}
+      {%- for item in kit_items limit: 6 -%}
+        {%- if item.title -%}{%- assign product = item -%}{%- else -%}{%- assign product = all_products[item] -%}{%- endif -%}
         {%- assign options = product.variants | where: 'available', true | sort: 'price' -%}
-        {%- if options.size > 0 -%}
+        {%- if product.title != blank and options.size > 0 -%}
           <li class="mr-kit__item">
             <a class="mr-kit__thumb" href="{{ product.url }}" tabindex="-1" aria-hidden="true">
               {%- if product.featured_image -%}

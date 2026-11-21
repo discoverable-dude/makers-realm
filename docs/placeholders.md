@@ -31,3 +31,9 @@ Everything below was added so the preview looks like the mockups. None of it is 
 - Collection page: "What are you making?" tiles and the Material chips are placeholders. They filter by metafield `custom.project_type` and by product tag, so clicking one shows no products until those exist.
 - Collection page: promo card "Need a hand choosing?" links to `/pages/contact`, which may not exist. "New to casting? Start here" strip links to `/`.
 - Trust strip icons are chosen per item in the theme editor.
+
+## Guides, collection, About and Contact pages
+- Collection "How to choose" text (custom.how_to_choose) is written for the five top collections only. Other collections show a generic line and the Find your kit button. Client to approve wording.
+- About page: "What we do" columns and the "Supplying studios too" line are draft copy. The "Our story" text comes from the page's own content in Shopify admin (currently one sentence), so ask the client for a fuller story.
+- Contact page: the three "How we can help" boxes are draft copy. Add phone, email, address and opening hours when the client supplies them.
+- Guide pages: "Shop this guide" builds its list automatically from the product links inside each article.

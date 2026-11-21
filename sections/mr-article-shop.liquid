@@ -1,0 +1,48 @@
+{%- liquid
+  assign shop_handles = ''
+  assign seen = '|'
+  assign parts = article.content | split: '/products/'
+  for part in parts offset: 1
+    assign handle = part | split: '"' | first | split: '?' | first | split: '#' | first
+    assign marker = '|' | append: handle | append: '|'
+    unless seen contains marker or handle == blank
+      assign seen = seen | append: handle | append: '|'
+      assign shop_handles = shop_handles | append: handle | append: ','
+    endunless
+  endfor
+  assign shop_list = shop_handles | split: ','
+-%}
+{%- if shop_list.size > 0 -%}
+  <div class="mr-shop-guide color-{{ section.settings.color_scheme }} gradient">
+    <div class="mr-shop-guide__inner page-width">
+      <h2 class="mr-shop-guide__heading h2">{{ section.settings.heading | escape }}</h2>
+      {%- render 'mr-kit-card', uid: section.id, title: 'Everything in this guide', text: section.settings.text, handles: shop_list, button_label: 'Add all to basket' -%}
+    </div>
+  </div>
+{%- endif -%}
+
+{% stylesheet %}
+  .mr-shop-guide {
+    padding: 4rem 0;
+  }
+  .mr-shop-guide__heading {
+    margin: 0 0 1.6rem;
+  }
+  .mr-shop-guide .mr-kit {
+    max-width: 64rem;
+  }
+{% endstylesheet %}
+
+{% schema %}
+{
+  "name": "Shop this guide",
+  "tag": "section",
+  "class": "section",
+  "settings": [
+    { "type": "text", "id": "heading", "label": "Heading", "default": "Shop this guide" },
+    { "type": "text", "id": "text", "label": "Line under the kit name", "default": "Every product mentioned above, ready to add in one go." },
+    { "type": "color_scheme", "id": "color_scheme", "label": "Colour scheme", "default": "scheme-mr-cream" }
+  ],
+  "presets": [{ "name": "Shop this guide" }]
+}
+{% endschema %}

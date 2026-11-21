@@ -33,8 +33,7 @@
         },
         "content": {
           "type": "content",
-          "settings": {
-          }
+          "settings": {}
         }
       },
       "block_order": [
@@ -43,11 +42,30 @@
         "share",
         "content"
       ],
+      "settings": {}
+    },
+    "shop": {
+      "type": "mr-article-shop",
       "settings": {
+        "heading": "Shop this guide",
+        "text": "Every product mentioned above, ready to add in one go.",
+        "color_scheme": "scheme-mr-cream"
+      }
+    },
+    "cta": {
+      "type": "mr-cta-band",
+      "settings": {
+        "heading": "Planning a different project?",
+        "text": "Our project pages list what to buy at each stage.",
+        "button_label": "Browse by project",
+        "button_link": "/pages/start-here",
+        "color_scheme": "scheme-mr-cream-dark"
       }
     }
   },
   "order": [
-    "main"
+    "main",
+    "shop",
+    "cta"
   ]
 }
