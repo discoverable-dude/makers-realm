@@ -497,7 +497,7 @@
                     section_id: section.id,
                     show_pickup_availability: true
                   -%}
-                {%- when 'mr_delivery', 'mr_key_facts', 'mr_safety', 'mr_brand', 'mr_summary', 'mr_assurance', 'mr_info_popup', 'mr_help_box' -%}
+                {%- when 'mr_delivery', 'mr_key_facts', 'mr_compat', 'mr_safety', 'mr_brand', 'mr_summary', 'mr_assurance', 'mr_info_popup', 'mr_help_box' -%}
                   {%- render 'mr-product-block', block: block, product: product -%}
                 {%- when 'rating' -%}
                   {%- if product.metafields.reviews.rating.value != blank -%}
@@ -1293,6 +1293,15 @@
           "type": "paragraph",
           "content": "Shows the 'What it is' metafield, or the first paragraph of the description if that is empty. Use this in place of the full description."
         }
+      ]
+    },
+    {
+      "type": "mr_compat",
+      "name": "Compatibility box",
+      "limit": 1,
+      "settings": [
+        { "type": "paragraph", "content": "Shows what the product works on. Hidden when the product has no 'Works on' value." },
+        { "type": "url", "id": "link", "label": "Ask us link" }
       ]
     },
     {

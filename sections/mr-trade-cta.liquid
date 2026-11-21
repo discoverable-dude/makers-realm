@@ -1,0 +1,141 @@
+<div class="mr-trade color-{{ section.settings.color_scheme }} gradient">
+  <div class="mr-trade__inner page-width">
+    <div class="mr-trade__copy">
+      <h2 class="mr-trade__heading h2">{{ section.settings.heading | escape }}</h2>
+      {%- if section.settings.text != blank -%}
+        <p class="mr-trade__text">{{ section.settings.text | escape }}</p>
+      {%- endif -%}
+      {%- if section.blocks.size > 0 -%}
+        <ul class="mr-trade__points" role="list">
+          {%- for block in section.blocks -%}
+            <li {{ block.shopify_attributes }}>{{ block.settings.point | escape }}</li>
+          {%- endfor -%}
+        </ul>
+      {%- endif -%}
+    </div>
+
+    {%- form 'contact', id: 'MrTradeForm', class: 'mr-trade__form' -%}
+      {%- if form.posted_successfully? -%}
+        <p class="mr-trade__done" role="status" tabindex="-1" autofocus>Thanks, we have your request. We will reply within one working day.</p>
+      {%- else -%}
+        {%- if form.errors -%}
+          <p class="mr-trade__error" role="alert">{{ form.errors | default_errors }}</p>
+        {%- endif -%}
+        <input type="hidden" name="contact[Enquiry type]" value="Trade and bulk quote">
+        <div class="mr-trade__row">
+          <label class="mr-trade__field">
+            <span>Name</span>
+            <input type="text" name="contact[name]" autocomplete="name" required value="{{ form.name }}">
+          </label>
+          <label class="mr-trade__field">
+            <span>Email</span>
+            <input type="email" name="contact[email]" autocomplete="email" required value="{{ form.email }}">
+          </label>
+        </div>
+        <label class="mr-trade__field">
+          <span>Company or studio (optional)</span>
+          <input type="text" name="contact[Company]" autocomplete="organization">
+        </label>
+        <label class="mr-trade__field">
+          <span>What do you need, and how much?</span>
+          <textarea name="contact[body]" rows="4" required>{{ form.body }}</textarea>
+        </label>
+        <button type="submit" class="button">{{ section.settings.button_label | default: 'Request a quote' | escape }}</button>
+      {%- endif -%}
+    {%- endform -%}
+  </div>
+</div>
+
+{% stylesheet %}
+  .mr-trade {
+    padding: 4rem 0;
+  }
+  .mr-trade__inner {
+    display: grid;
+    gap: 2.4rem;
+  }
+  .mr-trade__heading {
+    margin: 0 0 1rem;
+  }
+  .mr-trade__text {
+    max-width: 56ch;
+    margin: 0 0 1.4rem;
+  }
+  .mr-trade__points {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+  .mr-trade__points li {
+    padding: 0.4rem 0 0.4rem 2.4rem;
+    background: radial-gradient(circle at 0.8rem 1.2rem, var(--mr-blue) 0.45rem, transparent 0.5rem) no-repeat;
+  }
+  .mr-trade__form {
+    display: grid;
+    gap: 1.2rem;
+    padding: 2rem;
+    border-radius: 0.8rem;
+    background: #fff;
+    color: var(--mr-navy);
+  }
+  .mr-trade__row {
+    display: grid;
+    gap: 1.2rem;
+  }
+  .mr-trade__field {
+    display: grid;
+    gap: 0.4rem;
+    font-weight: 700;
+  }
+  .mr-trade__field input,
+  .mr-trade__field textarea {
+    width: 100%;
+    min-height: 4.4rem;
+    padding: 0.8rem 1.2rem;
+    border: 1px solid var(--mr-tan);
+    border-radius: 0.4rem;
+    color: var(--mr-navy);
+    font: inherit;
+    font-weight: 400;
+  }
+  .mr-trade__error {
+    margin: 0;
+    color: var(--mr-red);
+  }
+  .mr-trade__done {
+    margin: 0;
+    font-weight: 700;
+  }
+  @media screen and (min-width: 990px) {
+    .mr-trade__inner {
+      grid-template-columns: 1fr 1fr;
+      align-items: start;
+    }
+    .mr-trade__row {
+      grid-template-columns: 1fr 1fr;
+    }
+  }
+{% endstylesheet %}
+
+{% schema %}
+{
+  "name": "Trade and bulk",
+  "tag": "section",
+  "class": "section",
+  "settings": [
+    { "type": "text", "id": "heading", "label": "Heading", "default": "Buying for a studio or in bulk?" },
+    { "type": "text", "id": "text", "label": "Text", "default": "Tell us what you use and how often. We will come back with a quote and, where we can, a regular supply." },
+    { "type": "text", "id": "button_label", "label": "Button label", "default": "Request a quote" },
+    { "type": "color_scheme", "id": "color_scheme", "label": "Colour scheme", "default": "scheme-mr-navy" }
+  ],
+  "blocks": [
+    {
+      "type": "point",
+      "name": "Selling point",
+      "settings": [{ "type": "text", "id": "point", "label": "Point" }]
+    }
+  ],
+  "max_blocks": 5,
+  "presets": [{ "name": "Trade and bulk" }]
+}
+{% endschema %}

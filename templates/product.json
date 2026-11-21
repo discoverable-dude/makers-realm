@@ -110,6 +110,12 @@
         "brand": {
           "type": "mr_brand",
           "settings": {}
+        },
+        "mr_compat": {
+          "type": "mr_compat",
+          "settings": {
+            "link": "/pages/contact"
+          }
         }
       },
       "block_order": [
@@ -123,6 +129,7 @@
         "variant_picker",
         "quantity_selector",
         "inventory",
+        "mr_compat",
         "buy_buttons",
         "delivery_line",
         "assurance",

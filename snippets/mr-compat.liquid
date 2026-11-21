@@ -1,0 +1,64 @@
+{% doc %}
+  "Check before you buy" box: what the product works on, plus a prompt to ask first. Prints nothing without a works_on value.
+
+  @param {product} product - The product on the page.
+  @param {string} [link] - Where "ask us" goes.
+{% enddoc %}
+
+{%- assign compat_on = product.metafields.custom.works_on.value -%}
+{%- if compat_on.size > 0 -%}
+  <div class="mr-compat">
+    <strong class="mr-compat__title">Check before you buy</strong>
+    <p class="mr-compat__label">Works on</p>
+    <ul class="mr-compat__list" role="list">
+      {%- for item in compat_on -%}
+        <li>{{ item | escape }}</li>
+      {%- endfor -%}
+    </ul>
+    {%- if link != blank -%}
+      <p class="mr-compat__ask">Not sure it suits your project? <a href="{{ link }}">Ask us before you order</a></p>
+    {%- endif -%}
+  </div>
+{%- endif -%}
+
+{% stylesheet %}
+  .mr-compat {
+    margin: 1.6rem 0;
+    padding: 1.4rem 1.6rem;
+    border: 1px solid var(--mr-tan);
+    border-left: 4px solid var(--mr-blue);
+    border-radius: 0.6rem;
+    background: var(--mr-cream);
+  }
+  .mr-compat__title {
+    display: block;
+    margin-bottom: 0.6rem;
+    color: var(--mr-navy);
+  }
+  .mr-compat__label {
+    margin: 0 0 0.6rem;
+    color: var(--mr-muted);
+    font-size: 1.2rem;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+  }
+  .mr-compat__list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.6rem;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+  .mr-compat__list li {
+    padding: 0.3rem 1rem;
+    border: 1px solid var(--mr-sky);
+    border-radius: 2rem;
+    background: #fff;
+    font-size: 1.3rem;
+  }
+  .mr-compat__ask {
+    margin: 1rem 0 0;
+    font-size: 1.4rem;
+  }
+{% endstylesheet %}

@@ -98,6 +98,12 @@
         "safety": {
           "type": "mr_safety",
           "settings": {}
+        },
+        "mr_compat": {
+          "type": "mr_compat",
+          "settings": {
+            "link": "/pages/contact"
+          }
         }
       },
       "block_order": [
@@ -107,6 +113,7 @@
         "summary",
         "sku",
         "key_facts",
+        "mr_compat",
         "variant_picker",
         "quantity_selector",
         "inventory",

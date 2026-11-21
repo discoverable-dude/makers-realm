@@ -80,6 +80,12 @@
         "key_facts": {
           "type": "mr_key_facts",
           "settings": {}
+        },
+        "mr_compat": {
+          "type": "mr_compat",
+          "settings": {
+            "link": "/pages/contact"
+          }
         }
       },
       "block_order": [
@@ -89,6 +95,7 @@
         "summary",
         "variant_picker",
         "key_facts",
+        "mr_compat",
         "quantity_selector",
         "inventory",
         "buy_buttons",

@@ -1,0 +1,570 @@
+{
+  "sections": {
+    "hero": {
+      "type": "mr-hero",
+      "settings": {
+        "art": "watercolour-shelf",
+        "heading": "Start here",
+        "heading_tag": "h1",
+        "subheading": "New to making, or starting a new kind of project? Tell us what you are making and we will point you to the right materials.",
+        "button_label_1": "",
+        "button_link_1": "",
+        "color_scheme": "scheme-mr-cream"
+      }
+    },
+    "finder": {
+      "type": "mr-product-finder",
+      "blocks": {
+        "cosplay_0": {
+          "type": "result",
+          "settings": {
+            "project": "cosplay",
+            "title": "Shape it",
+            "text": "Thermoplastic sheets and foam give you the base for armour and props.",
+            "products": [
+              "worbla-thermoplastic",
+              "rhenoflex-sheet-thermoplastic",
+              "wonderflex-sheet-thermoplastic",
+              "eva-foam",
+              "fosshape",
+              "varaform-sheet"
+            ]
+          }
+        },
+        "cosplay_1": {
+          "type": "result",
+          "settings": {
+            "project": "cosplay",
+            "title": "Join and fill",
+            "text": "Glues and fillers for strong joins and smooth seams.",
+            "products": [
+              "evo-stik-impact-adhesive",
+              "araldite-2-part-epoxy-adhesive-rapid",
+              "gorilla-polyurethane-glue-60-ml",
+              "flexible-polyester-filler-few-1-5-kg",
+              "milliput",
+              "flexi-filler-seam-and-gap-filler-100-g"
+            ]
+          }
+        },
+        "cosplay_2": {
+          "type": "result",
+          "settings": {
+            "project": "cosplay",
+            "title": "Prime and paint",
+            "text": "Primers and paints for plastics and foam.",
+            "products": [
+              "plastic-primer-cgp-1-l",
+              "flexi-paint",
+              "plastikote-spray-primer-400-ml",
+              "hato-design-acrylic-paint",
+              "kobra-metallic-spray-paints",
+              "montana-metallic-spray-paints-400-ml"
+            ]
+          }
+        },
+        "cosplay_3": {
+          "type": "result",
+          "settings": {
+            "project": "cosplay",
+            "title": "Finish and weather",
+            "text": "Gilding, dirt and sealers to make it look worn and real.",
+            "products": [
+              "dirty-down-spray-400-ml",
+              "goldfinger-gilding-paste",
+              "liquid-leaf-metallic-paint",
+              "rust-effect-paint",
+              "flexible-clear-coating-gloss",
+              "plastikote-spray-sealer-400-ml"
+            ]
+          }
+        },
+        "cosplay_4": {
+          "type": "result",
+          "settings": {
+            "project": "cosplay",
+            "title": "Cut and tools",
+            "text": "Blades, cutters and tools for clean edges.",
+            "products": [
+              "hot-knife-foam-cutter",
+              "olfa-knife",
+              "stanley-titan-retractable-knife",
+              "olfa-double-sided-self-healing-cutting-mat-a2"
+            ]
+          }
+        },
+        "model_making_0": {
+          "type": "result",
+          "settings": {
+            "project": "model-making",
+            "title": "Build",
+            "text": "Balsa, board and fillers to make the shape.",
+            "products": [
+              "balsa-wood-variety-pack",
+              "polystyrene-balls",
+              "black-foam-board",
+              "milliput",
+              "rigid-pvc-board-605-x-605-x-3-mm",
+              "plasticine"
+            ]
+          }
+        },
+        "model_making_1": {
+          "type": "result",
+          "settings": {
+            "project": "model-making",
+            "title": "Cut and shape",
+            "text": "Blades, files and a cutting mat.",
+            "products": [
+              "olfa-knife",
+              "scalpel-handle",
+              "disposable-scalpel",
+              "surform",
+              "olfa-double-sided-self-healing-cutting-mat-a2",
+              "stainless-steel-ruler"
+            ]
+          }
+        },
+        "model_making_2": {
+          "type": "result",
+          "settings": {
+            "project": "model-making",
+            "title": "Glue",
+            "text": "Adhesives for small parts and bigger joins.",
+            "products": [
+              "zap-a-gap-super-glue",
+              "super-glue",
+              "high-viscosity-super-glue-50-g",
+              "evo-stik-pva",
+              "e6000-multi-purpose-adhesive"
+            ]
+          }
+        },
+        "model_making_3": {
+          "type": "result",
+          "settings": {
+            "project": "model-making",
+            "title": "Paint",
+            "text": "Primers and acrylics for detail.",
+            "products": [
+              "spectrum-acrylic-white-gesso-primer",
+              "hato-design-acrylic-paint",
+              "liquitex-high-gloss-varnish-946-ml",
+              "very-black-paint-1-l",
+              "fluorescent-acrylic-paint"
+            ]
+          }
+        },
+        "model_making_4": {
+          "type": "result",
+          "settings": {
+            "project": "model-making",
+            "title": "Weather and finish",
+            "text": "Ageing, crackle and dulling effects.",
+            "products": [
+              "dirty-down-matt-dulling-spray-400-ml",
+              "polyvine-crackle-glaze",
+              "crackle-varnish-1-l",
+              "rust-effect-paint",
+              "dirty-down-brushable-paints"
+            ]
+          }
+        },
+        "special_effects_0": {
+          "type": "result",
+          "settings": {
+            "project": "special-effects",
+            "title": "Wounds and prosthetics",
+            "text": "Latex, gels and gore for skin effects.",
+            "products": [
+              "liquid-latex-for-make-up-effects",
+              "latex-thickener-100-g",
+              "bruise-gel",
+              "dirty-down-gore-and-snot",
+              "za22-skin-safe-silicone"
+            ]
+          }
+        },
+        "special_effects_1": {
+          "type": "result",
+          "settings": {
+            "project": "special-effects",
+            "title": "Blood",
+            "text": "A range of fake blood for different looks.",
+            "products": [
+              "fake-blood-original-problood",
+              "fake-blood-dark-problood",
+              "fake-congealed-blood",
+              "fake-blood-kryolan",
+              "fake-blood-pigs-might-fly",
+              "permblood-blood-effect-for-costume"
+            ]
+          }
+        },
+        "special_effects_2": {
+          "type": "result",
+          "settings": {
+            "project": "special-effects",
+            "title": "Face and body",
+            "text": "Face paint to start with.",
+            "products": [
+              "face-paint-snazaroo-mini-starter-kit"
+            ]
+          }
+        },
+        "special_effects_3": {
+          "type": "result",
+          "settings": {
+            "project": "special-effects",
+            "title": "Dirt and ageing",
+            "text": "Sprays for grime, frost and dust.",
+            "products": [
+              "dirty-down-spray-400-ml",
+              "dirty-down-frost-snow-spray-400-ml",
+              "dirty-down-mould-spray-400-ml",
+              "dirty-down-rust-spray-400-ml"
+            ]
+          }
+        },
+        "special_effects_4": {
+          "type": "result",
+          "settings": {
+            "project": "special-effects",
+            "title": "Glow and UV",
+            "text": "Effects that show up in the dark or under UV.",
+            "products": [
+              "glow-in-the-dark-paint",
+              "invisible-uv-acrylic-paint",
+              "rustoleum-glow-in-the-dark-spray-paint-400-ml",
+              "glow-gaffer-tape"
+            ]
+          }
+        },
+        "casting_0": {
+          "type": "result",
+          "settings": {
+            "project": "casting",
+            "title": "Make the mould",
+            "text": "Silicone, alginate and bandage to take an impression.",
+            "products": [
+              "rtv-silicone-rubber",
+              "alginate-550-g",
+              "za22-skin-safe-silicone",
+              "plaster-bandage",
+              "mod-roc",
+              "paper-cup"
+            ]
+          }
+        },
+        "casting_1": {
+          "type": "result",
+          "settings": {
+            "project": "casting",
+            "title": "Mix and cast",
+            "text": "Jesmonite, plaster and resin to fill the mould.",
+            "products": [
+              "jesmonite-ac100",
+              "jesmonite-ac730-kit",
+              "jesmonite-mini-kits-coasters",
+              "jesmonite-mini-kits-tea-light",
+              "crystacal-r-plaster-25-kg",
+              "general-casting-plaster"
+            ]
+          }
+        },
+        "casting_2": {
+          "type": "result",
+          "settings": {
+            "project": "casting",
+            "title": "Release agents",
+            "text": "Stop the cast sticking to the mould.",
+            "products": [
+              "universal-mould-release-12-oz-0-34-kg",
+              "mould-release-wax-500-g",
+              "formula-6-spray-release-agent"
+            ]
+          }
+        },
+        "casting_3": {
+          "type": "result",
+          "settings": {
+            "project": "casting",
+            "title": "Colour",
+            "text": "Pigments for casts and silicone.",
+            "products": [
+              "jesmonite-pigment",
+              "pigments-for-silicone",
+              "mixol-universal-stainer",
+              "tranparent-resin-pigment-500-g",
+              "polyester-resin-pigment"
+            ]
+          }
+        },
+        "casting_4": {
+          "type": "result",
+          "settings": {
+            "project": "casting",
+            "title": "Seal and protect",
+            "text": "Sealers for the finished cast.",
+            "products": [
+              "jesmonite-flexiguard-sealer",
+              "jesmonite-penetrating-sealer",
+              "jesmonite-acrylic-sealer",
+              "stone-and-brick-protector-1-l"
+            ]
+          }
+        },
+        "weathering_0": {
+          "type": "result",
+          "settings": {
+            "project": "weathering",
+            "title": "Age it",
+            "text": "Sprays, glazes and effects for worn surfaces.",
+            "products": [
+              "dirty-down-spray-400-ml",
+              "dirty-down-matt-dulling-spray-400-ml",
+              "dirty-down-rust-spray-400-ml",
+              "rust-effect-paint",
+              "crackle-varnish-1-l",
+              "polyvine-crackle-glaze"
+            ]
+          }
+        },
+        "weathering_1": {
+          "type": "result",
+          "settings": {
+            "project": "weathering",
+            "title": "Metallic and gilding",
+            "text": "Leaf, pastes and waxes for a metal look.",
+            "products": [
+              "goldfinger-gilding-paste",
+              "liquid-leaf-metallic-paint",
+              "gilding-flakes",
+              "real-gold-leaf",
+              "imitation-metal-leaf",
+              "treasure-metallic-wax-25-g"
+            ]
+          }
+        },
+        "weathering_2": {
+          "type": "result",
+          "settings": {
+            "project": "weathering",
+            "title": "Spray paint",
+            "text": "Aerosol finishes.",
+            "products": [
+              "plastikote-spray-metallic-paint-400-ml",
+              "kobra-metallic-spray-paints",
+              "montana-spray-paints-400-ml",
+              "cosmoslac-silver-chrome-spray-paint-400-ml",
+              "decoration-metallic-spray-paint"
+            ]
+          }
+        },
+        "weathering_3": {
+          "type": "result",
+          "settings": {
+            "project": "weathering",
+            "title": "Seal and protect",
+            "text": "Clear coats to keep the finish.",
+            "products": [
+              "plastikote-spray-sealer-400-ml",
+              "rocktop-clearcoat",
+              "liquitex-high-gloss-varnish-946-ml",
+              "polyvine-decorators-varnish",
+              "flexible-clear-coating-gloss"
+            ]
+          }
+        }
+      },
+      "block_order": [
+        "cosplay_0",
+        "cosplay_1",
+        "cosplay_2",
+        "cosplay_3",
+        "cosplay_4",
+        "model_making_0",
+        "model_making_1",
+        "model_making_2",
+        "model_making_3",
+        "model_making_4",
+        "special_effects_0",
+        "special_effects_1",
+        "special_effects_2",
+        "special_effects_3",
+        "special_effects_4",
+        "casting_0",
+        "casting_1",
+        "casting_2",
+        "casting_3",
+        "casting_4",
+        "weathering_0",
+        "weathering_1",
+        "weathering_2",
+        "weathering_3"
+      ],
+      "settings": {
+        "heading": "Not sure what to buy?",
+        "intro": "Tell us what you are making and we will build you a shopping list.",
+        "color_scheme": "scheme-mr-cream"
+      }
+    },
+    "kits": {
+      "type": "mr-starter-kits",
+      "blocks": {
+        "kit1": {
+          "type": "kit",
+          "settings": {
+            "title": "First casting set",
+            "text": "Everything for a first Jesmonite cast, apart from your mould.",
+            "products": [
+              "jesmonite-ac730-kit",
+              "jesmonite-pigment",
+              "universal-mould-release-12-oz-0-34-kg",
+              "flex-e-bowl",
+              "mixing-sticks-ahhh-sticks-100-pack",
+              "jesmonite-acrylic-sealer"
+            ],
+            "button_label": "Add kit to basket"
+          }
+        },
+        "kit2": {
+          "type": "kit",
+          "settings": {
+            "title": "Armour starter set",
+            "text": "Shape, glue, prime and paint a first armour piece.",
+            "products": [
+              "worbla-thermoplastic",
+              "evo-stik-impact-adhesive",
+              "plastic-primer-cgp-1-l",
+              "plastikote-black-matt-spray-paint-400-ml",
+              "olfa-knife",
+              "olfa-double-sided-self-healing-cutting-mat-a2"
+            ],
+            "button_label": "Add kit to basket"
+          }
+        },
+        "kit3": {
+          "type": "kit",
+          "settings": {
+            "title": "Wounds and blood set",
+            "text": "Latex, gel, blood and a starter face paint kit.",
+            "products": [
+              "liquid-latex-for-make-up-effects",
+              "bruise-gel",
+              "fake-blood-original-problood",
+              "fake-congealed-blood",
+              "face-paint-snazaroo-mini-starter-kit",
+              "budget-brush"
+            ],
+            "button_label": "Add kit to basket"
+          }
+        }
+      },
+      "block_order": [
+        "kit1",
+        "kit2",
+        "kit3"
+      ],
+      "settings": {
+        "heading": "Starter kits",
+        "intro": "A sensible first basket for each project. Change any option before you add it.",
+        "color_scheme": "scheme-mr-cream"
+      }
+    },
+    "guides": {
+      "type": "mr-guides",
+      "blocks": {
+        "g1": {
+          "type": "guide",
+          "settings": {
+            "title": "How to make your first Jesmonite cast",
+            "link": "/blogs/guides/how-to-make-your-first-jesmonite-cast",
+            "art": "all-materials",
+            "image": ""
+          }
+        },
+        "g2": {
+          "type": "guide",
+          "settings": {
+            "title": "How to start an armour build with thermoplastic sheet",
+            "link": "/blogs/guides/how-to-start-an-armour-build-with-thermoplastic",
+            "art": "cosplay",
+            "image": ""
+          }
+        },
+        "g3": {
+          "type": "guide",
+          "settings": {
+            "title": "Which glue should I use?",
+            "link": "/blogs/guides/which-glue-should-i-use",
+            "art": "model-making",
+            "image": ""
+          }
+        },
+        "g4": {
+          "type": "guide",
+          "settings": {
+            "title": "How to make a convincing wound",
+            "link": "/blogs/guides/how-to-make-a-convincing-wound",
+            "art": "cosplay",
+            "image": ""
+          }
+        }
+      },
+      "block_order": [
+        "g1",
+        "g2",
+        "g3",
+        "g4"
+      ],
+      "settings": {
+        "heading": "Guides and tutorials",
+        "all_label": "All guides",
+        "all_link": "/blogs/guides",
+        "color_scheme": "scheme-mr-cream-dark"
+      }
+    },
+    "trade": {
+      "type": "mr-trade-cta",
+      "blocks": {
+        "p1": {
+          "type": "point",
+          "settings": {
+            "point": "Quotes within one working day"
+          }
+        },
+        "p2": {
+          "type": "point",
+          "settings": {
+            "point": "Regular supply for studios and workshops"
+          }
+        },
+        "p3": {
+          "type": "point",
+          "settings": {
+            "point": "Help choosing the right materials"
+          }
+        }
+      },
+      "block_order": [
+        "p1",
+        "p2",
+        "p3"
+      ],
+      "settings": {
+        "heading": "Buying for a studio or in bulk?",
+        "text": "Tell us what you use and how often. We will come back with a quote and, where we can, a regular supply.",
+        "button_label": "Request a quote",
+        "color_scheme": "scheme-mr-navy"
+      }
+    }
+  },
+  "order": [
+    "hero",
+    "finder",
+    "kits",
+    "guides",
+    "trade"
+  ]
+}

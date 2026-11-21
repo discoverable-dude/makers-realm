@@ -22,6 +22,8 @@
         {{ mr_summary | newline_to_br }}
       </div>
     {%- endif -%}
+  {%- when 'mr_compat' -%}
+    {%- render 'mr-compat', product: product, link: block.settings.link -%}
   {%- when 'mr_assurance' -%}
     {%- render 'mr-assurance', block: block -%}
   {%- when 'mr_info_popup' -%}

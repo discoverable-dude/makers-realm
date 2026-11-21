@@ -1,0 +1,207 @@
+{%- liquid
+  assign finder_projects = 'cosplay|model-making|special-effects|casting|weathering' | split: '|'
+  assign finder_labels = 'Cosplay and props|Model making|Special effects and make-up|Casting and home crafting|Weathering and finishing' | split: '|'
+  assign finder_pages = 'cosplay-and-props|model-making|special-effects-and-make-up|casting-and-home-crafting|weathering-and-finishing' | split: '|'
+-%}
+
+<div class="mr-finder color-{{ section.settings.color_scheme }} gradient">
+  <div class="mr-finder__inner page-width">
+    <h2 class="mr-finder__heading h2">{{ section.settings.heading | escape }}</h2>
+    {%- if section.settings.intro != blank -%}
+      <p class="mr-finder__intro">{{ section.settings.intro | escape }}</p>
+    {%- endif -%}
+
+    <mr-finder class="mr-finder__app">
+      <p class="mr-finder__progress" data-progress aria-live="polite">Step 1 of 2</p>
+
+      <div class="mr-finder__step" data-step="1">
+        <h3 class="mr-finder__question h3" tabindex="-1">What are you making?</h3>
+        <div class="mr-finder__choices">
+          {%- for key in finder_projects -%}
+            {%- assign has_blocks = false -%}
+            {%- for block in section.blocks -%}
+              {%- if block.settings.project == key and block.settings.products.size > 0 -%}{%- assign has_blocks = true -%}{%- endif -%}
+            {%- endfor -%}
+            {%- if has_blocks -%}
+              <button type="button" class="mr-finder__choice" data-project="{{ key }}" data-label="{{ finder_labels[forloop.index0] }}">
+                {{- finder_labels[forloop.index0] -}}
+              </button>
+            {%- endif -%}
+          {%- endfor -%}
+        </div>
+      </div>
+
+      <div class="mr-finder__step" data-step="2" hidden>
+        <h3 class="mr-finder__question h3" tabindex="-1">What do you need to do?</h3>
+        <div class="mr-finder__choices">
+          {%- for block in section.blocks -%}
+            {%- if block.settings.products.size > 0 -%}
+              <button type="button" class="mr-finder__choice" data-project="{{ block.settings.project }}" data-result="Finder-{{ block.id }}" hidden {{ block.shopify_attributes }}>
+                {{- block.settings.title | escape -}}
+              </button>
+            {%- endif -%}
+          {%- endfor -%}
+        </div>
+        <button type="button" class="mr-finder__back link" data-back>Back</button>
+      </div>
+
+      <div class="mr-finder__step" data-step="3" hidden>
+        {%- for block in section.blocks -%}
+          {%- if block.settings.products.size > 0 -%}
+            {%- assign page_handle = '' -%}
+            {%- for key in finder_projects -%}
+              {%- if key == block.settings.project -%}{%- assign page_handle = finder_pages[forloop.index0] -%}{%- endif -%}
+            {%- endfor -%}
+            <div class="mr-finder__result" id="Finder-{{ block.id }}" data-project="{{ block.settings.project }}" hidden>
+              <h3 class="mr-finder__question h3" tabindex="-1">Your shopping list: {{ block.settings.title | escape }}</h3>
+              {%- render 'mr-kit-card', uid: block.id, title: block.settings.title, text: block.settings.text, products: block.settings.products, button_label: 'Add all to basket' -%}
+              <p class="mr-finder__more">
+                <button type="button" class="mr-finder__back link" data-restart>Start again</button>
+                {%- if pages[page_handle] != blank -%}
+                  <a class="link" href="{{ pages[page_handle].url }}">See every stage of this project</a>
+                {%- endif -%}
+              </p>
+            </div>
+          {%- endif -%}
+        {%- endfor -%}
+      </div>
+
+      <noscript>
+        <p><a href="{{ routes.collections_url }}">Browse all collections</a></p>
+      </noscript>
+    </mr-finder>
+  </div>
+</div>
+<script src="{{ 'mr-finder.js' | asset_url }}" defer="defer"></script>
+
+{% stylesheet %}
+  .mr-finder {
+    padding: 4rem 0;
+  }
+
+  .mr-finder__heading {
+    margin: 0 0 0.8rem;
+  }
+
+  .mr-finder__intro {
+    max-width: 60ch;
+    margin: 0 0 2rem;
+    color: var(--mr-muted);
+  }
+
+  .mr-finder__app {
+    display: block;
+    padding: 2.4rem;
+    border: 1px dashed var(--mr-sky);
+    border-radius: 0.8rem;
+    background: #fff;
+  }
+
+  .mr-finder__progress {
+    margin: 0 0 1rem;
+    color: var(--mr-muted);
+    font-size: 1.3rem;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+  }
+
+  .mr-finder__question {
+    margin: 0 0 1.6rem;
+  }
+
+  .mr-finder__choices {
+    display: grid;
+    gap: 1rem;
+    grid-template-columns: 1fr;
+  }
+
+  .mr-finder__choice {
+    min-height: 5.2rem;
+    padding: 1rem 1.6rem;
+    border: 2px solid var(--mr-navy);
+    border-radius: 0.6rem;
+    background: #fff;
+    color: var(--mr-navy);
+    font: inherit;
+    font-weight: 700;
+    text-align: left;
+    cursor: pointer;
+  }
+
+  .mr-finder__choice:hover,
+  .mr-finder__choice:focus-visible {
+    background: var(--mr-navy);
+    color: #fff;
+  }
+
+  .mr-finder__choice[hidden] {
+    display: none;
+  }
+
+  .mr-finder__back {
+    margin-top: 1.6rem;
+    padding: 0.8rem 0;
+    background: none;
+    border: 0;
+    color: var(--mr-navy);
+    font: inherit;
+    text-decoration: underline;
+    cursor: pointer;
+  }
+
+  .mr-finder__more {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.4rem 2.4rem;
+    margin: 1.2rem 0 0;
+  }
+
+  .mr-finder__result .mr-kit {
+    max-width: 64rem;
+  }
+
+  @media screen and (min-width: 750px) {
+    .mr-finder__choices {
+      grid-template-columns: repeat(auto-fill, minmax(24rem, 1fr));
+    }
+  }
+{% endstylesheet %}
+
+{% schema %}
+{
+  "name": "Product finder",
+  "tag": "section",
+  "class": "section",
+  "settings": [
+    { "type": "text", "id": "heading", "label": "Heading", "default": "Not sure what to buy?" },
+    { "type": "text", "id": "intro", "label": "Intro line", "default": "Tell us what you are making and we will build you a shopping list." },
+    { "type": "color_scheme", "id": "color_scheme", "label": "Colour scheme", "default": "scheme-mr-cream" }
+  ],
+  "blocks": [
+    {
+      "type": "result",
+      "name": "Stage result",
+      "settings": [
+        {
+          "type": "select",
+          "id": "project",
+          "label": "Project",
+          "default": "cosplay",
+          "options": [
+            { "value": "cosplay", "label": "Cosplay and props" },
+            { "value": "model-making", "label": "Model making" },
+            { "value": "special-effects", "label": "Special effects and make-up" },
+            { "value": "casting", "label": "Casting and home crafting" },
+            { "value": "weathering", "label": "Weathering and finishing" }
+          ]
+        },
+        { "type": "text", "id": "title", "label": "Stage name" },
+        { "type": "text", "id": "text", "label": "One line about the stage" },
+        { "type": "product_list", "id": "products", "label": "Products", "limit": 6 }
+      ]
+    }
+  ],
+  "max_blocks": 30,
+  "presets": [{ "name": "Product finder" }]
+}
+{% endschema %}
