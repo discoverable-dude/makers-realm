@@ -102,7 +102,7 @@
         "assurance": {
           "type": "mr_assurance",
           "settings": {
-            "item_1": "Dispatched from the UK",
+            "item_1": "",
             "item_2": "Secure checkout",
             "item_3": "Help from people who make things"
           }

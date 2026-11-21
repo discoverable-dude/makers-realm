@@ -515,3 +515,32 @@
     bottom: calc(var(--mr-bar-height) + 1.6rem);
   }
 }
+
+/* Visual fixes found on the live preview: one-row menu, search placeholder, active menu link, banner readability, trade button, mobile footer gap */
+@media screen and (min-width: 990px) {
+  .header--top-left .header__inline-menu::before { width: 300vw; }
+  .header--top-left .list-menu__item--link, .header--top-left .header__menu-item { font-size: 1.8rem; }
+  .header--top-left .header__menu-item { padding-left: 0.9rem; padding-right: 0.9rem; }
+  .header--top-left .header__inline-menu .list-menu--inline { column-gap: 0; }
+  .header--top-left .header__active-menu-item, .header--top-left .header__menu-item:hover span { color: var(--mr-navy); }
+}
+.mr-header-search__input::placeholder { color: var(--mr-muted); opacity: 1; }
+@media screen and (min-width: 990px) and (max-width: 1239px) {
+  .header--top-left .list-menu__item--link, .header--top-left .header__menu-item { font-size: 1.6rem; }
+  .header--top-left .header__menu-item { padding-left: 0.6rem; padding-right: 0.6rem; }
+}
+.mr-trade__form .button { background: var(--mr-navy); color: #fff; justify-self: start; }
+.mr-trade__form .button::after, .mr-trade__form .button::before { display: none; }
+.mr-start-here__link { flex: none; white-space: nowrap; }
+.mr-collection-hero--art:not(.mr-collection-hero--photo) .mr-collection-art::after {
+  content: ''; position: absolute; inset: 0;
+  background: linear-gradient(90deg, rgba(246,240,226,0.96) 0, rgba(246,240,226,0.9) 38%, rgba(246,240,226,0.15) 70%);
+}
+@media screen and (min-width: 750px) {
+  .mr-collection-hero--art .collection-hero__text-wrapper { max-width: 60%; }
+}
+@media screen and (max-width: 749px) {
+  .mr-collection-art { opacity: 0.2; }
+  .mr-has-bar { padding-bottom: 0; }
+  .mr-has-bar .footer { padding-bottom: var(--mr-bar-height); }
+}
