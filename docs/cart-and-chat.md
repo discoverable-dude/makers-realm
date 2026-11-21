@@ -28,3 +28,9 @@ Draft kits, picked from the catalogue for the client to approve:
 - Wounds and blood set: Liquid Latex for Make Up Effects, Bruise Gel, Problood Original, Fake Congealed Blood, Snazaroo starter face paint kit, Budget Brush
 
 No bundle discount is applied. If the client wants one, it needs a Shopify automatic discount (a commercial decision). Edit kits in the theme editor: Starter kits > a Kit block > Products.
+
+## Predictive search upgrade (21 Nov 2026)
+- The visible desktop search field in the header now uses the theme's predictive search. Suggestions, collections, brands and products appear as you type, with brand and price on each product.
+- New "Brands" group in the suggestions: the distinct brands of the matching products, each linking to that brand's page.
+- When the field is clicked and empty it shows "Popular searches". Those come from a menu called `popular-searches` (Content > Menus), so staff can change them without touching the theme. It currently holds Jesmonite, Worbla, Spray paint, Gaffer tape, Silicone, Fake blood, Craft knives and Primer.
+- The theme's own search icon (modal) is still used on phones and tablets, and now also shows brand and price.
