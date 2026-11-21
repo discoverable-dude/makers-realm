@@ -34,3 +34,10 @@ No bundle discount is applied. If the client wants one, it needs a Shopify autom
 - New "Brands" group in the suggestions: the distinct brands of the matching products, each linking to that brand's page.
 - When the field is clicked and empty it shows "Popular searches". Those come from a menu called `popular-searches` (Content > Menus), so staff can change them without touching the theme. It currently holds Jesmonite, Worbla, Spray paint, Gaffer tape, Silicone, Fake blood, Craft knives and Primer.
 - The theme's own search icon (modal) is still used on phones and tablets, and now also shows brand and price.
+
+## Mobile bottom bar (21 Nov 2026)
+Navy bar fixed to the bottom of the screen below 750px: Home, Shop (opens the menu drawer), Search (opens the search panel) and Basket (opens the basket drawer, with the item count, which updates when the basket changes). The current section is marked with a sky-blue line. On desktop it is hidden.
+
+It reuses the theme's own menu, search and basket controls, so it opens whatever they open. The sticky Add to basket bar on product pages and the back to top button sit above it. Switch it off in Theme settings > Makers Realm > "Show the bottom bar on phones".
+
+If a chat app is added later, set its launcher to sit above the bar (about 6 rem from the bottom on phones).

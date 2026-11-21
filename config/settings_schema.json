@@ -1464,5 +1464,17 @@
         "default": "scheme-1"
       }
     ]
+  },
+  {
+    "name": "Makers Realm",
+    "settings": [
+      {
+        "type": "checkbox",
+        "id": "mr_bottom_bar",
+        "label": "Show the bottom bar on phones",
+        "info": "Home, Shop, Search and Basket along the bottom of the screen on small screens.",
+        "default": true
+      }
+    ]
   }
 ]

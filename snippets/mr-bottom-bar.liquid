@@ -1,0 +1,90 @@
+{% doc %}
+  Bottom navigation bar for phones: Home, Shop (opens the menu), Search (opens search) and Basket (opens the basket with a count).
+  Hidden from tablet width up. Controlled by Theme settings > Makers Realm.
+{% enddoc %}
+
+<nav class="mr-bar" aria-label="Quick navigation">
+  <a class="mr-bar__item{% if request.page_type == 'index' %} mr-bar__item--active{% endif %}" href="{{ routes.root_url }}">
+    {% render 'mr-icon', name: 'home' %}<span>Home</span>
+  </a>
+  <button type="button" class="mr-bar__item{% if request.page_type == 'collection' or request.page_type == 'product' %} mr-bar__item--active{% endif %}" data-mr-bar="menu">
+    {% render 'mr-icon', name: 'menu' %}<span>Shop</span>
+  </button>
+  <button type="button" class="mr-bar__item{% if request.page_type == 'search' %} mr-bar__item--active{% endif %}" data-mr-bar="search">
+    {% render 'mr-icon', name: 'search' %}<span>Search</span>
+  </button>
+  <button type="button" class="mr-bar__item" data-mr-bar="cart">
+    <span class="mr-bar__icon">
+      {% render 'mr-icon', name: 'bag' %}
+      <span class="mr-bar__count" data-mr-bar-count{% if cart.item_count == 0 %} hidden{% endif %}>{{ cart.item_count }}</span>
+    </span>
+    <span>Basket</span>
+  </button>
+</nav>
+<script src="{{ 'mr-bottom-bar.js' | asset_url }}" defer="defer"></script>
+
+{% stylesheet %}
+  .mr-bar {
+    position: fixed;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    z-index: 25;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    padding-bottom: env(safe-area-inset-bottom, 0px);
+    background: var(--mr-navy);
+    box-shadow: 0 -0.4rem 1.2rem rgba(16, 36, 65, 0.25);
+  }
+
+  .mr-bar__item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 0.2rem;
+    min-height: 5.6rem;
+    padding: 0.4rem 0;
+    border: 0;
+    background: transparent;
+    color: #fff;
+    font: inherit;
+    font-size: 1.3rem;
+    text-decoration: none;
+    cursor: pointer;
+  }
+
+  .mr-bar__item--active {
+    box-shadow: inset 0 0.3rem 0 var(--mr-sky);
+  }
+
+  .mr-bar__icon {
+    position: relative;
+    display: inline-flex;
+  }
+
+  .mr-bar__count {
+    position: absolute;
+    top: -0.6rem;
+    right: -1.2rem;
+    min-width: 1.8rem;
+    padding: 0 0.4rem;
+    border-radius: 0.9rem;
+    background: var(--mr-sky);
+    color: var(--mr-navy);
+    font-size: 1.2rem;
+    font-weight: 700;
+    line-height: 1.8rem;
+    text-align: center;
+  }
+
+  .mr-bar__count[hidden] {
+    display: none;
+  }
+
+  @media screen and (min-width: 750px) {
+    .mr-bar {
+      display: none;
+    }
+  }
+{% endstylesheet %}

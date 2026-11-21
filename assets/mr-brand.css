@@ -499,3 +499,19 @@
   background: var(--mr-navy);
   color: #fff;
 }
+
+/* Bottom bar: make room for it and lift the other fixed elements above it on phones */
+@media screen and (max-width: 749px) {
+  .mr-has-bar {
+    --mr-bar-height: calc(5.6rem + env(safe-area-inset-bottom, 0px));
+    padding-bottom: var(--mr-bar-height);
+  }
+
+  .mr-has-bar .mr-sticky-atc {
+    bottom: var(--mr-bar-height);
+  }
+
+  .mr-has-bar .mr-to-top {
+    bottom: calc(var(--mr-bar-height) + 1.6rem);
+  }
+}

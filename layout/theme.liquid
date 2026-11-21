@@ -323,7 +323,7 @@
     </script>
   </head>
 
-  <body class="gradient{% if settings.animations_hover_elements != 'none' %} animate--hover-{{ settings.animations_hover_elements }}{% endif %}">
+  <body class="gradient{% if settings.mr_bottom_bar %} mr-has-bar{% endif %}{% if settings.animations_hover_elements != 'none' %} animate--hover-{{ settings.animations_hover_elements }}{% endif %}">
     <a class="skip-to-content-link button visually-hidden" href="#MainContent">
       {{ 'accessibility.skip_to_text' | t }}
     </a>
@@ -345,6 +345,9 @@
     </main>
 
     {% sections 'footer-group' %}
+    {%- if settings.mr_bottom_bar -%}
+      {%- render 'mr-bottom-bar' -%}
+    {%- endif -%}
     <button type="button" class="mr-to-top" aria-label="Back to top" hidden>
       <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M6 15l6-6 6 6" /></svg>
     </button>
