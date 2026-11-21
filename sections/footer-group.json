@@ -24,7 +24,7 @@
         "link_list": {
           "type": "link_list",
           "settings": {
-            "heading": "Quick links",
+            "heading": "Shop",
             "menu": "footer"
           }
         },
@@ -34,11 +34,19 @@
             "heading": "Contact",
             "subtext": "<p>hello@makersrealm.co.uk<br>01234 567890<br>Mon to Fri, 9am to 5pm</p>"
           }
+        },
+        "help": {
+          "type": "link_list",
+          "settings": {
+            "heading": "Help",
+            "menu": "information"
+          }
         }
       },
       "block_order": [
         "trading_name",
         "link_list",
+        "help",
         "contact"
       ],
       "settings": {

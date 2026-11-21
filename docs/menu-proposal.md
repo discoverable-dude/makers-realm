@@ -50,3 +50,17 @@ Top level, with short labels so they fit on one row:
 - Contact
 
 Every sub-item points at an existing collection (these were already in the store, most made from tags). Several are small (3 to 5 products), which is why the "Shop by type" tiles on the main collection pages matter. The old Home, Shop All, Blog and About Us items are not in the main menu now. About us and Contact are better in the footer. A Start here item and a Guides item are left out until those pages exist.
+
+## Footer and mega menu promos (21 Nov 2026)
+Footer menus:
+- "Shop" column uses the `footer` menu: the five main collections (full names), Shop by project, Brands.
+- "Help" column is a new block using the `information` menu: About us, Contact us, FAQs, Search.
+- The brand line and Contact text blocks stay as they were.
+
+Mega menu promo cards (Header > Mega menu promo blocks, matched to the top-level menu item name):
+- Casting & moulds: picture (silicone mould), "New to casting?", links to the Casting & home crafting page.
+- Paints & finishes: picture (helmet), "Paint it, then age it", links to Weathering & finishing.
+- Materials & plastics: navy text card, "Building armour or props?", links to Cosplay & props.
+- Tapes & glues: gold text card, "Not sure which glue?", links to Contact.
+- Tools & sundries: picture (model cottage), "Model making", links to the Model making page.
+The picture or text-on-colour choice and the copy are placeholders to review. If a menu item is renamed, change the "Menu item" field on its promo block to match exactly.
